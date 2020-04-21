@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class FSM<T> {
+public interface StateMachine {
+    void Update();
+}
+public class FSM<T> : StateMachine{
     private readonly IDictionary<Type, State<T>> states = new Dictionary<Type, State<T>>();
     private State<T> state;
     private State<T> nextState;
