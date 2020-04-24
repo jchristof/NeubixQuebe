@@ -6,6 +6,7 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="ChallengeMenu.cs" t="Include" />
         <e p="CountdownAnim.cs" t="Include" />
         <e p="InputActions.cs" t="Include" />
         <e p="Scripts" t="Include">
@@ -15,6 +16,7 @@
           <e p="MainFSM.cs" t="Include" />
           <e p="State.cs" t="Include" />
         </e>
+        <e p="TileScript.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="NeubixQueb.sln" t="IncludeFlat" />
