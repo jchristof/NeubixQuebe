@@ -18,9 +18,18 @@ public class ChallengeMenu : MonoBehaviour {
             cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
             cube.transform.localScale = Vector3.one * .9f;
 
-            //cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
-
+            cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
+            cube.GetComponent<TileScript>().SetParentComponent(this);
+            
             cubes.Add(cube);
         }
+    }
+
+    public void ChildMouseDown(GameObject child) {
+        Debug.Log("child mouse down");
+    }
+
+    public void ChildMouseDrag() {
+        Debug.Log("child mouse drag");
     }
 }

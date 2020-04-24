@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Boo.Lang;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class TileScript : MonoBehaviour
 {
@@ -19,26 +22,56 @@ public class TileScript : MonoBehaviour
         
     }
 
+    private ChallengeMenu _challengeMenu;
+    public void SetParentComponent(ChallengeMenu challengeMenu) {
+        _challengeMenu = challengeMenu;
+    }
+    
+    
     private Vector3 mouseDownPosition;
+    private Vector3 dragDirection;
+    private Vector3 lockedPosition;
     void OnMouseDown() {
         mouseDownPosition = Input.mousePosition;
-        Debug.Log(mouseDownPosition);
-        //screenPoint = Camera.main.WorldToScreenPoint(Input.mousePosition);
-        //offset = Input.mousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
+        screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        offset =  transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,screenPoint.z));
+        dragDirection = Vector3.zero;
+
+        _challengeMenu.ChildMouseDown(gameObject);
     }
   
     void OnMouseDrag() {
-        Vector3 offset = Input.mousePosition - mouseDownPosition;
-        mouseDownPosition = Input.mousePosition;
-        if(offset.x < 0)
-            transform.position = transform.position.OffsetX(-offset.normalized.magnitude/100);
-        else {
-            transform.position = transform.position.OffsetX(offset.normalized.magnitude/100);
+        var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var transformToScreen = Camera.main.WorldToScreenPoint(transform.position);
+        //transform.position  = new Vector3(transform.position.x + worldPoint.x, transform.position.y, transform.position.z);
+        Debug.Log("Mouse position:" + Input.mousePosition);
+        Debug.Log("Transform position:" + transform.position);
+        Debug.Log("Mouse to world position:" + worldPoint);
+        Debug.Log("Transform to screen position:" + transformToScreen);
+
+        var diff = Input.mousePosition - mouseDownPosition;
+        if (dragDirection == Vector3.zero) {
+            if (diff.magnitude > .5f) {
+                if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
+                    dragDirection = new Vector3(1f, 0, 1);
+                    lockedPosition = new Vector3(0, Input.mousePosition.y, 0);
+                }
+                else {
+                    dragDirection = new Vector3(0, 1f, 1);
+                    lockedPosition = new Vector3(Input.mousePosition.x, 0, 0);
+                }
+            }
+
+            return;
         }
-       // Debug.Log(offset.normalized.magnitude);
-//        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z);
-//        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-//        transform.position = curPosition;
+
+        var curScreenPoint = new Vector3(Input.mousePosition.x * dragDirection.x + lockedPosition.x, Input.mousePosition.y * dragDirection.y + lockedPosition.y,
+            screenPoint.z);
+        
+        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+        transform.position = curPosition;
+       
+        _challengeMenu.ChildMouseDrag();
     }
 }
 
