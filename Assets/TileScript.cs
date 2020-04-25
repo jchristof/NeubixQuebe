@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace;
+using UnityEngine;
 
 public class TileScript : MonoBehaviour
 {
@@ -14,23 +15,23 @@ public class TileScript : MonoBehaviour
         
     }
 
-    private ChallengeMenu _challengeMenu;
-    public void SetParentComponent(ChallengeMenu challengeMenu) {
-        _challengeMenu = challengeMenu;
+    private ChildDragWatcher _childDragWatcher;
+    public void SetParentComponent(ChildDragWatcher challengeMenu) {
+        _childDragWatcher = challengeMenu;
     }
     
     
 
     void OnMouseDown() {
-        _challengeMenu.ChildMouseDown(gameObject);
+        _childDragWatcher.ChildMouseDown(gameObject);
     }
 
     private void OnMouseUp() {
-        _challengeMenu.ChildMouseUp();
+        _childDragWatcher.ChildMouseUp();
     }
 
     void OnMouseDrag() {
-        _challengeMenu.ChildMouseDrag();
+        _childDragWatcher.ChildMouseDrag();
     }
 }
 

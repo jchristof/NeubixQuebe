@@ -9,8 +9,10 @@
         <e p="ChallengeMenu.cs" t="Include" />
         <e p="CountdownAnim.cs" t="Include" />
         <e p="InputActions.cs" t="Include" />
+        <e p="MoveScript.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Board.cs" t="Include" />
+          <e p="ChildDragWatcher.cs" t="Include" />
           <e p="FSM.cs" t="Include" />
           <e p="Main.cs" t="Include" />
           <e p="MainFSM.cs" t="Include" />

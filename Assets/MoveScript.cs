@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class ChallengeMenu : MonoBehaviour, ChildDragWatcher {
+public class MoveScript : MonoBehaviour, ChildDragWatcher 
+{
     public GameObject roundCornerCube;
     public List<Material> challengeRowColors;
     private List<GameObject> cubes = new List<GameObject>();
-
-    // Start is called before the first frame update
+    
     void Start() {
         for (var i = 17; i >= 0; i--) {
             GameObject cube = Instantiate(roundCornerCube);
@@ -21,11 +23,17 @@ public class ChallengeMenu : MonoBehaviour, ChildDragWatcher {
 
             cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
             cube.GetComponent<TileScript>().SetParentComponent(this);
-
+           // cube.transform.parent = transform;
             cubes.Add(cube);
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    
     private Vector3 mouseDownPosition;
     private Vector3 dragDirection;
     private Vector3 lockedPosition;
@@ -37,41 +45,63 @@ public class ChallengeMenu : MonoBehaviour, ChildDragWatcher {
     private int itemIndex;
     private bool inDrag;
     
-    public void ChildMouseDown(GameObject child) {
+    void OnMouseDown() {
         mouseDownPosition = Input.mousePosition;
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-        initialWorldPosition = child.transform.position;
-        offset = child.transform.position -
+        initialWorldPosition = transform.position;
+        offset = transform.position -
                  Camera.main.ScreenToWorldPoint(
                      new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         dragDirection = Vector3.zero;
-        dragChild = child;
+        
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+ 
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(ray);
+        
+        foreach(var hit in hits)
+        {
+            if (hit.transform.GetComponent<TileScript>()) {
+                dragChild = hit.transform.gameObject;
+            }
+        }
+
+        if (dragChild == null)
+            return;
+
         inDrag = true;
+      
     }
 
-    public void ChildMouseDrag() {
+    private void OnMouseDrag() {
         if (!inDrag)
             return;
         
         var diff = Input.mousePosition - mouseDownPosition;
         if (dragDirection == Vector3.zero) {
-            if (diff.magnitude > .5f) {
+            if (diff.magnitude > 5f) {
                 if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
                     //drag is on the x axis
                     dragDirection = new Vector3(1f, 0, 0);
                     lockedPosition = new Vector3(0, Input.mousePosition.y, 0);
 
                     var rowInfo = GetRowOf(dragChild);
-                    movingCubes = rowInfo.Item1;
-                    itemIndex = - rowInfo.Item2;
+                    foreach (var cube in rowInfo.Item1) {
+                        cube.transform.parent = transform;
+                    }
+//                    movingCubes = rowInfo.Item1;
+//                    itemIndex = - rowInfo.Item2;
                 }
                 else {
                     dragDirection = new Vector3(0, 1f, 0);
                     lockedPosition = new Vector3(Input.mousePosition.x, 0, 0);
 
                     var columnInfo = GetColumnOf(dragChild);
-                    movingCubes = columnInfo.Item1;
-                    itemIndex = -5 + columnInfo.Item2;
+                    foreach (var cube in columnInfo.Item1) {
+                        cube.transform.parent = transform;
+                    }
+//                    movingCubes = columnInfo.Item1;
+//                    itemIndex = -5 + columnInfo.Item2;
                 }
             }
 
@@ -83,25 +113,9 @@ public class ChallengeMenu : MonoBehaviour, ChildDragWatcher {
             screenPoint.z);
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
-
-        if ((initialWorldPosition - curPosition).magnitude >= 1.0) {
-            inDrag = false;
-
-            foreach (var cube in movingCubes) {
-                var position = cube.transform.position;
-                cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
-            }
-
-            return;
-        }
-        
-        int offset2 = itemIndex;
-        foreach (var cube in movingCubes) {
-            cube.transform.position = curPosition + offset + offset2 * dragDirection;
-            offset2 += 1;
-        }
+        transform.position = curPosition + offset;
     }
-
+    
     Tuple<List<GameObject>, int> GetRowOf(GameObject gameObject) {
         List<GameObject> newList = new List<GameObject>();
         
@@ -133,7 +147,24 @@ public class ChallengeMenu : MonoBehaviour, ChildDragWatcher {
 
         return new Tuple<List<GameObject>, int>(newList, row);
     }
+
+    void OnMouseUp() {
+        foreach (var cube in cubes) {
+            cube.transform.parent = null;
+        }
+
+        inDrag = false;    
+    }
+
+    public void ChildMouseDown(GameObject gameObject) {
+        
+    }
+
     public void ChildMouseUp() {
+        
+    }
+
+    public void ChildMouseDrag() {
         
     }
 }
