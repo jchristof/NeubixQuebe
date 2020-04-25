@@ -35,7 +35,7 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher
     }
     
     private Vector3 mouseDownPosition;
-    private Vector3 dragDirection;
+    private Vector3 dragAxis;
     private Vector3 lockedPosition;
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -44,15 +44,17 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher
     private GameObject dragChild;
     private int itemIndex;
     private bool inDrag;
+    private Vector3 savedTransformPosition;
     
     void OnMouseDown() {
+        savedTransformPosition = transform.position;
         mouseDownPosition = Input.mousePosition;
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
         initialWorldPosition = transform.position;
         offset = transform.position -
                  Camera.main.ScreenToWorldPoint(
                      new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-        dragDirection = Vector3.zero;
+        dragAxis = Vector3.zero;
         
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
  
@@ -78,41 +80,56 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher
             return;
         
         var diff = Input.mousePosition - mouseDownPosition;
-        if (dragDirection == Vector3.zero) {
+        if (dragAxis == Vector3.zero) {
             if (diff.magnitude > 5f) {
                 if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
                     //drag is on the x axis
-                    dragDirection = new Vector3(1f, 0, 0);
-                    lockedPosition = new Vector3(0, Input.mousePosition.y, 0);
+                    dragAxis = Vector3.right;
+                    lockedPosition = new Vector3(0, mouseDownPosition.y, 0);
 
                     var rowInfo = GetRowOf(dragChild);
                     foreach (var cube in rowInfo.Item1) {
                         cube.transform.parent = transform;
                     }
-//                    movingCubes = rowInfo.Item1;
-//                    itemIndex = - rowInfo.Item2;
+
+                    movingCubes = rowInfo.Item1;
                 }
                 else {
-                    dragDirection = new Vector3(0, 1f, 0);
-                    lockedPosition = new Vector3(Input.mousePosition.x, 0, 0);
+                    dragAxis = new Vector3(0, 1f, 0);
+                    lockedPosition = new Vector3(mouseDownPosition.x, 0, 0);
 
                     var columnInfo = GetColumnOf(dragChild);
                     foreach (var cube in columnInfo.Item1) {
                         cube.transform.parent = transform;
                     }
-//                    movingCubes = columnInfo.Item1;
-//                    itemIndex = -5 + columnInfo.Item2;
+                    
+                    movingCubes = columnInfo.Item1;
                 }
             }
 
             return;
         }
         
-        var curScreenPoint = new Vector3(Input.mousePosition.x * dragDirection.x + lockedPosition.x,
-            Input.mousePosition.y * dragDirection.y + lockedPosition.y,
+        var curScreenPoint = new Vector3(Input.mousePosition.x * dragAxis.x + lockedPosition.x,
+            Input.mousePosition.y * dragAxis.y + lockedPosition.y,
             screenPoint.z);
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+        
+        if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.0 || Mathf.Abs((initialWorldPosition - (curPosition + offset)).y)  >= 1.0) {
+            inDrag = false;
+
+            foreach (var cube in movingCubes) {
+                var position = cube.transform.position;
+                cube.transform.parent = null;
+                cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
+            }
+            
+            OnMouseUp();
+     
+            return;
+        }
+        
         transform.position = curPosition + offset;
     }
     
@@ -149,6 +166,7 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher
     }
 
     void OnMouseUp() {
+        transform.position = savedTransformPosition;
         foreach (var cube in cubes) {
             cube.transform.parent = null;
         }
