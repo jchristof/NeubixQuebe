@@ -4,6 +4,7 @@
     <list default="true" id="0803ecc3-532e-48ec-869e-939a75c7c723" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQueb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQueb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChallengeMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChallengeMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TileScript.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,60 +43,48 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/TileScript.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+            <state relative-caret-position="297">
+              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
               <folding>
-                <marker date="1587766557178" expanded="true" signature="6:148" ph="..." />
-                <marker date="1587766557178" expanded="true" signature="189:2631" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="327:348" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="406:427" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="535:582" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="726:1090" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="1117:2629" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="1766:2246" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="1806:2215" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="1865:2022" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="2022:2201" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="2663:2802" ph="{...}" />
-                <marker date="1587766557178" expanded="true" signature="2733:2800" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="59:631" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="131:152" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="210:231" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="339:386" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="421:479" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="510:556" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="581:629" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="663:802" ph="{...}" />
+                <marker date="1587767927000" expanded="true" signature="733:800" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1F4CF54-1913-440D-9D07-29E11781E013/7c/dab0ec1e/Camera.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="602" column="29" selection-start-line="602" selection-start-column="19" selection-end-line="602" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1B821DE4-5B1C-4B61-BFAE-F41B638C5C07/76/bb0a2ff7/Input.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="264" column="26" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/ChallengeMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            <state relative-caret-position="159">
+              <caret line="66" column="17" lean-forward="true" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
               <folding>
-                <marker date="1587766557190" expanded="false" signature="6:129" ph="..." />
-                <marker date="1587766557190" expanded="true" signature="174:1196" ph="{...}" />
-                <marker date="1587766557190" expanded="true" signature="393:1016" ph="{...}" />
-                <marker date="1587766557190" expanded="true" signature="433:1010" ph="{...}" />
-                <marker date="1587766557190" expanded="true" signature="1067:1113" ph="{...}" />
-                <marker date="1587766557190" expanded="true" signature="1148:1194" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="6:117" ph="..." />
+                <marker date="1587823133134" expanded="true" signature="162:4276" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="381:994" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="421:988" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="1324:1708" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="1743:3211" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="1848:2695" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="1888:2664" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="1947:2302" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="2302:2650" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="3071:3196" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="3278:3708" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="3589:3635" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="3782:4226" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="4074:4120" ph="{...}" />
+                <marker date="1587823133134" expanded="true" signature="4258:4274" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -137,24 +126,6 @@
                 <marker date="1587306437276" expanded="true" signature="98:210" ph="{...}" />
                 <marker date="1587306437276" expanded="true" signature="137:169" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1F4CF54-1913-440D-9D07-29E11781E013/a1/2248871c/Vector3.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="832">
-              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1F4CF54-1913-440D-9D07-29E11781E013/69/c086b6a7/Time.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -222,8 +193,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FSM.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CountdownFSM.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Main.cs" />
-        <option value="$PROJECT_DIR$/Assets/ChallengeMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/TileScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/ChallengeMenu.cs" />
       </list>
     </option>
   </component>
@@ -329,12 +300,12 @@
       <workItem from="1587319079545" duration="1294000" />
       <workItem from="1587329835722" duration="5758000" />
       <workItem from="1587426976385" duration="4110000" />
-      <workItem from="1587743506407" duration="15648000" />
+      <workItem from="1587743506407" duration="24360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53001000" />
+    <option name="totallyTimeSpent" value="61713000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -349,7 +320,7 @@
     <frame x="0" y="1105" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23852721" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23852721" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -357,13 +328,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.18034557" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.18034557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="NuGet" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Unity" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" />
@@ -390,32 +361,6 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/ChallengeMenu.cs</url>
-          <line>29</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/ChallengeMenu.cs" initialLine="28">
-            <startOffsets>
-              <option value="1112" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1113" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/ChallengeMenu.cs</url>
-          <line>33</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/ChallengeMenu.cs" initialLine="32">
-            <startOffsets>
-              <option value="1193" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1194" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -551,6 +496,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1B821DE4-5B1C-4B61-BFAE-F41B638C5C07/76/bb0a2ff7/Input.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="264" column="26" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1F4CF54-1913-440D-9D07-29E11781E013/7c/dab0ec1e/Camera.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="602" column="29" selection-start-line="602" selection-start-column="19" selection-end-line="602" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/TileScript.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding>
+            <marker date="1587767927000" expanded="true" signature="59:631" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="131:152" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="210:231" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="339:386" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="421:479" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="510:556" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="581:629" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="663:802" ph="{...}" />
+            <marker date="1587767927000" expanded="true" signature="733:800" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Main.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-562">
@@ -577,53 +554,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1B821DE4-5B1C-4B61-BFAE-F41B638C5C07/76/bb0a2ff7/Input.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="264" column="26" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B1F4CF54-1913-440D-9D07-29E11781E013/7c/dab0ec1e/Camera.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="602" column="29" selection-start-line="602" selection-start-column="19" selection-end-line="602" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/ChallengeMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+        <state relative-caret-position="159">
+          <caret line="66" column="17" lean-forward="true" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
           <folding>
-            <marker date="1587766557190" expanded="false" signature="6:129" ph="..." />
-            <marker date="1587766557190" expanded="true" signature="174:1196" ph="{...}" />
-            <marker date="1587766557190" expanded="true" signature="393:1016" ph="{...}" />
-            <marker date="1587766557190" expanded="true" signature="433:1010" ph="{...}" />
-            <marker date="1587766557190" expanded="true" signature="1067:1113" ph="{...}" />
-            <marker date="1587766557190" expanded="true" signature="1148:1194" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/TileScript.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-          <folding>
-            <marker date="1587766557178" expanded="true" signature="6:148" ph="..." />
-            <marker date="1587766557178" expanded="true" signature="189:2631" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="327:348" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="406:427" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="535:582" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="726:1090" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="1117:2629" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="1766:2246" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="1806:2215" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="1865:2022" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="2022:2201" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="2663:2802" ph="{...}" />
-            <marker date="1587766557178" expanded="true" signature="2733:2800" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="6:117" ph="..." />
+            <marker date="1587823133134" expanded="true" signature="162:4276" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="381:994" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="421:988" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="1324:1708" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="1743:3211" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="1848:2695" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="1888:2664" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="1947:2302" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="2302:2650" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="3071:3196" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="3278:3708" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="3589:3635" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="3782:4226" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="4074:4120" ph="{...}" />
+            <marker date="1587823133134" expanded="true" signature="4258:4274" ph="{...}" />
           </folding>
         </state>
       </provider>
