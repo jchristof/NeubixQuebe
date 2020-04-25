@@ -30,21 +30,28 @@ public class ChallengeMenu : MonoBehaviour {
     private Vector3 lockedPosition;
     private Vector3 screenPoint;
     private Vector3 offset;
+    private Vector3 initialWorldPosition;
     private List<GameObject> movingCubes;
     private GameObject dragChild;
     private int itemIndex;
+    private bool inDrag;
     
     public void ChildMouseDown(GameObject child) {
         mouseDownPosition = Input.mousePosition;
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        initialWorldPosition = child.transform.position;
         offset = child.transform.position -
                  Camera.main.ScreenToWorldPoint(
                      new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         dragDirection = Vector3.zero;
         dragChild = child;
+        inDrag = true;
     }
 
     public void ChildMouseDrag() {
+        if (!inDrag)
+            return;
+        
         var diff = Input.mousePosition - mouseDownPosition;
         if (dragDirection == Vector3.zero) {
             if (diff.magnitude > .5f) {
@@ -76,12 +83,22 @@ public class ChallengeMenu : MonoBehaviour {
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
 
-        int offset2 = itemIndex;
-        foreach (var cube in movingCubes) {
-            cube.transform.position = curPosition + offset + (offset2 * dragDirection);
-            offset2 += 1;
+        if ((initialWorldPosition - curPosition).magnitude >= 1.0) {
+            inDrag = false;
+
+            foreach (var cube in movingCubes) {
+                var position = cube.transform.position;
+                cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
+            }
+
+            return;
         }
         
+        int offset2 = itemIndex;
+        foreach (var cube in movingCubes) {
+            cube.transform.position = curPosition + offset + offset2 * dragDirection;
+            offset2 += 1;
+        }
     }
 
     Tuple<List<GameObject>, int> GetRowOf(GameObject gameObject) {
