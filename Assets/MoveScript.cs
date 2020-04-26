@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MoveScript : MonoBehaviour, ChildDragWatcher 
@@ -31,7 +33,8 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     
     private Vector3 mouseDownPosition;
