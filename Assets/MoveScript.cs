@@ -119,6 +119,7 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher
         if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.0 || Mathf.Abs((initialWorldPosition - (curPosition + offset)).y)  >= 1.0) {
             inDrag = false;
 
+            movingCubes.First().transform.position = movingCubes.Last().transform.position + dragAxis;
             foreach (var cube in movingCubes) {
                 var position = cube.transform.position;
                 cube.transform.parent = null;
