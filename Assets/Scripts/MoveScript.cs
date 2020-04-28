@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +11,7 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     public GameObject roundCornerCube;
     public List<Material> challengeRowColors;
     private List<GameObject> cubes = new List<GameObject>();
+    public GameObject pointer;
 
     void Start() {
         for (var i = 17; i >= 0; i--) {
@@ -50,7 +49,8 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     private bool inDrag;
     private Vector3 savedTransformPosition;
     private Vector3 incrementalTransformPosition;
-    private Vector3 dragDirection;
+    private GameObject clone1;
+    private GameObject clone2;
 
     void OnMouseDown() {
         savedTransformPosition = transform.position;
@@ -61,6 +61,8 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
         offset = transform.position -
                  Camera.main.ScreenToWorldPoint(
                      new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        // pointer.transform.position =  Camera.main.ScreenToWorldPoint(
+        //     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         dragAxis = Vector3.zero;
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -86,47 +88,45 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
        
         if (dragAxis == Vector3.zero) {
             var diff = Input.mousePosition - mouseDownPosition;
-            if (diff.magnitude > 5f) {
-                if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
-                    //drag is on the x axis
-                    dragAxis = Vector3.right;
-                    if (diff.x < 0)
-                        dragDirection = Vector3.left;
-                    else {
-                        dragDirection = Vector3.right;
-                    }
+            if (!(diff.magnitude > 5f)) return;
+            
+            if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
+                //drag is on the x axis
+                dragAxis = Vector3.right;
+                lockedPosition = new Vector3(0, mouseDownPosition.y, 0);
 
-                    lockedPosition = new Vector3(0, mouseDownPosition.y, 0);
-
-                    var rowInfo = GetRowOf(dragChild);
-                    foreach (var cube in rowInfo.Item1) {
-                        cube.transform.parent = transform;
-                    }
-
-                    movingCubes = rowInfo.Item1;
-                    row = rowInfo.Item2;
-                    col = rowInfo.Item3;
+                var rowInfo = GetRowOf(dragChild);
+                foreach (var cube in rowInfo.Item1) {
+                    cube.transform.parent = transform;
                 }
-                else {
-                    dragAxis = new Vector3(0, 1f, 0);
 
-                    if (diff.y < 0)
-                        dragDirection = Vector3.down;
-                    else {
-                        dragDirection = Vector3.up;
-                    }
+                movingCubes = rowInfo.Item1;
 
-                    lockedPosition = new Vector3(mouseDownPosition.x, 0, 0);
+                row = rowInfo.Item2;
+                col = rowInfo.Item3;
+                
+                clone1 = Instantiate(movingCubes.First(), transform);
+                clone1.transform.position = movingCubes.Last().transform.position + dragAxis;
+                clone2 = Instantiate(movingCubes.Last(), transform);
+                clone2.transform.position = movingCubes.First().transform.position - dragAxis;
+            }
+            else {
+                dragAxis = new Vector3(0, 1f, 0);
+                lockedPosition = new Vector3(mouseDownPosition.x, 0, 0);
 
-                    var columnInfo = GetColumnOf(dragChild);
-                    foreach (var cube in columnInfo.Item1) {
-                        cube.transform.parent = transform;
-                    }
-
-                    movingCubes = columnInfo.Item1;
-                    row = columnInfo.Item2;
-                    col = columnInfo.Item3;
+                var columnInfo = GetColumnOf(dragChild);
+                foreach (var cube in columnInfo.Item1) {
+                    cube.transform.parent = transform;
                 }
+
+                movingCubes = columnInfo.Item1;
+                row = columnInfo.Item2;
+                col = columnInfo.Item3;
+                
+                clone1 = Instantiate(movingCubes.First(), transform);
+                clone1.transform.position = movingCubes.Last().transform.position - dragAxis;
+                clone2 = Instantiate(movingCubes.Last(), transform);
+                clone2.transform.position = movingCubes.First().transform.position + dragAxis;
             }
 
             return;
@@ -137,12 +137,42 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
             screenPoint.z);
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+        // pointer.transform.position =  Camera.main.ScreenToWorldPoint(
+        //     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        Vector3 dragDirection = Vector3.zero;
 
-        if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.0 ||
-            Mathf.Abs((initialWorldPosition - (curPosition + offset)).y) >= 1.0) {
-            
+        if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.1||
+            Mathf.Abs((initialWorldPosition - (curPosition + offset)).y) >= 1.1) {
+            OnMouseUp();
+            inDrag = false;
+            return;
+        }
+
+        if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.0) {
+            if ((initialWorldPosition - (curPosition + offset)).x > 0)
+                dragDirection = Vector3.left;
+            else {
+                dragDirection = Vector3.right;
+            }
+        }
+        else if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).y) >= 1.0) {
+            if ((initialWorldPosition - (curPosition + offset)).y < 0)
+                dragDirection = Vector3.up;
+            else {
+                dragDirection = Vector3.down;
+            }
+        }
+        if ( dragDirection != Vector3.zero) {
             incrementalTransformPosition += dragDirection;      
-            initialWorldPosition = curPosition + offset;
+            initialWorldPosition = (curPosition + offset);
+            pointer.transform.position = offset;
+            Destroy(clone1);
+            Destroy(clone2);
+            
+            foreach (var cube in movingCubes) {
+                var position = cube.transform.position;
+                cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
+            }
             
             if (dragDirection == Vector3.left) {
                 var cube = movingCubes.First();
@@ -152,6 +182,12 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
                 cubes.Insert(myIndex + 2, cube);
                 movingCubes.Remove(cube);
                 movingCubes.Add(cube);
+                
+                clone1 = Instantiate(movingCubes.First(), transform);
+                clone1.transform.position = movingCubes.Last().transform.position + dragAxis;
+                clone2 = Instantiate(movingCubes.Last(), transform);
+                clone2.transform.position = movingCubes.First().transform.position - dragAxis;
+                
             }
             else if (dragDirection == Vector3.right) {
                 var cube = movingCubes.Last();
@@ -162,6 +198,11 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
 
                 movingCubes.Remove(cube);
                 movingCubes.Insert(0, cube);
+                
+                clone1 = Instantiate(movingCubes.First(), transform);
+                clone1.transform.position = movingCubes.Last().transform.position + dragAxis;
+                clone2 = Instantiate(movingCubes.Last(), transform);
+                clone2.transform.position = movingCubes.First().transform.position - dragAxis;
             }
             else if (dragDirection == Vector3.up) {
                 var cube = movingCubes.First();
@@ -179,7 +220,12 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
                     cubes.Insert(collumn, c);
                     collumn += 3;
                 }
-              
+                
+                clone1 = Instantiate(movingCubes.First(), transform);
+                clone1.transform.position = movingCubes.Last().transform.position - dragAxis;
+                clone2 = Instantiate(movingCubes.Last(), transform);
+                clone2.transform.position = movingCubes.First().transform.position + dragAxis;
+            
             }
             else {
                 var cube = movingCubes.Last();
@@ -197,11 +243,11 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
                     cubes.Insert(collumn, c);
                     collumn += 3;
                 }
-            }
-
-            foreach (var cube in movingCubes) {
-                var position = cube.transform.position;
-                cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
+                
+                clone1 = Instantiate(movingCubes.First(), transform);
+                clone1.transform.position = movingCubes.Last().transform.position - dragAxis;
+                clone2 = Instantiate(movingCubes.Last(), transform);
+                clone2.transform.position = movingCubes.First().transform.position + dragAxis;
             }
             
         }
@@ -240,6 +286,9 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     }
 
     void OnMouseUp() {
+        if (!inDrag)
+            return;
+        
         transform.position = incrementalTransformPosition;
         
         foreach (var cube in cubes) {
@@ -248,7 +297,8 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
             cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
         }
         
-        
+        Destroy(clone1);
+        Destroy(clone2);
         transform.position = savedTransformPosition;
         inDrag = false;
     }
