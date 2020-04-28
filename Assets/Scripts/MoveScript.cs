@@ -49,10 +49,12 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     private int itemIndex;
     private bool inDrag;
     private Vector3 savedTransformPosition;
+    private Vector3 incrementalTransformPosition;
     private Vector3 dragDirection;
 
     void OnMouseDown() {
         savedTransformPosition = transform.position;
+        incrementalTransformPosition = transform.position;
         mouseDownPosition = Input.mousePosition;
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
         initialWorldPosition = transform.position;
@@ -81,9 +83,9 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     private void OnMouseDrag() {
         if (!inDrag)
             return;
-
-        var diff = Input.mousePosition - mouseDownPosition;
+       
         if (dragAxis == Vector3.zero) {
+            var diff = Input.mousePosition - mouseDownPosition;
             if (diff.magnitude > 5f) {
                 if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
                     //drag is on the x axis
@@ -138,14 +140,18 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
 
         if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.0 ||
             Mathf.Abs((initialWorldPosition - (curPosition + offset)).y) >= 1.0) {
-            inDrag = false;
-
+            
+            incrementalTransformPosition += dragDirection;      
+            initialWorldPosition = curPosition + offset;
+            
             if (dragDirection == Vector3.left) {
                 var cube = movingCubes.First();
                 cube.transform.position = movingCubes.Last().transform.position + dragAxis;
                 var myIndex = cubes.IndexOf(cube);
                 cubes.Remove(cube);
                 cubes.Insert(myIndex + 2, cube);
+                movingCubes.Remove(cube);
+                movingCubes.Add(cube);
             }
             else if (dragDirection == Vector3.right) {
                 var cube = movingCubes.Last();
@@ -153,6 +159,9 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
                 var myIndex = cubes.IndexOf(cube);
                 cubes.Remove(cube);
                 cubes.Insert(myIndex - 2, cube);
+
+                movingCubes.Remove(cube);
+                movingCubes.Insert(0, cube);
             }
             else if (dragDirection == Vector3.up) {
                 var cube = movingCubes.First();
@@ -170,6 +179,7 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
                     cubes.Insert(collumn, c);
                     collumn += 3;
                 }
+              
             }
             else {
                 var cube = movingCubes.Last();
@@ -191,13 +201,9 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
 
             foreach (var cube in movingCubes) {
                 var position = cube.transform.position;
-                cube.transform.parent = null;
                 cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
             }
             
-            transform.position = savedTransformPosition;
-
-            return;
         }
 
         transform.position = curPosition + offset;
@@ -234,13 +240,16 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     }
 
     void OnMouseUp() {
-        
-        transform.position = savedTransformPosition;
+        transform.position = incrementalTransformPosition;
         
         foreach (var cube in cubes) {
             cube.transform.parent = null;
+            var position = cube.transform.position;
+            cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
         }
         
+        
+        transform.position = savedTransformPosition;
         inDrag = false;
     }
 
