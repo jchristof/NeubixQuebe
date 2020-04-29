@@ -18,6 +18,7 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="MoveScript.cs" t="Include" />
           <e p="State.cs" t="Include" />
+          <e p="TileMover.cs" t="Include" />
           <e p="TileScript.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

@@ -20,7 +20,6 @@ public class ChallengeMenu : MonoBehaviour, ChildDragWatcher {
             cube.transform.localScale = Vector3.one * .9f;
 
             cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
-            cube.GetComponent<TileScript>().SetParentComponent(this);
 
             cubes.Add(cube);
         }

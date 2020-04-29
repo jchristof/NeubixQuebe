@@ -14,29 +14,4 @@ public class TileScript : MonoBehaviour
     {
         
     }
-
-    private ChildDragWatcher _childDragWatcher;
-    public void SetParentComponent(ChildDragWatcher challengeMenu) {
-        _childDragWatcher = challengeMenu;
-    }
-    
-    
-
-    void OnMouseDown() {
-        _childDragWatcher.ChildMouseDown(gameObject);
-    }
-
-    private void OnMouseUp() {
-        _childDragWatcher.ChildMouseUp();
-    }
-
-    void OnMouseDrag() {
-        _childDragWatcher.ChildMouseDrag();
-    }
-}
-
-static class VectorExtensions {
-    public static Vector3 OffsetX(this Vector3 pos, float distance) {
-        return new Vector3(pos.x + distance, pos.y, pos.z);
-    }
 }
