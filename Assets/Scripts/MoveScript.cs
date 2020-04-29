@@ -1,13 +1,137 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using CollectionFunction =
+    System.Func<UnityEngine.GameObject, System.Collections.Generic.List<UnityEngine.GameObject>, int, int,
+        MovingCubesCollection>;
+using Object = UnityEngine.Object;
 
-public class MoveScript : MonoBehaviour, ChildDragWatcher {
+abstract class MovingCubesCollection {
+    public List<GameObject> allCubes;
+    public List<GameObject> movers = new List<GameObject>();
+    public int row;
+    public int column;
+    public Vector3 dragAxis;
+
+    protected GameObject clone1;
+    protected GameObject clone2;
+
+    public GameObject Head() => movers.First();
+    public GameObject Tail() => movers.Last();
+
+    public void AttachToMoverParent(Transform transform) {
+        foreach (var cube in movers)
+            cube.transform.parent = transform;
+    }
+
+    public void DetachFromMoverParent() {
+        foreach (var cube in movers)
+            cube.transform.parent = null;
+    }
+
+    public abstract void ProvideWrapClones(Transform parentTransform);
+
+    public void LeftWrap() {
+        var cube = movers.First();
+        cube.transform.position = movers.Last().transform.position + dragAxis;
+        var myIndex = allCubes.IndexOf(cube);
+        allCubes.Remove(cube);
+        allCubes.Insert(myIndex + 2, cube);
+        movers.Remove(cube);
+        movers.Add(cube);
+    }
+
+    public void RightWrap() {
+        var cube = movers.Last();
+        cube.transform.position = movers.First().transform.position - dragAxis;
+        var myIndex = allCubes.IndexOf(cube);
+        allCubes.Remove(cube);
+        allCubes.Insert(myIndex - 2, cube);
+
+        movers.Remove(cube);
+        movers.Insert(0, cube);
+    }
+
+    public void UpWrap() {
+        var cube = movers.First();
+        cube.transform.position = movers.Last().transform.position - dragAxis;
+
+        movers.Remove(cube);
+        movers.Add(cube);
+
+        foreach (var c in movers) {
+            allCubes.Remove(c);
+        }
+
+        var col = column;
+        foreach (var c in movers) {
+            allCubes.Insert(col, c);
+            col += 3;
+        }
+    }
+
+    public void DownWrap() {
+        var cube = movers.Last();
+        cube.transform.position = movers.First().transform.position + dragAxis;
+
+        movers.Remove(cube);
+        movers.Insert(0, cube);
+
+        foreach (var c in movers) {
+            allCubes.Remove(c);
+        }
+
+        var col = column;
+        foreach (var c in movers) {
+            allCubes.Insert(col, c);
+            col += 3;
+        }
+    }
+
+    public void DestroyWrapClones() {
+        Object.Destroy(clone1);
+        Object.Destroy(clone2);
+    }
+
+    public void ClampPositions() {
+        foreach (var cube in movers) {
+            var position = cube.transform.position;
+            cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
+        }
+    }
+}
+
+class RowCollection : MovingCubesCollection {
+    public RowCollection() {
+        dragAxis = Vector3.right;
+    }
+
+    public override void ProvideWrapClones(Transform parentTransform) {
+        clone1 = Object.Instantiate(Head(), parentTransform);
+        clone1.transform.position = Tail().transform.position + dragAxis;
+        clone2 = Object.Instantiate(Tail(), parentTransform);
+        clone2.transform.position = Head().transform.position - dragAxis;
+    }
+}
+
+class ColumnCollection : MovingCubesCollection {
+    public ColumnCollection() {
+        dragAxis = Vector3.up;
+    }
+
+    public override void ProvideWrapClones(Transform parentTransform) {
+        clone1 = Object.Instantiate(Head(), parentTransform);
+        clone1.transform.position = Tail().transform.position - dragAxis;
+        clone2 = Object.Instantiate(Tail(), parentTransform);
+        clone2.transform.position = Head().transform.position + dragAxis;
+    }
+}
+
+public class MoveScript : MonoBehaviour {
     public GameObject roundCornerCube;
     public List<Material> challengeRowColors;
     private List<GameObject> cubes = new List<GameObject>();
@@ -23,8 +147,7 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
 
             cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
             cube.name = (18 - i).ToString();
-            cube.GetComponent<TileScript>().SetParentComponent(this);
-            // cube.transform.parent = transform;
+            //cube.tag = "id here";
             cubes.Add(cube);
         }
     }
@@ -36,44 +159,41 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     }
 
     private Vector3 mouseDownPosition;
-    private Vector3 dragAxis;
     private Vector3 lockedPosition;
     private Vector3 screenPoint;
     private Vector3 offset;
     private Vector3 initialWorldPosition;
-    private List<GameObject> movingCubes;
-    private int row;
-    private int col;
     private GameObject dragChild;
     private int itemIndex;
     private bool inDrag;
     private Vector3 savedTransformPosition;
     private Vector3 incrementalTransformPosition;
-    private GameObject clone1;
-    private GameObject clone2;
+
+    private MovingCubesCollection movingCubesCollection;
+
+    RaycastHit[] raycastHits = new RaycastHit[5];
 
     void OnMouseDown() {
-        savedTransformPosition = transform.position;
-        incrementalTransformPosition = transform.position;
+        var initialTransformPosition = transform.position;
+        savedTransformPosition = initialTransformPosition;
+        incrementalTransformPosition = initialTransformPosition;
+        initialWorldPosition = initialTransformPosition;
+
         mouseDownPosition = Input.mousePosition;
-        screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-        initialWorldPosition = transform.position;
-        offset = transform.position -
+        screenPoint = Camera.main.WorldToScreenPoint(initialTransformPosition);
+
+        offset = initialTransformPosition -
                  Camera.main.ScreenToWorldPoint(
                      new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-        // pointer.transform.position =  Camera.main.ScreenToWorldPoint(
-        //     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-        dragAxis = Vector3.zero;
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(ray);
+        Physics.RaycastNonAlloc(ray, raycastHits);
 
-        foreach (var hit in hits) {
-            if (hit.transform.GetComponent<TileScript>()) {
-                dragChild = hit.transform.gameObject;
-            }
+        foreach (var hit in raycastHits) {
+            if (!hit.transform.GetComponent<TileScript>()) continue;
+            dragChild = hit.transform.gameObject;
+            break;
         }
 
         if (dragChild == null)
@@ -85,63 +205,32 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
     private void OnMouseDrag() {
         if (!inDrag)
             return;
-       
-        if (dragAxis == Vector3.zero) {
+
+        if (movingCubesCollection == null) {
             var diff = Input.mousePosition - mouseDownPosition;
             if (!(diff.magnitude > 5f)) return;
-            
+
             if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
-                //drag is on the x axis
-                dragAxis = Vector3.right;
                 lockedPosition = new Vector3(0, mouseDownPosition.y, 0);
-
-                var rowInfo = GetRowOf(dragChild);
-                foreach (var cube in rowInfo.Item1) {
-                    cube.transform.parent = transform;
-                }
-
-                movingCubes = rowInfo.Item1;
-
-                row = rowInfo.Item2;
-                col = rowInfo.Item3;
-                
-                clone1 = Instantiate(movingCubes.First(), transform);
-                clone1.transform.position = movingCubes.Last().transform.position + dragAxis;
-                clone2 = Instantiate(movingCubes.Last(), transform);
-                clone2.transform.position = movingCubes.First().transform.position - dragAxis;
+                movingCubesCollection = GetMovingCubesCollection(dragChild, GetRow);
             }
             else {
-                dragAxis = new Vector3(0, 1f, 0);
                 lockedPosition = new Vector3(mouseDownPosition.x, 0, 0);
-
-                var columnInfo = GetColumnOf(dragChild);
-                foreach (var cube in columnInfo.Item1) {
-                    cube.transform.parent = transform;
-                }
-
-                movingCubes = columnInfo.Item1;
-                row = columnInfo.Item2;
-                col = columnInfo.Item3;
-                
-                clone1 = Instantiate(movingCubes.First(), transform);
-                clone1.transform.position = movingCubes.Last().transform.position - dragAxis;
-                clone2 = Instantiate(movingCubes.Last(), transform);
-                clone2.transform.position = movingCubes.First().transform.position + dragAxis;
+                movingCubesCollection = GetMovingCubesCollection(dragChild, GetColumn);
             }
 
-            return;
+            movingCubesCollection.AttachToMoverParent(transform);
+            movingCubesCollection.ProvideWrapClones(transform);
         }
 
-        var curScreenPoint = new Vector3(Input.mousePosition.x * dragAxis.x + lockedPosition.x,
-            Input.mousePosition.y * dragAxis.y + lockedPosition.y,
+        var curScreenPoint = new Vector3(Input.mousePosition.x * movingCubesCollection.dragAxis.x + lockedPosition.x,
+            Input.mousePosition.y * movingCubesCollection.dragAxis.y + lockedPosition.y,
             screenPoint.z);
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
-        // pointer.transform.position =  Camera.main.ScreenToWorldPoint(
-        //     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         Vector3 dragDirection = Vector3.zero;
 
-        if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.1||
+        if (Mathf.Abs((initialWorldPosition - (curPosition + offset)).x) >= 1.1 ||
             Mathf.Abs((initialWorldPosition - (curPosition + offset)).y) >= 1.1) {
             OnMouseUp();
             inDrag = false;
@@ -162,150 +251,92 @@ public class MoveScript : MonoBehaviour, ChildDragWatcher {
                 dragDirection = Vector3.down;
             }
         }
-        if ( dragDirection != Vector3.zero) {
-            incrementalTransformPosition += dragDirection;      
-            initialWorldPosition = (curPosition + offset);
+
+        if (dragDirection != Vector3.zero) {
+            incrementalTransformPosition += dragDirection;
+            initialWorldPosition = curPosition + offset;
             pointer.transform.position = offset;
-            Destroy(clone1);
-            Destroy(clone2);
             
-            foreach (var cube in movingCubes) {
-                var position = cube.transform.position;
-                cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
-            }
+            movingCubesCollection.DestroyWrapClones();
+            movingCubesCollection.ClampPositions();
             
             if (dragDirection == Vector3.left) {
-                var cube = movingCubes.First();
-                cube.transform.position = movingCubes.Last().transform.position + dragAxis;
-                var myIndex = cubes.IndexOf(cube);
-                cubes.Remove(cube);
-                cubes.Insert(myIndex + 2, cube);
-                movingCubes.Remove(cube);
-                movingCubes.Add(cube);
-                
-                clone1 = Instantiate(movingCubes.First(), transform);
-                clone1.transform.position = movingCubes.Last().transform.position + dragAxis;
-                clone2 = Instantiate(movingCubes.Last(), transform);
-                clone2.transform.position = movingCubes.First().transform.position - dragAxis;
-                
+                movingCubesCollection.LeftWrap();
+                movingCubesCollection.ProvideWrapClones(transform);
             }
             else if (dragDirection == Vector3.right) {
-                var cube = movingCubes.Last();
-                cube.transform.position = movingCubes.First().transform.position - dragAxis;
-                var myIndex = cubes.IndexOf(cube);
-                cubes.Remove(cube);
-                cubes.Insert(myIndex - 2, cube);
-
-                movingCubes.Remove(cube);
-                movingCubes.Insert(0, cube);
-                
-                clone1 = Instantiate(movingCubes.First(), transform);
-                clone1.transform.position = movingCubes.Last().transform.position + dragAxis;
-                clone2 = Instantiate(movingCubes.Last(), transform);
-                clone2.transform.position = movingCubes.First().transform.position - dragAxis;
+                movingCubesCollection.RightWrap();
+                movingCubesCollection.ProvideWrapClones(transform);
             }
             else if (dragDirection == Vector3.up) {
-                var cube = movingCubes.First();
-                cube.transform.position = movingCubes.Last().transform.position - dragAxis;
-
-                movingCubes.Remove(cube);
-                movingCubes.Add(cube);
-
-                foreach (var c in movingCubes) {
-                    cubes.Remove(c);
-                }
-
-                int collumn = this.col;
-                foreach (var c in movingCubes) {
-                    cubes.Insert(collumn, c);
-                    collumn += 3;
-                }
-                
-                clone1 = Instantiate(movingCubes.First(), transform);
-                clone1.transform.position = movingCubes.Last().transform.position - dragAxis;
-                clone2 = Instantiate(movingCubes.Last(), transform);
-                clone2.transform.position = movingCubes.First().transform.position + dragAxis;
-            
+                movingCubesCollection.UpWrap();
+                movingCubesCollection.ProvideWrapClones(transform);
             }
             else {
-                var cube = movingCubes.Last();
-                cube.transform.position = movingCubes.First().transform.position + dragAxis;
-
-                movingCubes.Remove(cube);
-                movingCubes.Insert(0,cube);
-
-                foreach (var c in movingCubes) {
-                    cubes.Remove(c);
-                }
-
-                int collumn = this.col;
-                foreach (var c in movingCubes) {
-                    cubes.Insert(collumn, c);
-                    collumn += 3;
-                }
-                
-                clone1 = Instantiate(movingCubes.First(), transform);
-                clone1.transform.position = movingCubes.Last().transform.position - dragAxis;
-                clone2 = Instantiate(movingCubes.Last(), transform);
-                clone2.transform.position = movingCubes.First().transform.position + dragAxis;
+                movingCubesCollection.DownWrap();
+                movingCubesCollection.ProvideWrapClones(transform);
             }
-            
         }
 
         transform.position = curPosition + offset;
     }
 
-    Tuple<List<GameObject>, int, int> GetRowOf(GameObject gameObject) {
-        List<GameObject> newList = new List<GameObject>();
-
-        var indexOfSelected = cubes.IndexOf(gameObject);
-        var rowIndex = indexOfSelected / 3;
-        var column = indexOfSelected % 3;
-        var startIndex = rowIndex * 3;
-
-        for (int i = startIndex; i < startIndex + 3; i++) {
-            newList.Add(cubes[i]);
-        }
-
-        return new Tuple<List<GameObject>, int, int>(newList, rowIndex, column);
-    }
-
-    Tuple<List<GameObject>, int, int> GetColumnOf(GameObject gameObject) {
-        List<GameObject> newList = new List<GameObject>();
-
-        var indexOfSelected = cubes.IndexOf(gameObject);
-        var column = indexOfSelected % 3;
-        var row = indexOfSelected / 3;
-        var startIndex = column;
-
-        for (int i = startIndex; i < 18; i += 3) {
-            newList.Add(cubes[i]);
-        }
-
-        return new Tuple<List<GameObject>, int, int>(newList, row, column);
-    }
-
     void OnMouseUp() {
         if (!inDrag)
             return;
-        
+
         transform.position = incrementalTransformPosition;
-        
+
         foreach (var cube in cubes) {
             cube.transform.parent = null;
             var position = cube.transform.position;
             cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
         }
-        
-        Destroy(clone1);
-        Destroy(clone2);
+
+        movingCubesCollection.DestroyWrapClones();
+        movingCubesCollection = null;
+
         transform.position = savedTransformPosition;
         inDrag = false;
     }
 
-    public void ChildMouseDown(GameObject gameObject) { }
+    private CollectionFunction GetRow =
+        (clickedGameObject, allObjects, row, column) => {
+            var startIndex = row * 3;
 
-    public void ChildMouseUp() { }
+            var movingCubesDescription = new RowCollection();
+            for (var i = startIndex; i < startIndex + 3; i++) {
+                movingCubesDescription.movers.Add(allObjects[i]);
+            }
 
-    public void ChildMouseDrag() { }
+            movingCubesDescription.allCubes = allObjects;
+            movingCubesDescription.row = row;
+            movingCubesDescription.column = column;
+
+            return movingCubesDescription;
+        };
+
+    private CollectionFunction GetColumn =
+        (clickedGameObject, allObjects, row, column) => {
+            var startIndex = column;
+
+            var movingCubesDescription = new ColumnCollection();
+            for (var i = startIndex; i < 18; i += 3) {
+                movingCubesDescription.movers.Add(allObjects[i]);
+            }
+
+            movingCubesDescription.allCubes = allObjects;
+            movingCubesDescription.row = row;
+            movingCubesDescription.column = column;
+
+            return movingCubesDescription;
+        };
+
+    private MovingCubesCollection GetMovingCubesCollection(GameObject gameObject, CollectionFunction getCollection) {
+        var indexOfSelected = cubes.IndexOf(gameObject);
+        var row = indexOfSelected / 3;
+        var column = indexOfSelected % 3;
+
+        return getCollection(gameObject, cubes, row, column);
+    }
 }
