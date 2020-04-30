@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 925702768}
   - component: {fileID: 925702767}
   - component: {fileID: 925702770}
+  - component: {fileID: 925702771}
   - component: {fileID: 925702766}
   m_Layer: 0
   m_Name: CubeCollection
@@ -708,14 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd30e33470fe348d7b6fb32f41312317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundCornerCube: {fileID: 792113006}
-  challengeRowColors:
-  - {fileID: 2100000, guid: 1e7af79038e3a6c40b333de47b7259c6, type: 2}
-  - {fileID: 2100000, guid: 62940b5b493e2e9efb25cc86eadb2db5, type: 2}
-  - {fileID: 2100000, guid: 19e06c2a1632ec8658f0ac092987789b, type: 2}
-  - {fileID: 2100000, guid: 361cf8a76b50fc3f9a1d53abcfa0b593, type: 2}
-  - {fileID: 2100000, guid: c562d63c84896f410b0f2d70d2baf51d, type: 2}
-  - {fileID: 2100000, guid: a28d02c06b50fc2a09930ee7a564d12e, type: 2}
   pointer: {fileID: 579879460}
 --- !u!23 &925702767
 MeshRenderer:
@@ -791,6 +784,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &925702771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925702765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afbac5de8ba4178891633bbe8fac9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundCornerCube: {fileID: 792113006}
+  challengeRowColors:
+  - {fileID: 2100000, guid: a28d02c06b50fc2a09930ee7a564d12e, type: 2}
+  - {fileID: 2100000, guid: c562d63c84896f410b0f2d70d2baf51d, type: 2}
+  - {fileID: 2100000, guid: 361cf8a76b50fc3f9a1d53abcfa0b593, type: 2}
+  - {fileID: 2100000, guid: 19e06c2a1632ec8658f0ac092987789b, type: 2}
+  - {fileID: 2100000, guid: 62940b5b493e2e9efb25cc86eadb2db5, type: 2}
+  - {fileID: 2100000, guid: 1e7af79038e3a6c40b333de47b7259c6, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +924,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 19e06c2a1632ec8658f0ac092987789b, type: 2}
   - {fileID: 2100000, guid: 62940b5b493e2e9efb25cc86eadb2db5, type: 2}
   - {fileID: 2100000, guid: 1e7af79038e3a6c40b333de47b7259c6, type: 2}
+  cubes: []
+  mouseDownPosition: {x: 0, y: 0, z: 0}
+  dragDirection: {x: 0, y: 0, z: 0}
+  lockedPosition: {x: 0, y: 0, z: 0}
+  screenPoint: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+  initialWorldPosition: {x: 0, y: 0, z: 0}
+  movingCubes: []
+  dragChild: {fileID: 0}
+  itemIndex: 0
+  inDrag: 0
 --- !u!4 &972836153
 Transform:
   m_ObjectHideFlags: 0
@@ -1149,6 +1173,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 19e06c2a1632ec8658f0ac092987789b, type: 2}
   - {fileID: 2100000, guid: 62940b5b493e2e9efb25cc86eadb2db5, type: 2}
   - {fileID: 2100000, guid: 1e7af79038e3a6c40b333de47b7259c6, type: 2}
+  cubes: []
+  mouseDownPosition: {x: 0, y: 0, z: 0}
+  dragDirection: {x: 0, y: 0, z: 0}
+  lockedPosition: {x: 0, y: 0, z: 0}
+  screenPoint: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+  initialWorldPosition: {x: 0, y: 0, z: 0}
+  movingCubes: []
+  dragChild: {fileID: 0}
+  itemIndex: 0
+  inDrag: 0
 --- !u!4 &1235927953
 Transform:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@
         <e p="InputActions.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Board.cs" t="Include" />
-          <e p="ChallengeMenu.cs" t="Include" />
+          <e p="ChallengeMenuTiles.cs" t="Include" />
           <e p="ChildDragWatcher.cs" t="Include" />
           <e p="CountdownAnim.cs" t="Include" />
           <e p="FSM.cs" t="Include" />
@@ -18,6 +18,7 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="MoveScript.cs" t="Include" />
           <e p="State.cs" t="Include" />
+          <e p="TileField.cs" t="Include" />
           <e p="TileMover.cs" t="Include" />
           <e p="TileScript.cs" t="Include" />
         </e>
