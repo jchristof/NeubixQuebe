@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MoveScript : MonoBehaviour {
     private List<GameObject> cubes = new List<GameObject>();
-    public GameObject pointer;
-
+    private GameMode gameMode;
     void Start() {
         cubes = GetComponent<TileField>().GetTiles();
+        gameMode = GetComponent<GameMode>();
     }
     
     // Update is called once per frame
@@ -115,8 +115,7 @@ public class MoveScript : MonoBehaviour {
         if (dragDirection != Vector3.zero) {
             incrementalTransformPosition += dragDirection;
             initialWorldPosition = curPosition + offset;
-            pointer.transform.position = offset;
-            
+
             movingCubesCollection.DestroyWrapClones();
             movingCubesCollection.ClampPositions();
             
@@ -158,5 +157,8 @@ public class MoveScript : MonoBehaviour {
 
         transform.position = savedTransformPosition;
         inDrag = false;
+        
+        if(gameMode.CheckSolved())
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }

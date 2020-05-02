@@ -255,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &439164108
 AudioSource:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d25c1835da841b6bc93134d768d8a712, type: 3}
+  m_audioClip: {fileID: 8300000, guid: de88e11a8a681a400adc379e1b7c155c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cea7abb923a7cab9f3628fda794255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Identifier: 0
 --- !u!65 &792113013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -688,7 +689,7 @@ GameObject:
   - component: {fileID: 925702768}
   - component: {fileID: 925702767}
   - component: {fileID: 925702770}
-  - component: {fileID: 925702771}
+  - component: {fileID: 925702772}
   - component: {fileID: 925702766}
   m_Layer: 0
   m_Name: CubeCollection
@@ -709,7 +710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd30e33470fe348d7b6fb32f41312317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 579879460}
 --- !u!23 &925702767
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -784,7 +784,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &925702771
+--- !u!114 &925702772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -793,17 +793,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 925702765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afbac5de8ba4178891633bbe8fac9a0, type: 3}
+  m_Script: {fileID: 11500000, guid: d447a40521e446bd9cbf70fcf8d5a724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roundCornerCube: {fileID: 792113006}
   challengeRowColors:
-  - {fileID: 2100000, guid: a28d02c06b50fc2a09930ee7a564d12e, type: 2}
-  - {fileID: 2100000, guid: c562d63c84896f410b0f2d70d2baf51d, type: 2}
-  - {fileID: 2100000, guid: 361cf8a76b50fc3f9a1d53abcfa0b593, type: 2}
-  - {fileID: 2100000, guid: 19e06c2a1632ec8658f0ac092987789b, type: 2}
-  - {fileID: 2100000, guid: 62940b5b493e2e9efb25cc86eadb2db5, type: 2}
-  - {fileID: 2100000, guid: 1e7af79038e3a6c40b333de47b7259c6, type: 2}
+  - {fileID: 2100000, guid: 5a47032d894e7b13b8e4651589035449, type: 2}
+  - {fileID: 2100000, guid: 02053b88617283cb28f0c027b781479d, type: 2}
+  layout: 010000000100000001000000010000000100000001000000010000000100000000000000010000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,25 +913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2651c7dcee12e34229e86b9a3fc66081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundCornerCube: {fileID: 792113006}
-  challengeRowColors:
-  - {fileID: 2100000, guid: a28d02c06b50fc2a09930ee7a564d12e, type: 2}
-  - {fileID: 2100000, guid: c562d63c84896f410b0f2d70d2baf51d, type: 2}
-  - {fileID: 2100000, guid: 361cf8a76b50fc3f9a1d53abcfa0b593, type: 2}
-  - {fileID: 2100000, guid: 19e06c2a1632ec8658f0ac092987789b, type: 2}
-  - {fileID: 2100000, guid: 62940b5b493e2e9efb25cc86eadb2db5, type: 2}
-  - {fileID: 2100000, guid: 1e7af79038e3a6c40b333de47b7259c6, type: 2}
-  cubes: []
-  mouseDownPosition: {x: 0, y: 0, z: 0}
-  dragDirection: {x: 0, y: 0, z: 0}
-  lockedPosition: {x: 0, y: 0, z: 0}
-  screenPoint: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  initialWorldPosition: {x: 0, y: 0, z: 0}
-  movingCubes: []
-  dragChild: {fileID: 0}
-  itemIndex: 0
-  inDrag: 0
 --- !u!4 &972836153
 Transform:
   m_ObjectHideFlags: 0
@@ -1165,25 +1143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2651c7dcee12e34229e86b9a3fc66081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundCornerCube: {fileID: 792113006}
-  challengeRowColors:
-  - {fileID: 2100000, guid: a28d02c06b50fc2a09930ee7a564d12e, type: 2}
-  - {fileID: 2100000, guid: c562d63c84896f410b0f2d70d2baf51d, type: 2}
-  - {fileID: 2100000, guid: 361cf8a76b50fc3f9a1d53abcfa0b593, type: 2}
-  - {fileID: 2100000, guid: 19e06c2a1632ec8658f0ac092987789b, type: 2}
-  - {fileID: 2100000, guid: 62940b5b493e2e9efb25cc86eadb2db5, type: 2}
-  - {fileID: 2100000, guid: 1e7af79038e3a6c40b333de47b7259c6, type: 2}
-  cubes: []
-  mouseDownPosition: {x: 0, y: 0, z: 0}
-  dragDirection: {x: 0, y: 0, z: 0}
-  lockedPosition: {x: 0, y: 0, z: 0}
-  screenPoint: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  initialWorldPosition: {x: 0, y: 0, z: 0}
-  movingCubes: []
-  dragChild: {fileID: 0}
-  itemIndex: 0
-  inDrag: 0
 --- !u!4 &1235927953
 Transform:
   m_ObjectHideFlags: 0

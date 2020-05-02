@@ -13,6 +13,8 @@
           <e p="CountdownAnim.cs" t="Include" />
           <e p="FSM.cs" t="Include" />
           <e p="GameMode.cs" t="Include" />
+          <e p="GameModeChallengeMenu.cs" t="Include" />
+          <e p="GameModeTwoColor.cs" t="Include" />
           <e p="InputTracker.cs" t="Include" />
           <e p="Main.cs" t="Include" />
           <e p="MainFSM.cs" t="Include" />
