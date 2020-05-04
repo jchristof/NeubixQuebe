@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0803ecc3-532e-48ec-869e-939a75c7c723" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQueb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQueb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameModeTwoColor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameModeTwoColor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoveScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TileMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TileMover.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,10 +128,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4476">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4950">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4476" />
+      <option name="pid" value="4950" />
       <method v="2" />
     </configuration>
   </component>
@@ -162,6 +160,7 @@
       <workItem from="1588264446615" duration="366000" />
       <workItem from="1588265961007" duration="60000" />
       <workItem from="1588295938303" duration="1093000" />
+      <workItem from="1588617737696" duration="679000" />
     </task>
     <servers />
   </component>
@@ -204,38 +203,38 @@
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
     <state width="542" height="506" key="DebuggerActiveHint/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588562359454" />
-    <state width="1874" height="260" key="GridCell.Tab.0.bottom" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.0.bottom" timestamp="1588617894524">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.0.bottom/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
-    <state width="1874" height="260" key="GridCell.Tab.0.center" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.0.bottom/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617894524" />
+    <state width="1874" height="260" key="GridCell.Tab.0.center" timestamp="1588617894524">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.0.center/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
-    <state width="1874" height="260" key="GridCell.Tab.0.left" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.0.center/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617894524" />
+    <state width="1874" height="260" key="GridCell.Tab.0.left" timestamp="1588617894524">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.0.left/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
-    <state width="1874" height="260" key="GridCell.Tab.0.right" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.0.left/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617894524" />
+    <state width="1874" height="260" key="GridCell.Tab.0.right" timestamp="1588617894524">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.0.right/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
-    <state width="1874" height="260" key="GridCell.Tab.1.bottom" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.0.right/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617894524" />
+    <state width="1874" height="260" key="GridCell.Tab.1.bottom" timestamp="1588617898917">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.1.bottom/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
-    <state width="1874" height="260" key="GridCell.Tab.1.center" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.1.bottom/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617898917" />
+    <state width="1874" height="260" key="GridCell.Tab.1.center" timestamp="1588617898917">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.1.center/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
-    <state width="1874" height="260" key="GridCell.Tab.1.left" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.1.center/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617898917" />
+    <state width="1874" height="260" key="GridCell.Tab.1.left" timestamp="1588617898917">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.1.left/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
-    <state width="1874" height="260" key="GridCell.Tab.1.right" timestamp="1588565084402">
+    <state width="1874" height="260" key="GridCell.Tab.1.left/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617898917" />
+    <state width="1874" height="260" key="GridCell.Tab.1.right" timestamp="1588617898917">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="260" key="GridCell.Tab.1.right/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588565084402" />
+    <state width="1874" height="260" key="GridCell.Tab.1.right/0.1080.1920.1080/0.0.1920.1080/1920.360.1920.1080@0.1080.1920.1080" timestamp="1588617898917" />
     <state width="1874" height="260" key="GridCell.Tab.2.bottom" timestamp="1588565084403">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
@@ -305,19 +304,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/TileMover.cs</url>
-          <line>238</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/TileMover.cs" initialLine="237">
-            <startOffsets>
-              <option value="8309" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8323" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

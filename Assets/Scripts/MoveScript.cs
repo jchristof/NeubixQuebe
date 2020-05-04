@@ -98,8 +98,11 @@ public class MoveScript : MonoBehaviour {
     void OnMouseUp() {
         if (!inDrag)
             return;
-        
-        //transform.transform.position = new Vector3(Mathf.Round(transform.position .x), Mathf.Round(transform.position .y), transform.position .z);
+
+        Vector3 offset = transform.transform.position - savedTransformPosition;
+        offset = new Vector3(Mathf.Round(offset.x),Mathf.Round(offset.y), 0f);
+
+        transform.transform.position = savedTransformPosition + offset;
 
         movingCubesCollection.EndWithWrap(transform.transform.position - savedTransformPosition);
         foreach (var cube in cubes) {
