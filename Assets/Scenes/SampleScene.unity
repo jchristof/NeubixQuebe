@@ -689,8 +689,8 @@ GameObject:
   - component: {fileID: 925702768}
   - component: {fileID: 925702767}
   - component: {fileID: 925702770}
-  - component: {fileID: 925702772}
   - component: {fileID: 925702766}
+  - component: {fileID: 925702772}
   m_Layer: 0
   m_Name: CubeCollection
   m_TagString: Untagged
@@ -1038,7 +1038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1194853640
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1175,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1347523582
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1363,7 +1363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1497926568
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1767,7 +1767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1963566372
 MeshCollider:
   m_ObjectHideFlags: 0

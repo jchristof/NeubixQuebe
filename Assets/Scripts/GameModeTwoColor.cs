@@ -12,10 +12,9 @@ namespace DefaultNamespace {
         private List<GameObject> cubes = new List<GameObject>();
 
         public List<GameObject> GetTiles() {
-            return cubes;
-        }
-
-        void Start() {
+            if (cubes.Count != 0)
+                return cubes;
+            
             for (int i = 0; i < layout.Length; i++) {
                 int rnd = Random.Range(0, layout.Length);
                 int temp = layout[rnd];
@@ -36,6 +35,8 @@ namespace DefaultNamespace {
                 
                 cubes.Add(cube);
             }
+
+            return cubes;
         }
 
         public bool CheckSolved() {
