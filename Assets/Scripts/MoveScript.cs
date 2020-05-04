@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MoveScript : MonoBehaviour {
     private List<GameObject> cubes = new List<GameObject>();
-    private readonly List<GameObject> objectPool = new List< GameObject > ();
+    private readonly List<GameObject> objectPool = new List<GameObject>();
     private GameMode gameMode;
     void Start() {
         cubes = GetComponent<TileField>().GetTiles();
@@ -21,51 +21,7 @@ public class MoveScript : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-    }
-
-    private Vector3 mouseDownPosition;
-    private Vector3 lockedPosition;
-    private Vector3 screenPoint;
-    private Vector3 offset;
-    private GameObject dragChild;
-    private int itemIndex;
-    private bool inDrag;
-    private Vector3 savedTransformPosition;
-    private Vector3 incrementalTransformPosition;
-
-    private MovingCubesCollection movingCubesCollection;
-
-    RaycastHit[] raycastHits = new RaycastHit[5];
-
-    void OnMouseDown() {
-        var initialTransformPosition = transform.position;
-        savedTransformPosition = initialTransformPosition;
-        incrementalTransformPosition = initialTransformPosition;
-
-        mouseDownPosition = Input.mousePosition;
-        screenPoint = Camera.main.WorldToScreenPoint(initialTransformPosition);
-
-        offset = initialTransformPosition -
-                 Camera.main.ScreenToWorldPoint(
-                     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        Physics.RaycastNonAlloc(ray, raycastHits);
-
-        foreach (var hit in raycastHits) {
-            if (hit.transform.GetComponent<TileScript>() == null) continue;
-            dragChild = hit.transform.gameObject;
-            break;
-        }
-
-        if (dragChild == null)
-            return;
-
-        inDrag = true;
-    }
-
-    private void OnMouseDrag() {
+        
         if (!inDrag)
             return;
 
@@ -92,7 +48,52 @@ public class MoveScript : MonoBehaviour {
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
 
+        if ((curPosition - savedTransformPosition).magnitude > 10) {
+            OnMouseUp();
+            return;
+        }
+
         transform.position = curPosition + offset;
+    }
+
+    private Vector3 mouseDownPosition;
+    private Vector3 lockedPosition;
+    private Vector3 screenPoint;
+    private Vector3 offset;
+    private GameObject dragChild;
+    private int itemIndex;
+    private bool inDrag;
+    private Vector3 savedTransformPosition;
+
+    private MovingCubesCollection movingCubesCollection;
+
+    RaycastHit[] raycastHits = new RaycastHit[5];
+
+    void OnMouseDown() {
+        var initialTransformPosition = transform.position;
+        savedTransformPosition = initialTransformPosition;
+
+        mouseDownPosition = Input.mousePosition;
+        screenPoint = Camera.main.WorldToScreenPoint(initialTransformPosition);
+
+        offset = initialTransformPosition -
+                 Camera.main.ScreenToWorldPoint(
+                     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Physics.RaycastNonAlloc(ray, raycastHits);
+
+        foreach (var hit in raycastHits) {
+            if (hit.transform.GetComponent<TileScript>() == null) continue;
+            dragChild = hit.transform.gameObject;
+            break;
+        }
+
+        if (dragChild == null)
+            return;
+
+        inDrag = true;
     }
 
     void OnMouseUp() {
