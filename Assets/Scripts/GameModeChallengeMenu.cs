@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -19,7 +20,7 @@ namespace DefaultNamespace {
                 cube.GetComponent<Renderer>().material = challengeRowColors[i / 3]; //GetMaterial();
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.localScale = Vector3.one * .9f;
-
+ 
                 cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();
                 //cube.tag = "id here";
@@ -29,6 +30,18 @@ namespace DefaultNamespace {
 
         public bool CheckSolved() {
             return false;
+        }
+
+        public void OnDisable() {
+            foreach (var c in cubes) {
+                c.SetActive(false);
+            }
+        }
+
+        public void OnEnable() {
+            foreach (var c in cubes) {
+                c.SetActive(true);
+            }
         }
     }
 }

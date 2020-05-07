@@ -95,62 +95,6 @@ abstract class MovingCubesCollection {
 
     public abstract void ProvideWrapClones();
     public abstract void EndWithWrap(Vector3 distance);
-    // public void LeftWrap() {
-    //     var cube = movers.First();
-    //     cube.transform.position = movers.Last().transform.position + dragAxis;
-    //     var myIndex = allCubes.IndexOf(cube);
-    //     allCubes.Remove(cube);
-    //     allCubes.Insert(myIndex + 2, cube);
-    //     movers.Remove(cube);
-    //     movers.Add(cube);
-    // }
-    //
-    // public void RightWrap() {
-    //     var cube = movers.Last();
-    //     cube.transform.position = movers.First().transform.position - dragAxis;
-    //     var myIndex = allCubes.IndexOf(cube);
-    //     allCubes.Remove(cube);
-    //     allCubes.Insert(myIndex - 2, cube);
-    //
-    //     movers.Remove(cube);
-    //     movers.Insert(0, cube);
-    // }
-    //
-    // public void UpWrap() {
-    //     var cube = movers.First();
-    //     cube.transform.position = movers.Last().transform.position - dragAxis;
-    //
-    //     movers.Remove(cube);
-    //     movers.Add(cube);
-    //
-    //     foreach (var c in movers) {
-    //         allCubes.Remove(c);
-    //     }
-    //
-    //     var col = column;
-    //     foreach (var c in movers) {
-    //         allCubes.Insert(col, c);
-    //         col += 3;
-    //     }
-    // }
-    //
-    // public void DownWrap() {
-    //     var cube = movers.Last();
-    //     cube.transform.position = movers.First().transform.position + dragAxis;
-    //
-    //     movers.Remove(cube);
-    //     movers.Insert(0, cube);
-    //
-    //     foreach (var c in movers) {
-    //         allCubes.Remove(c);
-    //     }
-    //
-    //     var col = column;
-    //     foreach (var c in movers) {
-    //         allCubes.Insert(col, c);
-    //         col += 3;
-    //     }
-    // }
 
     public void DestroyWrapClones() {
         ReleaseClones();

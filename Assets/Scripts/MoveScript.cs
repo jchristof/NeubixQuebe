@@ -7,6 +7,7 @@ public class MoveScript : MonoBehaviour {
     private List<GameObject> cubes = new List<GameObject>();
     private readonly List<GameObject> objectPool = new List<GameObject>();
     private GameMode gameMode;
+    public GameObject gameController;
     void Start() {
         cubes = GetComponent<TileField>().GetTiles();
         gameMode = GetComponent<GameMode>();
@@ -16,7 +17,7 @@ public class MoveScript : MonoBehaviour {
             objectPool.Add(go);
         }
     }
-    
+
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -54,6 +55,20 @@ public class MoveScript : MonoBehaviour {
         }
 
         transform.position = curPosition + offset;
+    }
+    
+    public void OnDisable() {
+        foreach (var c in cubes) {
+            c.SetActive(false);
+        }
+    }
+
+    public void OnEnable() {
+        foreach (var c in cubes) {
+            c.SetActive(true);
+        }
+        
+        cubes = GetComponent<TileField>().GetTiles();
     }
 
     private Vector3 mouseDownPosition;
@@ -119,6 +134,6 @@ public class MoveScript : MonoBehaviour {
         inDrag = false;
         
         if(gameMode.CheckSolved())
-            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+            gameController.GetComponent<GameController>().GameModeWon();
     }
 }

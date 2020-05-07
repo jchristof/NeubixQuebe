@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
-    // Start is called before the first frame update
+public class MainMenu : MonoBehaviour {
+    public GameController gameController;
     void Start()
     {
         
@@ -18,6 +17,6 @@ public class MainMenu : MonoBehaviour
     }
 
     public void MenuItemClicked() {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+       gameController.MenuItemSelected();
     }
 }
