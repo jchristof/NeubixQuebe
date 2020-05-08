@@ -36,6 +36,7 @@ namespace DefaultNamespace {
             for(int i = 0; i < cubes.Count; i++) {
                 cubes[i].GetComponent<Renderer>().material = challengeRowColors[layout[i]];
                 cubes[i].GetComponent<TileScript>().Identifier = layout[i];
+                cubes[i].GetComponent<TileScript>().image.enabled = false;
             }
             return cubes;
         }

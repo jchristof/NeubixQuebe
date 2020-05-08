@@ -119,15 +119,15 @@ public class MoveScript : MonoBehaviour {
         offset = new Vector3(Mathf.Round(offset.x),Mathf.Round(offset.y), 0f);
 
         transform.transform.position = savedTransformPosition + offset;
-
-        movingCubesCollection.EndWithWrap(transform.transform.position - savedTransformPosition);
+        
+        movingCubesCollection?.EndWithWrap(transform.transform.position - savedTransformPosition);
         foreach (var cube in cubes) {
             cube.transform.parent = null;
             var position = cube.transform.position;
             cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
         }
 
-        movingCubesCollection.DestroyWrapClones();
+        movingCubesCollection?.DestroyWrapClones();
         movingCubesCollection = null;
 
         transform.position = savedTransformPosition;

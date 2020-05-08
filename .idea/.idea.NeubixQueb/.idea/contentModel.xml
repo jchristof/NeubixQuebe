@@ -6,7 +6,6 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="GameController.cs" t="Include" />
         <e p="InputActions.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Board.cs" t="Include" />
@@ -14,6 +13,7 @@
           <e p="ChildDragWatcher.cs" t="Include" />
           <e p="CountdownAnim.cs" t="Include" />
           <e p="FSM.cs" t="Include" />
+          <e p="GameController.cs" t="Include" />
           <e p="GameMode.cs" t="Include" />
           <e p="GameModeChallengeMenu.cs" t="Include" />
           <e p="GameModeTwoColor.cs" t="Include" />
@@ -23,6 +23,7 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="MoveScript.cs" t="Include" />
           <e p="State.cs" t="Include" />
+          <e p="SuccessTiers.cs" t="Include" />
           <e p="TileField.cs" t="Include" />
           <e p="TileMover.cs" t="Include" />
           <e p="TileScript.cs" t="Include" />
