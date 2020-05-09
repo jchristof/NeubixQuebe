@@ -7,6 +7,16 @@ public class GameController : MonoBehaviour {
     public GameObject relaxMenu;
     public GameObject cubeCollection;
     public GameObject successTiers;
+    public GameObject inGameMenu;
+
+    public void Start() {
+        mainMenu.SetActive(true);
+        challengeMenu.SetActive(false);
+        relaxMenu.SetActive(false);
+        cubeCollection.SetActive(false);
+        successTiers.SetActive(false);
+        inGameMenu.SetActive(false);
+    }
 
     public void ChallengesClicked() {
         mainMenu.SetActive(false);
@@ -29,6 +39,7 @@ public class GameController : MonoBehaviour {
     public void ChallengeMenuItemSelected() {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
+        inGameMenu.SetActive(true);
     }
 
     public void GameModeWon() {
