@@ -16,7 +16,15 @@ public class MainMenu : MonoBehaviour {
         
     }
 
-    public void MenuItemClicked() {
-       gameController.MenuItemSelected();
+    public void ChallengesClicked() {
+       gameController.ChallengesClicked();
+    }
+
+    public void EndlessClicked() {
+        gameController.EndlessClicked();
+    }
+
+    public void RelaxClicked() {
+        gameController.RelaxClicked();
     }
 }

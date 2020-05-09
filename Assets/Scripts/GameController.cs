@@ -4,26 +4,28 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
     public GameObject mainMenu;
     public GameObject challengeMenu;
+    public GameObject relaxMenu;
     public GameObject cubeCollection;
     public GameObject successTiers;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //mainMenu.
-    }
-
-    public void MenuItemSelected() {
+    public void ChallengesClicked() {
         mainMenu.SetActive(false);
         challengeMenu.SetActive(true);
     }
 
+    public void EndlessClicked() {
+        
+    }
+
+    public void RelaxClicked() {
+        mainMenu.SetActive(false);
+        relaxMenu.SetActive(true);
+    }
+
+    public void RelaxBack() {
+        mainMenu.SetActive(true);
+        relaxMenu.SetActive(false);
+    }
     public void ChallengeMenuItemSelected() {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
@@ -34,7 +36,6 @@ public class GameController : MonoBehaviour {
         successTiers.SetActive(true);
         StartCoroutine(RunSuccessTiers());
     }
-    
     
     IEnumerator RunSuccessTiers() {
         successTiers.GetComponent<SuccessTiers>().RunSuccessAnimation();
