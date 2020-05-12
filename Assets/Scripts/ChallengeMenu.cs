@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChallengeMenu : MonoBehaviour {
@@ -7,7 +8,6 @@ public class ChallengeMenu : MonoBehaviour {
     private GameMode gameMode;
     
     void Start() {
-        cubes = GetComponent<TileField>().GetTiles();
         gameMode = GetComponent<GameMode>();
     }
 
@@ -33,5 +33,9 @@ public class ChallengeMenu : MonoBehaviour {
         }
         
         Debug.Log("OnMouseUpExit");
+    }
+
+    public void OnEnable() {
+        cubes = GetComponent<TileField>().GetTiles();
     }
 }

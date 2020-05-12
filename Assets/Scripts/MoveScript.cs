@@ -1,28 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MoveScript : MonoBehaviour {
-    private List<GameObject> cubes = new List<GameObject>();
-    private readonly List<GameObject> objectPool = new List<GameObject>();
     private GameMode gameMode;
     public GameObject gameController;
+    public CubePool cubePool;
+    private List<GameObject> cubes;
     void Start() {
-        cubes = GetComponent<TileField>().GetTiles();
-        gameMode = GetComponent<GameMode>();
-        for (int i = 0; i < 40; i++) {
-            var go = Instantiate(cubes[0]);
-            go.SetActive(false);
-            objectPool.Add(go);
-        }
+        
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-        
         if (!inDrag)
             return;
 
@@ -32,11 +22,13 @@ public class MoveScript : MonoBehaviour {
 
             if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
                 lockedPosition = new Vector3(0, mouseDownPosition.y, 0);
-                movingCubesCollection = TileMover.GetMovingCubesCollection(dragChild, cubes, TileMover.GetRow, objectPool, transform);
+                movingCubesCollection = TileMover.GetMovingCubesCollection(dragChild, cubes,
+                    TileMover.GetRow, cubePool.cubesPool, transform);
             }
             else {
                 lockedPosition = new Vector3(mouseDownPosition.x, 0, 0);
-                movingCubesCollection = TileMover.GetMovingCubesCollection(dragChild, cubes, TileMover.GetColumn, objectPool, transform);
+                movingCubesCollection = TileMover.GetMovingCubesCollection(dragChild, cubes,
+                    TileMover.GetColumn, cubePool.cubesPool, transform);
             }
 
             movingCubesCollection.AttachToMoverParent(transform);
@@ -56,18 +48,9 @@ public class MoveScript : MonoBehaviour {
 
         transform.position = curPosition + offset;
     }
-    
-    public void OnDisable() {
-        foreach (var c in cubes) {
-            c.SetActive(false);
-        }
-    }
 
     public void OnEnable() {
-        foreach (var c in cubes) {
-            c.SetActive(true);
-        }
-        
+        gameMode = GetComponent<GameMode>();
         cubes = GetComponent<TileField>().GetTiles();
     }
 
@@ -116,14 +99,15 @@ public class MoveScript : MonoBehaviour {
             return;
 
         Vector3 offset = transform.transform.position - savedTransformPosition;
-        offset = new Vector3(Mathf.Round(offset.x),Mathf.Round(offset.y), 0f);
+        offset = new Vector3(Mathf.Round(offset.x), Mathf.Round(offset.y), 0f);
 
         transform.transform.position = savedTransformPosition + offset;
-        
+
         movingCubesCollection?.EndWithWrap(transform.transform.position - savedTransformPosition);
         foreach (var cube in cubes) {
-            cube.transform.parent = null;
             var position = cube.transform.position;
+            cube.transform.parent = null;
+           
             cube.transform.position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), position.z);
         }
 
@@ -132,8 +116,8 @@ public class MoveScript : MonoBehaviour {
 
         transform.position = savedTransformPosition;
         inDrag = false;
-        
-        if(gameMode.CheckSolved())
+
+        if (gameMode.CheckSolved())
             gameController.GetComponent<GameController>().GameModeWon();
     }
 }
