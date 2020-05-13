@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour {
     public void GameModeWon() {
         cubeCollection.SetActive(false);
         successTiers.SetActive(true);
+        inGameMenu.SetActive(false);
         StartCoroutine(RunSuccessTiers());
     }
     

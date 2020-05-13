@@ -1,19 +1,30 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace DefaultNamespace {
     public class GameModeTwoColor : MonoBehaviour, TileField, GameMode {
         public List<Material> challengeRowColors;
         public int[] layout = new int[18];
         public CubePool cubePool;
-        private  List<GameObject> cubes = new List<GameObject>();
+        public InGameMenu inGameMenu;
+        private List<GameObject> cubes = new List<GameObject>();
+        private CountdownTimer countdownTimer = new CountdownTimer();
+
+        public void Update() {
+            countdownTimer.Update((int)(Time.deltaTime * 1000));
+            inGameMenu.time.GetComponent<TextMeshProUGUI>().text = countdownTimer.ToString();
+        }
+
         public List<GameObject> GetTiles() {
             if (cubes.Any())
                 return cubes;
-            
+
             for (var i = 17; i >= 0; i--) {
                 GameObject cube = cubePool.cubeGrid[i];
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
@@ -41,11 +52,21 @@ namespace DefaultNamespace {
 
             return cubes;
         }
-        
+
+        public void OnEnable() {
+            
+            countdownTimer.Set((int)TimeSpan.FromMinutes(2).TotalMilliseconds);
+            countdownTimer.SetOnEnd(() => {
+                
+            });
+            countdownTimer.Start();
+        }
+
         public void OnDisable() {
             foreach (var c in cubes) {
                 c.SetActive(false);
             }
+
             cubes.Clear();
         }
 

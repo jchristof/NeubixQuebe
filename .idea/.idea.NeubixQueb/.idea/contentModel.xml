@@ -6,18 +6,20 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CubePool.cs" t="Include" />
         <e p="InputActions.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Board.cs" t="Include" />
           <e p="ChallengeMenu.cs" t="Include" />
           <e p="ChildDragWatcher.cs" t="Include" />
           <e p="CountdownAnim.cs" t="Include" />
+          <e p="CountdownTimer.cs" t="Include" />
+          <e p="CubePool.cs" t="Include" />
           <e p="FSM.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
           <e p="GameMode.cs" t="Include" />
           <e p="GameModeChallengeMenu.cs" t="Include" />
           <e p="GameModeTwoColor.cs" t="Include" />
+          <e p="InGameMenu.cs" t="Include" />
           <e p="InputTracker.cs" t="Include" />
           <e p="Main.cs" t="Include" />
           <e p="MainFSM.cs" t="Include" />
