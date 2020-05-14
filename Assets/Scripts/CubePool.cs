@@ -23,6 +23,7 @@ public class CubePool : MonoBehaviour {
             cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
             cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
             cube.transform.localScale = Vector3.one * .9f;
+            cube.transform.rotation = new Quaternion(0,0,0,0);
             cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
             cube.name = (18 - i).ToString();
             cube.SetActive(false);
