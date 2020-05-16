@@ -27,6 +27,7 @@ namespace DefaultNamespace {
                 cube.GetComponent<TileScript>().text.text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();
                 cube.GetComponent<TileScript>().image.enabled = false;
+                cube.GetComponent<TileScript>().text.enabled = true;
                 cubes.Add(cube);
             }
 

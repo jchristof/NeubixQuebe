@@ -33,7 +33,7 @@ namespace DefaultNamespace {
 
         override public string ToString() {
             TimeSpan t = TimeSpan.FromMilliseconds(currentTime);
-            return string.Format("{0:D2}:{1:D2}",
+            return string.Format("{0:D1}:{1:D2}",
                 t.Minutes, 
                 t.Seconds);
         }

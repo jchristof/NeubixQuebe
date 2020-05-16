@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
     public GameObject cubeCollection;
     public GameObject successTiers;
     public GameObject inGameMenu;
+    private InGameMenu inGameMenuScript;
 
     public void Start() {
         mainMenu.SetActive(true);
@@ -16,6 +17,7 @@ public class GameController : MonoBehaviour {
         cubeCollection.SetActive(false);
         successTiers.SetActive(false);
         inGameMenu.SetActive(false);
+        inGameMenuScript = inGameMenu.GetComponent<InGameMenu>();
     }
 
     public void ChallengesClicked() {
@@ -36,10 +38,16 @@ public class GameController : MonoBehaviour {
         mainMenu.SetActive(true);
         relaxMenu.SetActive(false);
     }
-    public void ChallengeMenuItemSelected() {
+    public void ChallengeMenuItemSelected(string challenge) {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
         inGameMenu.SetActive(true);
+        inGameMenuScript.SetChallengeNumber(challenge);
+    }
+
+    public void ChallengeMenuBack() {
+        challengeMenu.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     public void GameModeWon() {

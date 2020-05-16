@@ -14,6 +14,7 @@ public class CubePool : MonoBehaviour {
             var go = Instantiate(roundEdgeCube);
             go.GetComponent<TileScript>().image.enabled = false;
             go.transform.localScale = Vector3.one * .9f;
+            go.GetComponentInChildren<TileScript>().text.enabled = false;
             go.SetActive(false);
             cubesPool.Add(go);
         }
@@ -28,6 +29,18 @@ public class CubePool : MonoBehaviour {
             cube.name = (18 - i).ToString();
             cube.SetActive(false);
             cubeGrid.Add(cube);
+        }
+    }
+    
+    public void Update() {
+        if (Input.GetKeyUp(KeyCode.Alpha1)) {
+            var allCubes = new List<GameObject>();
+            allCubes.AddRange(cubesPool);
+            allCubes.AddRange(cubeGrid);
+            var textEnabled = allCubes[0].GetComponentInChildren<TileScript>().text.enabled;
+            foreach (var cube in allCubes) {
+                cube.GetComponentInChildren<TileScript>().text.enabled = !textEnabled;
+            }
         }
     }
 }

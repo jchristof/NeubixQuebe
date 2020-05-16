@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ChallengeMenu : MonoBehaviour {
-    public GameObject gameController;
+    public GameObject controller;
     private List<GameObject> cubes = new List<GameObject>();
-    private GameMode gameMode;
-    public Animation hoverAnimation;
-    
-    void Start() {
-        gameMode = GetComponent<GameMode>();
-    }
-
     private readonly RaycastHit[] raycastHits = new RaycastHit[5];
-    private GameObject dragChild;
+
+    private GameController gameController;
+
+    void Start() {
+        gameController = controller.GetComponent<GameController>();
+    }
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
-          
+            gameController.ChallengeMenuBack();
         }
     }
 
@@ -54,9 +51,10 @@ public class ChallengeMenu : MonoBehaviour {
         Physics.RaycastNonAlloc(ray, raycastHits);
 
         foreach (var hit in raycastHits) {
-            if (hit.transform.GetComponent<TileScript>() == null) continue;
-            dragChild = hit.transform.gameObject;
-            gameController.GetComponent<GameController>().ChallengeMenuItemSelected();
+            var tile = hit.transform.GetComponent<TileScript>();
+            if (tile == null) continue;
+
+            gameController.ChallengeMenuItemSelected(tile.name);
             break;
         }
     }

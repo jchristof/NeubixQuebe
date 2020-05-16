@@ -1,9 +1,10 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using CollectionFunction = System.Func<UnityEngine.GameObject, System.Collections.Generic.List<UnityEngine.GameObject>, int, int, System.Collections.Generic.List<UnityEngine.GameObject>, UnityEngine.Transform,
-    MovingCubesCollection>;
+using CollectionFunction =
+    System.Func<UnityEngine.GameObject, System.Collections.Generic.List<UnityEngine.GameObject>, int, int,
+        System.Collections.Generic.List<UnityEngine.GameObject>, UnityEngine.Transform,
+        MovingCubesCollection>;
 
 static class TileMover {
     public static CollectionFunction GetRow =
@@ -38,7 +39,8 @@ static class TileMover {
             return movingCubesDescription;
         };
 
-    public static MovingCubesCollection GetMovingCubesCollection(GameObject gameObject, List<GameObject> allCubes, CollectionFunction getCollection, List<GameObject>pool, Transform transform) {
+    public static MovingCubesCollection GetMovingCubesCollection(GameObject gameObject, List<GameObject> allCubes,
+        CollectionFunction getCollection, List<GameObject> pool, Transform transform) {
         var indexOfSelected = allCubes.IndexOf(gameObject);
         var row = indexOfSelected / 3;
         var column = indexOfSelected % 3;
@@ -46,6 +48,7 @@ static class TileMover {
         return getCollection(gameObject, allCubes, row, column, pool, transform);
     }
 }
+
 abstract class MovingCubesCollection {
     public List<GameObject> allCubes;
     public List<GameObject> movers = new List<GameObject>();
@@ -53,7 +56,7 @@ abstract class MovingCubesCollection {
     public int column;
     public Vector3 dragAxis;
 
-   // protected List<GameObject> clones;
+    // protected List<GameObject> clones;
     protected List<GameObject> pool;
     protected Transform parentTransform;
 
@@ -64,16 +67,17 @@ abstract class MovingCubesCollection {
 
     protected void CloneFrom(GameObject cloneThis, Vector3 newPosition) {
         foreach (var pGameObject in pool) {
-           if(pGameObject.activeInHierarchy)
-               continue;
+            if (pGameObject.activeInHierarchy)
+                continue;
 
-           pGameObject.transform.parent = parentTransform;
-           pGameObject.transform.position = newPosition;
-           pGameObject.GetComponent<Renderer>().material = cloneThis.GetComponent<Renderer>().material;
-           pGameObject.GetComponentInChildren<Text>().text = cloneThis.GetComponentInChildren<Text>().text;
-           pGameObject.GetComponent<TileScript>().Identifier = cloneThis.GetComponent<TileScript>().Identifier;
-           pGameObject.SetActive(true);
-           return;
+            pGameObject.transform.parent = parentTransform;
+            pGameObject.transform.position = newPosition;
+            pGameObject.GetComponent<Renderer>().material = cloneThis.GetComponent<Renderer>().material;
+            pGameObject.GetComponentInChildren<Text>().text = cloneThis.GetComponentInChildren<Text>().text;
+            pGameObject.GetComponentInChildren<Text>().enabled = cloneThis.GetComponentInChildren<Text>().enabled;
+            pGameObject.GetComponent<TileScript>().Identifier = cloneThis.GetComponent<TileScript>().Identifier;
+            pGameObject.SetActive(true);
+            return;
         }
     }
 
@@ -83,6 +87,7 @@ abstract class MovingCubesCollection {
             pGameObject.SetActive(false);
         }
     }
+
     public void AttachToMoverParent(Transform transform) {
         foreach (var cube in movers)
             cube.transform.parent = transform;
@@ -109,24 +114,26 @@ abstract class MovingCubesCollection {
 }
 
 class RowCollection : MovingCubesCollection {
-    public RowCollection(List<GameObject> pool, Transform parentTransform) : base(pool,parentTransform) {
+    public RowCollection(List<GameObject> pool, Transform parentTransform) : base(pool, parentTransform) {
         dragAxis = Vector3.right;
     }
 
     public override void ProvideWrapClones() {
-
         for (int i = 0; i < 5 * 3; i++) {
             var cloneThis = movers[i % 3];
             var cloneTransform = cloneThis.transform;
             CloneFrom(cloneThis,
-                new Vector3(cloneTransform.position.x + 3 * (i/3 + 1), cloneTransform.position.y, cloneTransform.position.z));
+                new Vector3(cloneTransform.position.x + 3 * (i / 3 + 1), cloneTransform.position.y,
+                    cloneTransform.position.z));
         }
+
         for (int i = 0; i < 5 * 3; i++) {
             var cloneThis = movers[i % 3];
             var cloneTransform = cloneThis.transform;
             CloneFrom(
                 cloneThis,
-                new Vector3(cloneTransform.position.x - 3 * (i/3), cloneTransform.position.y, cloneTransform.position.z));
+                new Vector3(cloneTransform.position.x - 3 * (i / 3), cloneTransform.position.y,
+                    cloneTransform.position.z));
         }
     }
 
@@ -135,19 +142,19 @@ class RowCollection : MovingCubesCollection {
 
         if (count < 0)
             count = count + 3;
-        
+
         for (int i = 0; i < count; i++) {
             var m = movers[2];
             movers.Remove(m);
             movers.Insert(0, m);
         }
-        
+
         foreach (var c in movers) {
-                allCubes.Remove(c);
+            allCubes.Remove(c);
         }
 
         for (int i = 0; i < 3; i++) {
-            allCubes.Insert((row *3) + i, movers[i]);
+            allCubes.Insert((row * 3) + i, movers[i]);
             var position = movers[i].transform.position;
             movers[i].transform.position = new Vector3(i, position.y, position.z);
         }
@@ -155,25 +162,27 @@ class RowCollection : MovingCubesCollection {
 }
 
 class ColumnCollection : MovingCubesCollection {
-    public ColumnCollection(List<GameObject> pool, Transform parentTransform):base(pool, parentTransform) {
+    public ColumnCollection(List<GameObject> pool, Transform parentTransform) : base(pool, parentTransform) {
         dragAxis = Vector3.up;
     }
 
     public override void ProvideWrapClones() {
+        for (int i = 0; i < 5 * 3; i++) {
+            var cloneThis = movers[i % 6];
+            var cloneTransform = cloneThis.transform;
+            CloneFrom(
+                cloneThis,
+                new Vector3(cloneTransform.position.x, cloneTransform.position.y + 6 * (i / 6 + 1),
+                    cloneTransform.position.z));
+        }
 
         for (int i = 0; i < 5 * 3; i++) {
             var cloneThis = movers[i % 6];
             var cloneTransform = cloneThis.transform;
             CloneFrom(
                 cloneThis,
-                new Vector3(cloneTransform.position.x , cloneTransform.position.y + 6 * (i/6 + 1), cloneTransform.position.z));
-        }
-        for (int i = 0; i < 5 * 3; i++) {
-            var cloneThis = movers[i % 6];
-            var cloneTransform = cloneThis.transform;
-            CloneFrom(
-                cloneThis,
-                new Vector3(cloneTransform.position.x , cloneTransform.position.y - 6 * (i/6 + 1), cloneTransform.position.z));
+                new Vector3(cloneTransform.position.x, cloneTransform.position.y - 6 * (i / 6 + 1),
+                    cloneTransform.position.z));
         }
     }
 
@@ -182,19 +191,19 @@ class ColumnCollection : MovingCubesCollection {
 
         if (count < 0)
             count = count + 6;
-        
+
         for (int i = 0; i < count; i++) {
             var m = movers[0];
             movers.Remove(m);
             movers.Insert(movers.Count, m);
         }
-        
+
         foreach (var c in movers) {
             allCubes.Remove(c);
         }
 
         for (int i = 0; i < 6; i++) {
-            allCubes.Insert(column + (i*3), movers[i]);
+            allCubes.Insert(column + (i * 3), movers[i]);
             var position = movers[i].transform.position;
             movers[i].transform.position = new Vector3(column, 5 - i, position.z);
         }

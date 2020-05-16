@@ -19,6 +19,12 @@ namespace DefaultNamespace {
         public void Update() {
             countdownTimer.Update((int)(Time.deltaTime * 1000));
             inGameMenu.time.GetComponent<TextMeshProUGUI>().text = countdownTimer.ToString();
+            if (Input.GetKeyUp(KeyCode.Alpha1)) {
+                var textEnabled = cubes[0].GetComponentInChildren<TileScript>().text.enabled;
+                foreach (var cube in cubes) {
+                    cube.GetComponentInChildren<TileScript>().text.enabled = !textEnabled;
+                }
+            }
         }
 
         public List<GameObject> GetTiles() {
@@ -48,7 +54,7 @@ namespace DefaultNamespace {
                 cubes[i].GetComponent<Renderer>().material = challengeRowColors[layout[i]];
                 cubes[i].GetComponent<TileScript>().Identifier = layout[i];
                 cubes[i].GetComponent<TileScript>().image.enabled = false;
-                cubes[i].GetComponent<TileScript>().text.enabled = true;
+                cubes[i].GetComponent<TileScript>().text.enabled = false;
             }
 
             return cubes;
