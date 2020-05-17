@@ -18,6 +18,7 @@
           <e p="GameController.cs" t="Include" />
           <e p="GameMode.cs" t="Include" />
           <e p="GameModeChallengeMenu.cs" t="Include" />
+          <e p="GameModeTransistion.cs" t="Include" />
           <e p="GameModeTwoColor.cs" t="Include" />
           <e p="InGameMenu.cs" t="Include" />
           <e p="InputTracker.cs" t="Include" />

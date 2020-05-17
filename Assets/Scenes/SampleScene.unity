@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 170320023}
   - component: {fileID: 170320022}
   m_Layer: 5
-  m_Name: RulesTitle
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1901,12 +1901,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1766025130}
+        m_MethodName: SuccessMenuNextChallenge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2202,6 +2202,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 68a06447d88ab054d8f4378d8ff18e79,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9658765b21158ea55867ea53275e312c, type: 2}
     - target: {fileID: -927199367670048503, guid: 68a06447d88ab054d8f4378d8ff18e79,
         type: 3}
       propertyPath: m_Name
@@ -2224,7 +2229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &872456597
 Transform:
   m_ObjectHideFlags: 0
@@ -2544,6 +2549,7 @@ GameObject:
   - component: {fileID: 925702770}
   - component: {fileID: 925702766}
   - component: {fileID: 925702772}
+  - component: {fileID: 925702771}
   m_Layer: 0
   m_Name: GameCubes
   m_TagString: Untagged
@@ -2639,6 +2645,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &925702771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925702765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88b96d2b45c5e5ba9bfbcd008cd6515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePool: {fileID: 0}
 --- !u!114 &925702772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2894,7 +2913,7 @@ GameObject:
   - component: {fileID: 979918699}
   - component: {fileID: 979918698}
   m_Layer: 5
-  m_Name: Start
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3052,7 +3071,7 @@ GameObject:
   - component: {fileID: 1010610507}
   - component: {fileID: 1010610506}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3340,7 +3359,7 @@ GameObject:
   - component: {fileID: 1167492303}
   - component: {fileID: 1167492302}
   m_Layer: 5
-  m_Name: Start
+  m_Name: NextChallenge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5667,7 +5686,7 @@ GameObject:
   - component: {fileID: 1726992977}
   - component: {fileID: 1726992976}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5736,12 +5755,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1766025130}
+        m_MethodName: SuccessMenuMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5931,6 +5950,7 @@ MonoBehaviour:
   cubeCollection: {fileID: 925702765}
   successTiers: {fileID: 129254809}
   inGameMenu: {fileID: 762805877}
+  successMenu: {fileID: 872456596}
 --- !u!4 &1766025131
 Transform:
   m_ObjectHideFlags: 0
