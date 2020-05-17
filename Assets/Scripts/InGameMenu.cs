@@ -1,6 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviour {
     public GameObject time;
@@ -8,7 +8,7 @@ public class InGameMenu : MonoBehaviour {
 
     private TextMeshProUGUI challengeNumberText;
 
-    void Start() {
+    private void Awake() {
         challengeNumberText = challengeNumber.GetComponent<TextMeshProUGUI>();
     }
 

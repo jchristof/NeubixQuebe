@@ -80,7 +80,9 @@ public class MoveScript : MonoBehaviour {
         Physics.RaycastNonAlloc(ray, raycastHits);
 
         foreach (var hit in raycastHits) {
-            if (hit.transform.GetComponent<TileScript>() == null) continue;
+            var component = hit.transform?.GetComponent(typeof(TileScript));
+            if (component == null) continue;
+            
             dragChild = hit.transform.gameObject;
             break;
         }
