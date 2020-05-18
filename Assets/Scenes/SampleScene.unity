@@ -1994,6 +1994,7 @@ MonoBehaviour:
   image: {fileID: 2020108045}
   text: {fileID: 1708079126}
   Identifier: 0
+  fadeTime: 0
 --- !u!111 &792113012
 Animation:
   m_ObjectHideFlags: 0
@@ -2207,6 +2208,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9658765b21158ea55867ea53275e312c, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 68a06447d88ab054d8f4378d8ff18e79,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 68a06447d88ab054d8f4378d8ff18e79,
         type: 3}
       propertyPath: m_Name
@@ -2657,7 +2663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88b96d2b45c5e5ba9bfbcd008cd6515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePool: {fileID: 0}
+  cubePool: {fileID: 1509287966}
+  successMaterial: {fileID: 2100000, guid: 64ce77a699839f555a384ebd95fe97fe, type: 2}
+  gameController: {fileID: 1766025129}
 --- !u!114 &925702772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5925,6 +5933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1766025131}
   - component: {fileID: 1766025130}
+  - component: {fileID: 1766025132}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -5967,6 +5976,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1766025132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766025129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88b96d2b45c5e5ba9bfbcd008cd6515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePool: {fileID: 1509287966}
+  successMaterial: {fileID: 2100000, guid: 64ce77a699839f555a384ebd95fe97fe, type: 2}
+  gameController: {fileID: 0}
 --- !u!1 &1845343850
 GameObject:
   m_ObjectHideFlags: 0

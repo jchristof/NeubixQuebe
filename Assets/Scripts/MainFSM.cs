@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Numerics;
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 using Vector3 = UnityEngine.Vector3;
 
 public class MainFSM : FSM<MainFSM> {
@@ -24,22 +24,22 @@ public enum InputDir {
 class InputIdle : State<MainFSM> {
     public InputIdle(MainFSM fsm) : base(fsm) { }
 
-    private bool LockPressed() => Gamepad.current?.aButton?.isPressed == true ||
-                                  Keyboard.current.spaceKey.isPressed;
+    // private bool LockPressed() => Gamepad.current?.aButton?.isPressed == true ||
+    //                               Keyboard.current.spaceKey.isPressed;
 
     private InputDir GetDirectionInput() {
-        if ((Gamepad.current?.dpad?.up?.wasPressedThisFrame == true ||
-             Keyboard.current.wKey.wasPressedThisFrame))
-            return InputDir.Up;
-        if ((Gamepad.current?.dpad?.down?.wasPressedThisFrame == true ||
-             Keyboard.current.sKey.wasPressedThisFrame))
-            return InputDir.Down;
-        if ((Gamepad.current?.dpad?.left?.wasPressedThisFrame == true ||
-             Keyboard.current.aKey.wasPressedThisFrame))
-            return InputDir.Left;
-        if ((Gamepad.current?.dpad?.right?.wasPressedThisFrame == true ||
-             Keyboard.current.dKey.wasPressedThisFrame))
-            return InputDir.Right;
+        // if ((Gamepad.current?.dpad?.up?.wasPressedThisFrame == true ||
+        //      Keyboard.current.wKey.wasPressedThisFrame))
+        //     return InputDir.Up;
+        // if ((Gamepad.current?.dpad?.down?.wasPressedThisFrame == true ||
+        //      Keyboard.current.sKey.wasPressedThisFrame))
+        //     return InputDir.Down;
+        // if ((Gamepad.current?.dpad?.left?.wasPressedThisFrame == true ||
+        //      Keyboard.current.aKey.wasPressedThisFrame))
+        //     return InputDir.Left;
+        // if ((Gamepad.current?.dpad?.right?.wasPressedThisFrame == true ||
+        //      Keyboard.current.dKey.wasPressedThisFrame))
+        //     return InputDir.Right;
 
         return InputDir.None;
     }
@@ -52,8 +52,8 @@ class InputIdle : State<MainFSM> {
         if (inputDir == InputDir.None)
             return;
 
-        if (LockPressed())
-            fsm.SetState(typeof(InputMoveBoard), inputDir);
+        // if (LockPressed())
+        //     fsm.SetState(typeof(InputMoveBoard), inputDir);
 
         else
             fsm.SetState(typeof(InputMoveCursor), inputDir);

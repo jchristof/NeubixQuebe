@@ -29,6 +29,9 @@ public class GameController : MonoBehaviour {
         inGameMenuScript.SetChallengeNumber("13");
     }
 
+    public void SuccessAnimDone() {
+        SuccessMenuMainMenu();
+    }
     public void SuccessMenuMainMenu() {
         successMenu.SetActive(false);
         mainMenu.SetActive(true);
@@ -67,11 +70,11 @@ public class GameController : MonoBehaviour {
     }
 
     public void GameModeWon() {
-        cubeCollection.SetActive(false);
+        //cubeCollection.SetActive(false);
         //successTiers.SetActive(true);
         inGameMenu.SetActive(false);
-        successMenu.SetActive(true);
-            
+        //successMenu.SetActive(true);
+        GetComponentInChildren<GameModeTransistion>().RunSuccessAnimation();
         //StartCoroutine(RunSuccessTiers());
     }
     
