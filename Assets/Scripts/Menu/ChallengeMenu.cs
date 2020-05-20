@@ -2,15 +2,11 @@
 using UnityEngine;
 
 public class ChallengeMenu : MonoBehaviour {
-    public GameObject controller;
     private List<GameObject> cubes = new List<GameObject>();
     private readonly RaycastHit[] raycastHits = new RaycastHit[5];
 
-    private GameController gameController;
-
-    void Start() {
-        gameController = controller.GetComponent<GameController>();
-    }
+    public GameController gameController;
+    
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
             gameController.ChallengeMenuBack();

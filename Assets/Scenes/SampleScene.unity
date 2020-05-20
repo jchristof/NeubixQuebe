@@ -6098,7 +6098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bea8fac9d671d8483d58a5020de634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1766025129}
+  gameController: {fileID: 1766025130}
 --- !u!65 &1885997653
 BoxCollider:
   m_ObjectHideFlags: 0
