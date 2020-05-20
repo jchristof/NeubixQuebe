@@ -20,7 +20,6 @@
             <e p="CountdownAnim.cs" t="Include" />
             <e p="CountdownTimer.cs" t="Include" />
             <e p="GameMode.cs" t="Include" />
-            <e p="GameModeChallengeMenu.cs" t="Include" />
             <e p="GameModeTransistion.cs" t="Include" />
             <e p="GameModeTwoColor.cs" t="Include" />
             <e p="Main.cs" t="Include" />
@@ -31,8 +30,8 @@
           </e>
           <e p="Menu" t="Include">
             <e p="ChallengeMenu.cs" t="Include" />
+            <e p="GameModeChallengeMenu.cs" t="Include" />
             <e p="InGameMenu.cs" t="Include" />
-            <e p="MainMenu.cs" t="Include" />
             <e p="SuccessTiers.cs" t="Include" />
           </e>
         </e>
