@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using DefaultNamespace;
+﻿using DefaultNamespace;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -42,6 +40,7 @@ public class GameController : MonoBehaviour {
         successMenu.SetActive(true);
         cubeCollection.SetActive(false);
     }
+
     public void SuccessMenuMainMenu() {
         successMenu.SetActive(false);
         mainMenu.SetActive(true);
@@ -54,9 +53,7 @@ public class GameController : MonoBehaviour {
         challengeMenu.SetActive(true);
     }
 
-    public void EndlessClicked() {
-        
-    }
+    public void EndlessClicked() { }
 
     public void RelaxClicked() {
         mainMenu.SetActive(false);
@@ -67,6 +64,7 @@ public class GameController : MonoBehaviour {
         mainMenu.SetActive(true);
         relaxMenu.SetActive(false);
     }
+
     public void ChallengeMenuItemSelected(string challenge) {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
@@ -80,18 +78,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void GameModeWon() {
-        //cubeCollection.SetActive(false);
-        //successTiers.SetActive(true);
         inGameMenu.SetActive(false);
-        //successMenu.SetActive(true);
         GetComponentInChildren<GameModeTransistion>().RunSuccessAnimation();
-        //StartCoroutine(RunSuccessTiers());
-    }
-    
-    IEnumerator RunSuccessTiers() {
-        successTiers.GetComponent<SuccessTiers>().RunSuccessAnimation();
-        yield return new WaitForSeconds(3f);
-        successTiers.SetActive(false);
-        mainMenu.SetActive(true);
     }
 }
