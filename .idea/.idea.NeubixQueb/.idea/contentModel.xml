@@ -29,7 +29,6 @@
             <e p="TileScript.cs" t="Include" />
           </e>
           <e p="Menu" t="Include">
-            <e p="ChallengeMenu.cs" t="Include" />
             <e p="GameModeChallengeMenu.cs" t="Include" />
             <e p="InGameMenu.cs" t="Include" />
             <e p="SuccessTiers.cs" t="Include" />
