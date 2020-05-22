@@ -55,7 +55,7 @@ namespace DefaultNamespace {
                 var tile = hit.transform.GetComponent<TileScript>();
                 if (tile == null) continue;
 
-                gameController.ChallengeMenuItemSelected(tile.name);
+                gameController.ChallengeMenuItemSelected(int.Parse(tile.name) - 1);
                 break;
             }
         }
@@ -81,11 +81,22 @@ namespace DefaultNamespace {
         }
 
         void ConfigureCubes() {
+            var savedProgress = gameController.savedProgress.challengeProgress.challenges;
             for (var i = 17; i >= 0; i--) {
                 GameObject cube = cubePool.cubeGrid[i];
                 cube.SetActive(true);
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
-                cube.GetComponent<Renderer>().material = challengeRowColors[i / 3];
+                var material = challengeRowColors[i / 3];
+                if (savedProgress[17 - i].complete) {
+                    cube.GetComponent<Renderer>().material = material;
+                }
+                else {
+                    var newMaterial = new Material(material);
+                    var color = newMaterial.color;
+                    newMaterial.color = new Color(color.r * .3f, color.g * .3f, color.b * .3f, color.a);
+                    cube.GetComponent<Renderer>().material = newMaterial;
+                }
+
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.GetComponent<TileScript>().text.text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();

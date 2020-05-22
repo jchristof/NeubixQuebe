@@ -11,11 +11,24 @@ public class GameController : MonoBehaviour {
     public GameObject successMenu;
     private InGameMenu inGameMenuScript;
 
-    private SavedProgress _savedProgress;
+    private int prefsVersion = 1;
+    public SavedProgress savedProgress;
 
     private void Awake() {
         string progress = PlayerPrefs.GetString("GameProgress", "");
-        _savedProgress = JsonUtility.FromJson<SavedProgress>(progress) ?? new SavedProgress();
+        savedProgress = JsonUtility.FromJson<SavedProgress>(progress);
+        if (savedProgress?.version != prefsVersion) {
+            savedProgress = null;
+            PlayerPrefs.DeleteKey("GameProgress");
+        }
+
+        if (savedProgress == null) {
+            savedProgress = new SavedProgress();
+            savedProgress.version = prefsVersion;
+            for(int i = 0; i < 18; i++)
+                savedProgress.challengeProgress.challenges.Add(new SingleChallengeProgress());
+        }
+        
     }
 
     public void Start() {
@@ -33,7 +46,8 @@ public class GameController : MonoBehaviour {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
         inGameMenu.SetActive(true);
-        inGameMenuScript.SetChallengeNumber("13");
+        savedProgress.currentChallenge++;
+        inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
     }
 
     public void SuccessAnimDone() {
@@ -46,6 +60,8 @@ public class GameController : MonoBehaviour {
         mainMenu.SetActive(true);
         cubeCollection.SetActive(false);
         inGameMenu.SetActive(false);
+
+        
     }
 
     public void ChallengesClicked() {
@@ -65,11 +81,12 @@ public class GameController : MonoBehaviour {
         relaxMenu.SetActive(false);
     }
 
-    public void ChallengeMenuItemSelected(string challenge) {
+    public void ChallengeMenuItemSelected(int challenge) {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
         inGameMenu.SetActive(true);
-        inGameMenuScript.SetChallengeNumber(challenge);
+        inGameMenuScript.SetChallengeNumber((challenge + 1).ToString());
+        savedProgress.currentChallenge = challenge;
     }
 
     public void ChallengeMenuBack() {
@@ -80,5 +97,11 @@ public class GameController : MonoBehaviour {
     public void GameModeWon() {
         inGameMenu.SetActive(false);
         GetComponentInChildren<GameModeTransistion>().RunSuccessAnimation();
+        var currentLevel = savedProgress.currentChallenge;
+        var challenge = savedProgress.challengeProgress.challenges[currentLevel];
+        challenge.complete = true;
+        var savedData = JsonUtility.ToJson(savedProgress);
+        PlayerPrefs.SetString("GameProgress",savedData);
+        PlayerPrefs.Save();
     }
 }

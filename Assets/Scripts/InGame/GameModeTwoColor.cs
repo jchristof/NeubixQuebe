@@ -61,7 +61,6 @@ namespace DefaultNamespace {
         }
 
         public void OnEnable() {
-            
             countdownTimer.Set((int)TimeSpan.FromMinutes(2).TotalMilliseconds);
             countdownTimer.SetOnEnd(() => {
                 
