@@ -1,30 +1,32 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
-namespace DefaultNamespace {
+namespace InGame {
     public class GameModeTwoColor : MonoBehaviour, TileField, GameMode {
         public List<Material> challengeRowColors;
+        public Material cubeColor0;
+        public Material cubeColor1;
+        public Material successMaterial;
         public int[] layout = new int[18];
         public CubePool cubePool;
         public InGameMenu inGameMenu;
+        public GameController gameController;
         private List<GameObject> cubes = new List<GameObject>();
-        private CountdownTimer countdownTimer = new CountdownTimer();
+
+        private InGameState.InGameFSM inGameState;
+
+        public void Start() {
+            inGameState = new InGameState.InGameFSM(this);
+        }
 
         public void Update() {
-            countdownTimer.Update((int)(Time.deltaTime * 1000));
-            inGameMenu.time.GetComponent<TextMeshProUGUI>().text = countdownTimer.ToString();
-            if (Input.GetKeyUp(KeyCode.Alpha1)) {
-                var textEnabled = cubes[0].GetComponentInChildren<TileScript>().text.enabled;
-                foreach (var cube in cubes) {
-                    cube.GetComponentInChildren<TileScript>().text.enabled = !textEnabled;
-                }
-            }
+            if(Input.GetKeyUp(KeyCode.Alpha2))
+                inGameState.RunSuccessAnimation();
+            
+            inGameState?.Update();
         }
 
         public List<GameObject> GetTiles() {
@@ -36,7 +38,7 @@ namespace DefaultNamespace {
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.localScale = Vector3.one * .9f;
-                cube.transform.rotation = new Quaternion(0,0,0,0);
+                cube.transform.rotation = new Quaternion(0, 0, 0, 0);
                 cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();
                 cube.SetActive(true);
@@ -61,23 +63,15 @@ namespace DefaultNamespace {
         }
 
         public void OnEnable() {
-            countdownTimer.Set((int)TimeSpan.FromMinutes(2).TotalMilliseconds);
-            countdownTimer.SetOnEnd(() => {
-                
-            });
-            countdownTimer.Start();
+            inGameState = new InGameState.InGameFSM(this);
         }
 
         public void OnDisable() {
-            foreach (var c in cubes) {
-                c.SetActive(false);
-            }
-
             cubes.Clear();
         }
 
-        public bool CheckSolved() {
-            for (int i = 0; i < 9; i++) {
+        public bool CheckSolved(int distance) {
+            for (int i = 0; i < 9; i++) {    
                 if (cubes[i].GetComponent<TileScript>().Identifier != 0)
                     return false;
             }
@@ -86,7 +80,9 @@ namespace DefaultNamespace {
                 if (cubes[i].GetComponent<TileScript>().Identifier != 1)
                     return false;
             }
-
+            
+            inGameState.RunSuccessAnimation();
+            
             return true;
         }
     }

@@ -1994,6 +1994,7 @@ MonoBehaviour:
   text: {fileID: 1708079126}
   Identifier: 0
   fadeTime: 0
+  savedPosition: {x: 0, y: 0, z: 0}
 --- !u!111 &792113012
 Animation:
   m_ObjectHideFlags: 0
@@ -2554,14 +2555,13 @@ GameObject:
   - component: {fileID: 925702770}
   - component: {fileID: 925702766}
   - component: {fileID: 925702772}
-  - component: {fileID: 925702771}
   m_Layer: 0
   m_Name: GameCubes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &925702766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2569,12 +2569,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925702765}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd30e33470fe348d7b6fb32f41312317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 1766025129}
   cubePool: {fileID: 1509287966}
 --- !u!23 &925702767
 MeshRenderer:
@@ -2650,21 +2649,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &925702771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925702765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88b96d2b45c5e5ba9bfbcd008cd6515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubePool: {fileID: 1509287966}
-  successMaterial: {fileID: 2100000, guid: 64ce77a699839f555a384ebd95fe97fe, type: 2}
-  gameController: {fileID: 1766025129}
 --- !u!114 &925702772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,9 +2664,13 @@ MonoBehaviour:
   challengeRowColors:
   - {fileID: 2100000, guid: 5a47032d894e7b13b8e4651589035449, type: 2}
   - {fileID: 2100000, guid: 02053b88617283cb28f0c027b781479d, type: 2}
-  layout: 010000000100000001000000010000000100000001000000010000000100000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+  cubeColor0: {fileID: 2100000, guid: 02053b88617283cb28f0c027b781479d, type: 2}
+  cubeColor1: {fileID: 2100000, guid: 5a47032d894e7b13b8e4651589035449, type: 2}
+  successMaterial: {fileID: 2100000, guid: 64ce77a699839f555a384ebd95fe97fe, type: 2}
+  layout: 010000000100000001000000010000000100000001000000010000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000
   cubePool: {fileID: 1509287966}
   inGameMenu: {fileID: 762805879}
+  gameController: {fileID: 1766025130}
 --- !u!1 &957421725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,7 +2876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2684422, y: -1.3585117, z: 5.22714}
+  m_LocalPosition: {x: -1, y: -1.31, z: 5.22714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1756721451}
@@ -5945,6 +5933,11 @@ MonoBehaviour:
   successTiers: {fileID: 129254809}
   inGameMenu: {fileID: 762805877}
   successMenu: {fileID: 872456596}
+  savedProgress:
+    version: 0
+    challengeProgress:
+      challenges: []
+    currentChallenge: 0
 --- !u!4 &1766025131
 Transform:
   m_ObjectHideFlags: 0
@@ -5973,9 +5966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88b96d2b45c5e5ba9bfbcd008cd6515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePool: {fileID: 1509287966}
-  successMaterial: {fileID: 2100000, guid: 64ce77a699839f555a384ebd95fe97fe, type: 2}
-  gameController: {fileID: 1766025129}
 --- !u!1 &1845343850
 GameObject:
   m_ObjectHideFlags: 0
@@ -6098,8 +6088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bea8fac9d671d8483d58a5020de634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubes: []
-  gameController: {fileID: 1766025130}
 --- !u!65 &1885997653
 BoxCollider:
   m_ObjectHideFlags: 0

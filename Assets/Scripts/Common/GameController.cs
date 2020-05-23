@@ -1,4 +1,5 @@
-﻿using DefaultNamespace;
+﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -39,6 +40,19 @@ public class GameController : MonoBehaviour {
         successTiers.SetActive(false);
         inGameMenu.SetActive(false);
         inGameMenuScript = inGameMenu.GetComponent<InGameMenu>();
+    }
+
+    private void Update() {
+        if (Input.GetKeyUp(KeyCode.Alpha3)) {
+            savedProgress = new SavedProgress();
+            savedProgress.version = prefsVersion;
+            for(int i = 0; i < 18; i++)
+                savedProgress.challengeProgress.challenges.Add(new SingleChallengeProgress());
+            
+            var savedData = JsonUtility.ToJson(savedProgress);
+            PlayerPrefs.SetString("GameProgress",savedData);
+            PlayerPrefs.Save();
+        }
     }
 
     public void SuccessMenuNextChallenge() {
@@ -96,7 +110,7 @@ public class GameController : MonoBehaviour {
 
     public void GameModeWon() {
         inGameMenu.SetActive(false);
-        GetComponentInChildren<GameModeTransistion>().RunSuccessAnimation();
+        cubeCollection.SetActive(false);
         var currentLevel = savedProgress.currentChallenge;
         var challenge = savedProgress.challengeProgress.challenges[currentLevel];
         challenge.complete = true;

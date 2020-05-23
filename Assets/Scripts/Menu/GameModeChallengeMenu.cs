@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Menu;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -11,11 +12,9 @@ namespace DefaultNamespace {
         public List<GameObject> cubes = new List<GameObject>();
         public GameController gameController;
         private readonly RaycastHit[] raycastHits = new RaycastHit[5];
-
+        private ChallengeMenuState.ChallengeMenuFSM fsm;
         void Update() {
-            if (Input.GetKeyDown(KeyCode.Escape)) {
-                gameController.ChallengeMenuBack();
-            }
+            fsm?.Update();
         }
 
         private void OnMouseOver() {
@@ -47,6 +46,8 @@ namespace DefaultNamespace {
         }
 
         private void OnMouseUp() {
+            if (!fsm.AllowSelection)
+                return;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             Physics.RaycastNonAlloc(ray, raycastHits);
@@ -54,14 +55,15 @@ namespace DefaultNamespace {
             foreach (var hit in raycastHits) {
                 var tile = hit.transform.GetComponent<TileScript>();
                 if (tile == null) continue;
-
-                gameController.ChallengeMenuItemSelected(int.Parse(tile.name) - 1);
+                fsm.ChallengeSelected(tile.gameObject);
+                
                 break;
             }
         }
 
         public void OnEnable() {
             cubes = GetComponent<TileField>().GetTiles();
+            fsm = new ChallengeMenuState.ChallengeMenuFSM(this);
         }
 
         public void OnDisable() {
@@ -110,7 +112,7 @@ namespace DefaultNamespace {
             cubes.Last().GetComponent<TileScript>().text.enabled = false;
         }
 
-        public bool CheckSolved() {
+        public bool CheckSolved(int distance) {
             return false;
         }
     }

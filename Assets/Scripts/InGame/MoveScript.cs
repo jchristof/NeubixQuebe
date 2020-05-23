@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour {
     private GameMode gameMode;
-    public GameObject gameController;
     public CubePool cubePool;
     private List<GameObject> cubes;
     
@@ -65,6 +64,8 @@ public class MoveScript : MonoBehaviour {
     RaycastHit[] raycastHits = new RaycastHit[5];
 
     void OnMouseDown() {
+        if (enabled == false)
+            return;
         var initialTransformPosition = transform.position;
         savedTransformPosition = initialTransformPosition;
 
@@ -94,12 +95,13 @@ public class MoveScript : MonoBehaviour {
     }
 
     void OnMouseUp() {
-        if (!inDrag)
+        if (!inDrag || enabled == false)
             return;
 
         Vector3 offset = transform.transform.position - savedTransformPosition;
         offset = new Vector3(Mathf.Round(offset.x), Mathf.Round(offset.y), 0f);
 
+        Debug.Log("offset:" + offset);
         transform.transform.position = savedTransformPosition + offset;
 
         movingCubesCollection?.EndWithWrap(transform.transform.position - savedTransformPosition);
@@ -116,7 +118,6 @@ public class MoveScript : MonoBehaviour {
         transform.position = savedTransformPosition;
         inDrag = false;
 
-        if (gameMode.CheckSolved())
-            gameController.GetComponent<GameController>().GameModeWon();
+        gameMode.CheckSolved(1);
     }
 }

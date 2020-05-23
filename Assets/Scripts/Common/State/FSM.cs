@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public interface StateMachine {
     void Update();
@@ -37,4 +38,6 @@ public class FSM<T> : StateMachine{
 
         state?.Update();
     }
+
+    public bool IsInAny(params Type[] states) => states.Contains(state.GetType());
 }
