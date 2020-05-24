@@ -1,31 +1,36 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace InGame {
     public class GameModeTwoColor : MonoBehaviour, TileField, GameMode {
         public List<Material> challengeRowColors;
         public Material cubeColor0;
         public Material cubeColor1;
+
         public Material successMaterial;
-        public int[] layout = new int[18];
+
         public CubePool cubePool;
         public InGameMenu inGameMenu;
         public GameController gameController;
         private List<GameObject> cubes = new List<GameObject>();
 
         private InGameState.InGameFSM inGameState;
+        //private int[] twoColorLayout = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        private int[] threeColorLayout = {0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1};
 
         public void Start() {
             inGameState = new InGameState.InGameFSM(this);
         }
 
         public void Update() {
-            if(Input.GetKeyUp(KeyCode.Alpha2))
+            if (Input.GetKeyUp(KeyCode.Alpha2))
                 inGameState.RunSuccessAnimation();
-            
+
             inGameState?.Update();
         }
 
@@ -45,16 +50,17 @@ namespace InGame {
                 cubes.Add(cube);
             }
 
-            for (int i = 0; i < layout.Length; i++) {
-                int rnd = Random.Range(0, layout.Length);
-                int temp = layout[rnd];
-                layout[rnd] = layout[i];
-                layout[i] = temp;
+            int[] scrambled = (int[])threeColorLayout.Clone();
+            for (int i = 0; i < scrambled.Length; i++) {
+                int rnd = Random.Range(0, scrambled.Length);
+                int temp = scrambled[rnd];
+                scrambled[rnd] = scrambled[i];
+                scrambled[i] = temp;
             }
 
             for (int i = 0; i < cubes.Count; i++) {
-                cubes[i].GetComponent<Renderer>().material = challengeRowColors[layout[i]];
-                cubes[i].GetComponent<TileScript>().Identifier = layout[i];
+                cubes[i].GetComponent<Renderer>().material = challengeRowColors[scrambled[i]];
+                cubes[i].GetComponent<TileScript>().Identifier = scrambled[i];
                 cubes[i].GetComponent<TileScript>().image.enabled = false;
                 cubes[i].GetComponent<TileScript>().text.enabled = false;
             }
@@ -71,18 +77,13 @@ namespace InGame {
         }
 
         public bool CheckSolved(int distance) {
-            for (int i = 0; i < 9; i++) {    
-                if (cubes[i].GetComponent<TileScript>().Identifier != 0)
+            for (int i = 0; i < 18; i++) {
+                var tileScript = cubes[i].GetComponent<TileScript>();
+                if (tileScript.Identifier != threeColorLayout[i])
                     return false;
             }
 
-            for (int i = 9; i < 18; i++) {
-                if (cubes[i].GetComponent<TileScript>().Identifier != 1)
-                    return false;
-            }
-            
             inGameState.RunSuccessAnimation();
-            
             return true;
         }
     }

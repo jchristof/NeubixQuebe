@@ -2561,7 +2561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &925702766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2664,10 +2664,10 @@ MonoBehaviour:
   challengeRowColors:
   - {fileID: 2100000, guid: 5a47032d894e7b13b8e4651589035449, type: 2}
   - {fileID: 2100000, guid: 02053b88617283cb28f0c027b781479d, type: 2}
+  - {fileID: 2100000, guid: d02c4f5c96b1d04bb83ab1346abc6fee, type: 2}
   cubeColor0: {fileID: 2100000, guid: 02053b88617283cb28f0c027b781479d, type: 2}
   cubeColor1: {fileID: 2100000, guid: 5a47032d894e7b13b8e4651589035449, type: 2}
   successMaterial: {fileID: 2100000, guid: 64ce77a699839f555a384ebd95fe97fe, type: 2}
-  layout: 010000000100000001000000010000000100000001000000010000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000
   cubePool: {fileID: 1509287966}
   inGameMenu: {fileID: 762805879}
   gameController: {fileID: 1766025130}
@@ -6207,7 +6207,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
