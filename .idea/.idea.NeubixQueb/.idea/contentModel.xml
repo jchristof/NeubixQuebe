@@ -10,7 +10,6 @@
           <e p="Common" t="Include">
             <e p="CubePool.cs" t="Include" />
             <e p="GameController.cs" t="Include" />
-            <e p="MainFSM.cs" t="Include" />
             <e p="SavedProgress.cs" t="Include" />
             <e p="State" t="Include">
               <e p="FSM.cs" t="Include" />
@@ -18,11 +17,13 @@
             </e>
           </e>
           <e p="InGame" t="Include">
-            <e p="Board.cs" t="Include" />
             <e p="CountdownAnimation.cs" t="Include" />
             <e p="CountdownTimer.cs" t="Include" />
+            <e p="Game.cs" t="Include" />
             <e p="GameMode.cs" t="Include" />
             <e p="GameModeTwoColor.cs" t="Include" />
+            <e p="GameType.cs" t="Include" />
+            <e p="InGameConfig.cs" t="Include" />
             <e p="InGameFSM.cs" t="Include" />
             <e p="MoveScript.cs" t="Include" />
             <e p="TileField.cs" t="Include" />
@@ -34,6 +35,10 @@
             <e p="GameModeChallengeMenu.cs" t="Include" />
             <e p="InGameMenu.cs" t="Include" />
             <e p="SuccessTiers.cs" t="Include" />
+          </e>
+          <e p="Sandbox" t="Include">
+            <e p="Board.cs" t="Include" />
+            <e p="MainFSM.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

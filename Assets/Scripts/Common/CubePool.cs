@@ -13,7 +13,6 @@ public class CubePool : MonoBehaviour {
         for (int i = 0; i < 40; i++) {
             var go = Instantiate(roundEdgeCube);
             go.GetComponent<TileScript>().image.enabled = false;
-            go.transform.localScale = Vector3.one * .9f;
             go.GetComponentInChildren<TileScript>().text.enabled = false;
             go.SetActive(false);
             cubesPool.Add(go);
@@ -23,7 +22,6 @@ public class CubePool : MonoBehaviour {
             GameObject cube = Instantiate(roundEdgeCube);
             cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
             cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
-            cube.transform.localScale = Vector3.one * .9f;
             cube.transform.rotation = new Quaternion(0,0,0,0);
             cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
             cube.name = (18 - i).ToString();

@@ -1,5 +1,6 @@
 ﻿using System;
 using DefaultNamespace;
+using InGame;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -55,12 +56,23 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    private int GetGameMode(int challenge) {
+        if (challenge < 6)
+            return 0;
+        else {
+            return 1;
+        }
+    }
     public void SuccessMenuNextChallenge() {
         successMenu.SetActive(false);
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
+        
+        var nextChallenge = savedProgress.currentChallenge + 1;
+
+        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(nextChallenge));
         inGameMenu.SetActive(true);
-        savedProgress.currentChallenge++;
+        savedProgress.currentChallenge = nextChallenge;
         inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
     }
 
@@ -98,6 +110,7 @@ public class GameController : MonoBehaviour {
     public void ChallengeMenuItemSelected(int challenge) {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
+        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(challenge));
         inGameMenu.SetActive(true);
         inGameMenuScript.SetChallengeNumber((challenge + 1).ToString());
         savedProgress.currentChallenge = challenge;

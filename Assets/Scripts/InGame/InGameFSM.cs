@@ -15,6 +15,10 @@ namespace InGame {
 
             public readonly GameModeTwoColor gameMode;
 
+            public void SetupGameMode() {
+                
+            }
+
             public void RunSuccessAnimation() {
                 SetState(typeof(SuccessTransition));
             }

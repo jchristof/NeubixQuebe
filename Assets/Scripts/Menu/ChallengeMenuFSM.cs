@@ -49,7 +49,7 @@ namespace Menu {
             IEnumerator RunSelectionAnimation() {
                 float startTime = Time.time;
                 Vector3 distancePosition = Vector3.forward * 50f;
-                Vector3 centerPosition = new Vector3(1f, 2.5f, -5f);
+                Vector3 centerPosition = new Vector3(1f, 2.5f, -3.5f);
                 foreach (var cube in fsm.gameMode.cubes) {
                     cube.GetComponent<TileScript>().savedPosition = cube.transform.position;
                 }
