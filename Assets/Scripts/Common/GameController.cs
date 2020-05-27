@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     public GameObject successTiers;
     public GameObject inGameMenu;
     public GameObject successMenu;
+    public GameObject retryMenu;
     private InGameMenu inGameMenuScript;
 
     private int prefsVersion = 1;
@@ -39,6 +40,8 @@ public class GameController : MonoBehaviour {
         relaxMenu.SetActive(false);
         cubeCollection.SetActive(false);
         successTiers.SetActive(false);
+        successMenu.SetActive(false);
+        retryMenu.SetActive(false);
         inGameMenu.SetActive(false);
         inGameMenuScript = inGameMenu.GetComponent<InGameMenu>();
     }
@@ -63,14 +66,34 @@ public class GameController : MonoBehaviour {
             return 1;
         }
     }
+
+    private float GetLevelTime(int challenge) {
+        if (challenge < 3)
+            return 1f;
+        else if (challenge < 6)
+            return .75f;
+        else if(challenge < 9)
+            return 1f;
+        else if (challenge < 12)
+            return .75f;
+        else if (challenge < 15)
+            return .5f;
+        
+        else if (challenge == 15)
+            return 2.5f;
+        else if (challenge == 16)
+            return 2f;
+        else return 1f;
+    }
     public void SuccessMenuNextChallenge() {
         successMenu.SetActive(false);
+        retryMenu.SetActive(false);
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
         
         var nextChallenge = savedProgress.currentChallenge + 1;
 
-        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(nextChallenge));
+        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
         inGameMenu.SetActive(true);
         savedProgress.currentChallenge = nextChallenge;
         inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
@@ -80,14 +103,32 @@ public class GameController : MonoBehaviour {
         successMenu.SetActive(true);
         cubeCollection.SetActive(false);
     }
+    
+    public void FailedAnimDone() {
+        retryMenu.SetActive(true);
+        cubeCollection.SetActive(false);
+    }
+
+    public void Retry() {
+        retryMenu.SetActive(false);
+        relaxMenu.SetActive(false);
+        challengeMenu.SetActive(false);
+        cubeCollection.SetActive(true);
+        
+        var currentChallenge = savedProgress.currentChallenge;
+
+        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(currentChallenge), GetLevelTime(currentChallenge));
+        inGameMenu.SetActive(true);
+        savedProgress.currentChallenge = currentChallenge;
+        inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
+    }
 
     public void SuccessMenuMainMenu() {
+        retryMenu.SetActive(false);
         successMenu.SetActive(false);
         mainMenu.SetActive(true);
         cubeCollection.SetActive(false);
         inGameMenu.SetActive(false);
-
-        
     }
 
     public void ChallengesClicked() {
@@ -110,7 +151,7 @@ public class GameController : MonoBehaviour {
     public void ChallengeMenuItemSelected(int challenge) {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
-        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(challenge));
+        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(challenge), GetLevelTime(challenge));
         inGameMenu.SetActive(true);
         inGameMenuScript.SetChallengeNumber((challenge + 1).ToString());
         savedProgress.currentChallenge = challenge;

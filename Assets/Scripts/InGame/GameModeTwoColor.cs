@@ -22,8 +22,8 @@ namespace InGame {
         public void Start() {
         }
 
-        public void Init(int gameType) {
-            inGameState = new InGameState.InGameFSM(this);
+        public void Init(int gameType, float levelTime) {
+            inGameState = new InGameState.InGameFSM(this, levelTime);
             
             if(gameType == 0)
                 game = new TwoColorGame(cubePool.cubeGrid, new []{challengeRowColors[0], challengeRowColors[1]});
