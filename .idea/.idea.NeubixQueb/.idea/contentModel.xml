@@ -23,7 +23,6 @@
             <e p="GameMode.cs" t="Include" />
             <e p="GameModeTwoColor.cs" t="Include" />
             <e p="GameType.cs" t="Include" />
-            <e p="InGameConfig.cs" t="Include" />
             <e p="InGameFSM.cs" t="Include" />
             <e p="MoveScript.cs" t="Include" />
             <e p="TileField.cs" t="Include" />

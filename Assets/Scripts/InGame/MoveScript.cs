@@ -50,8 +50,9 @@ public class MoveScript : MonoBehaviour {
         cubes = GetComponent<TileField>().GetTiles();
     }
 
-    public void OnDisable() {
+    public void Stop() {
         OnMouseUp();
+        enabled = false;
     }
 
     private Vector3 mouseDownPosition;
@@ -98,7 +99,7 @@ public class MoveScript : MonoBehaviour {
         inDrag = true;
     }
 
-    public void OnMouseUp() {
+    void OnMouseUp() {
         if (!inDrag || enabled == false)
             return;
 

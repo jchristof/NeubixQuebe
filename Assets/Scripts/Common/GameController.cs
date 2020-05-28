@@ -62,8 +62,11 @@ public class GameController : MonoBehaviour {
     private int GetGameMode(int challenge) {
         if (challenge < 6)
             return 0;
-        else {
+        else if(challenge < 15) {
             return 1;
+        }
+        else {
+            return 2;
         }
     }
 

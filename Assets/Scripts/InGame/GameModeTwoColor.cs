@@ -30,6 +30,9 @@ namespace InGame {
             else if (gameType == 1) {
                 game = new ThreeColorGame(cubePool.cubeGrid, new []{challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
             }
+            else if (gameType == 2) {
+                game = new NumberedGame(cubePool.cubeGrid, new []{challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
+            }
         }
         public void Update() {
             if (Input.GetKeyUp(KeyCode.Alpha2))
