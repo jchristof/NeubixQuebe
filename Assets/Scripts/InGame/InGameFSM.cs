@@ -87,7 +87,8 @@ namespace InGame {
                     startColor = Color.red;
                     endColor = new Color(1f, 0f, 0f, 0f);
                 }
-
+                
+                fsm.gameMode.GetComponent<MoveScript>().OnMouseUp();
                 fsm.gameMode.GetComponent<MoveScript>().enabled = false;
                 fsm.gameMode.StartCoroutine(RunTranistionAnimation());
             }
