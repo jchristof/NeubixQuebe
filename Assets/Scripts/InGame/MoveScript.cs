@@ -6,8 +6,7 @@ public class MoveScript : MonoBehaviour {
     private GameMode gameMode;
     public CubePool cubePool;
     private List<GameObject> cubes;
-    
-    // Update is called once per frame
+
     void Update() {
         if (!inDrag)
             return;

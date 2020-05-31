@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     public GameObject inGameMenu;
     public GameObject successMenu;
     public GameObject retryMenu;
+    public GameObject inGamePauseMenu;
     private InGameMenu inGameMenuScript;
 
     private int prefsVersion = 1;
@@ -174,5 +175,23 @@ public class GameController : MonoBehaviour {
         var savedData = JsonUtility.ToJson(savedProgress);
         PlayerPrefs.SetString("GameProgress",savedData);
         PlayerPrefs.Save();
+    }
+
+    public void InGamePause() {
+        inGamePauseMenu.SetActive(true);
+    }
+
+    public void InGameContinue() {
+        inGamePauseMenu.SetActive(false);
+        cubeCollection.GetComponent<GameModeTwoColor>().Unpause();
+    }
+    
+    public void InGamePauseMenuMainMenu() {
+        inGamePauseMenu.SetActive(false);
+        retryMenu.SetActive(false);
+        successMenu.SetActive(false);
+        mainMenu.SetActive(true);
+        cubeCollection.SetActive(false);
+        inGameMenu.SetActive(false);
     }
 }

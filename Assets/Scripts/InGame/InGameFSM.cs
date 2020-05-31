@@ -22,7 +22,9 @@ namespace InGame {
             public readonly GameModeTwoColor gameMode;
             public readonly float levelTime;
 
-            public void SetupGameMode() { }
+            public bool CanPause() {
+                return IsInAny(new[] {typeof(GamePlay)});
+            }
 
             public void RunSuccessAnimation() {
                 SetState(typeof(SuccessTransition), false);

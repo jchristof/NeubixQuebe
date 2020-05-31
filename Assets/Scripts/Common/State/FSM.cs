@@ -39,5 +39,9 @@ public class FSM<T> : StateMachine{
         state?.Update();
     }
 
-    public bool IsInAny(params Type[] states) => states.Contains(state.GetType());
+    public bool IsInAny(params Type[] states) {
+        if (state == null)
+            return false;
+        return states.Contains(state.GetType());
+    }
 }

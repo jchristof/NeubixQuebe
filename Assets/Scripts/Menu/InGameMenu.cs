@@ -7,6 +7,7 @@ public class InGameMenu : MonoBehaviour {
     public GameObject challengeNumber;
 
     private TextMeshProUGUI challengeNumberText;
+    public GameController gameController;
 
     private void Awake() {
         challengeNumberText = challengeNumber.GetComponent<TextMeshProUGUI>();
