@@ -3687,7 +3687,6 @@ GameObject:
   - component: {fileID: 925702768}
   - component: {fileID: 925702767}
   - component: {fileID: 925702770}
-  - component: {fileID: 925702766}
   - component: {fileID: 925702772}
   m_Layer: 0
   m_Name: GameCubes
@@ -3696,19 +3695,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &925702766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925702765}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd30e33470fe348d7b6fb32f41312317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubePool: {fileID: 1509287966}
 --- !u!23 &925702767
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveScript : MonoBehaviour {
-    private GameMode gameMode;
-    public CubePool cubePool;
+public class MoveScriptx {
+    public List<GameObject> cubePool;
     private List<GameObject> cubes;
+    private Transform transform;
+    private bool enabled;
+    public MoveScriptx(Transform transform, List<GameObject> cubePool, List<GameObject> cubes) {
+        this.transform = transform;
+        this.cubePool = cubePool;
+        this.cubes = cubes;
+    }
 
-    void Update() {
+    public void Enable() => enabled = true;
+    public void Disable() => enabled = false;
+    
+    public void Update() {
         if (!inDrag)
             return;
 
@@ -18,12 +27,12 @@ public class MoveScript : MonoBehaviour {
             if (Math.Abs(diff.x) > Math.Abs(diff.y)) {
                 lockedPosition = new Vector3(0, mouseDownPosition.y, 0);
                 movingCubesCollection = TileMover.GetMovingCubesCollection(dragChild, cubes,
-                    TileMover.GetRow, cubePool.cubesPool, transform);
+                    TileMover.GetRow, cubePool, transform);
             }
             else {
                 lockedPosition = new Vector3(mouseDownPosition.x, 0, 0);
                 movingCubesCollection = TileMover.GetMovingCubesCollection(dragChild, cubes,
-                    TileMover.GetColumn, cubePool.cubesPool, transform);
+                    TileMover.GetColumn, cubePool, transform);
             }
 
             movingCubesCollection.AttachToMoverParent(transform);
@@ -44,14 +53,8 @@ public class MoveScript : MonoBehaviour {
         transform.position = curPosition + offset;
     }
 
-    public void OnEnable() {
-        gameMode = GetComponent<GameMode>();
-        cubes = GetComponent<TileField>().GetTiles();
-    }
-
     public void Stop() {
         OnMouseUp();
-        enabled = false;
     }
 
     private Vector3 mouseDownPosition;
@@ -67,9 +70,10 @@ public class MoveScript : MonoBehaviour {
 
     RaycastHit[] raycastHits = new RaycastHit[5];
 
-    void OnMouseDown() {
-        if (enabled == false)
+    public void OnMouseDown() {
+        if (!enabled)
             return;
+        
         var initialTransformPosition = transform.position;
         savedTransformPosition = initialTransformPosition;
 
@@ -98,8 +102,8 @@ public class MoveScript : MonoBehaviour {
         inDrag = true;
     }
 
-    void OnMouseUp() {
-        if (!inDrag || enabled == false)
+    public void OnMouseUp() {
+        if (!inDrag || !enabled)
             return;
 
         Vector3 offset = transform.transform.position - savedTransformPosition;
@@ -122,6 +126,6 @@ public class MoveScript : MonoBehaviour {
         transform.position = savedTransformPosition;
         inDrag = false;
 
-        gameMode.CheckSolved(1);
+        //gameMode.CheckSolved(1);
     }
 }

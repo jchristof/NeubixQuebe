@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace InGame {
-    public class GameModeTwoColor : MonoBehaviour, TileField, GameMode {
+    public class GameModeTwoColor : MonoBehaviour {
         public List<Material> challengeRowColors;
         public Material cubeColor0;
         public Material cubeColor1;
@@ -14,14 +14,13 @@ namespace InGame {
         public GameController gameController;
 
         private InGameState.InGameFSM inGameState;
-        private Game game;
-
-        public void Start() { }
+        public Game game;
+        public MoveScriptx moveScriptx;
 
         public void Init(int gameType, float levelTime) {
             inGameState = new InGameState.InGameFSM(this, levelTime);
             paused = false;
-            
+
             if (gameType == 0)
                 game = new TwoColorGame(cubePool.cubeGrid, new[] {challengeRowColors[0], challengeRowColors[1]});
             else if (gameType == 1)
@@ -37,7 +36,7 @@ namespace InGame {
         public void Unpause() {
             paused = false;
         }
-        
+
         public void Update() {
             if (Input.GetKeyUp(KeyCode.Alpha2))
                 inGameState?.RunSuccessAnimation();
@@ -52,29 +51,30 @@ namespace InGame {
                 }
             }
 
-            if (!paused)
+            if (!paused) {
+                moveScriptx?.Update();
                 inGameState?.Update();
+            }
         }
 
+        void OnMouseDown() {
+            moveScriptx?.OnMouseDown();
+        }
 
-        public void OnEnable() { }
+        public void OnMouseUp() {
+            moveScriptx?.OnMouseUp();
+            CheckSolved(1);
+        }
 
         public void OnDisable() {
             inGameState = null;
             game = null;
+            moveScriptx = null;
         }
 
-        public bool CheckSolved(int distance) {
-            if (game.CheckedSolved()) {
+        void CheckSolved(int distance) {
+            if (game.CheckedSolved()) 
                 inGameState.RunSuccessAnimation();
-                return true;
-            }
-
-            return false;
-        }
-
-        public List<GameObject> GetTiles() {
-            return game?.GetGameTiles();
         }
     }
 }
