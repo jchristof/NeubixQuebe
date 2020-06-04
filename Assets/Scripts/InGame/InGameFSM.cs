@@ -22,6 +22,8 @@ namespace InGame {
             public readonly GameModeTwoColor gameMode;
             public readonly float levelTime;
 
+            public float levelCompletionTime;
+
             public bool CanPause() {
                 return IsInAny(new[] {typeof(GamePlay)});
             }
@@ -71,6 +73,7 @@ namespace InGame {
             public override void Post() {
                 base.Post();
                 countdownTimer.Stop();
+                fsm.levelCompletionTime = countdownTimer.Get();
             }
         }
 
@@ -129,7 +132,7 @@ namespace InGame {
                 }
                 else {
                     fsm.gameMode.gameController.SuccessAnimDone();
-                    fsm.gameMode.gameController.GameModeWon();
+                    fsm.gameMode.gameController.GameModeWon(fsm.levelCompletionTime);
                 }
             }
         }

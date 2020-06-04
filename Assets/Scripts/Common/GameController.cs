@@ -166,9 +166,10 @@ public class GameController : MonoBehaviour {
         mainMenu.SetActive(true);
     }
 
-    public void GameModeWon() {
+    public void GameModeWon(float levelCompletionTime) {
         inGameMenu.SetActive(false);
         cubeCollection.SetActive(false);
+        successMenu.GetComponent<SuccessMenu>().SetTime(levelCompletionTime);
         var currentLevel = savedProgress.currentChallenge;
         var challenge = savedProgress.challengeProgress.challenges[currentLevel];
         challenge.complete = true;

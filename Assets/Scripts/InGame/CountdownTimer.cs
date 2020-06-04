@@ -10,6 +10,10 @@ namespace DefaultNamespace {
             currentTime = milliseconds;
         }
 
+        public int Get() {
+            return currentTime;
+        }
+
         public void Start() {
             running = true;
         }
