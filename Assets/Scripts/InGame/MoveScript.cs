@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveScriptx {
+public class MoveScript {
     public List<GameObject> cubePool;
     private List<GameObject> cubes;
     private Transform transform;
     private bool enabled;
-    public MoveScriptx(Transform transform, List<GameObject> cubePool, List<GameObject> cubes) {
+    public MoveScript(Transform transform, List<GameObject> cubePool, List<GameObject> cubes) {
         this.transform = transform;
         this.cubePool = cubePool;
         this.cubes = cubes;

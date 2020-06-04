@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace DefaultNamespace {
-    public class GameModeChallengeMenu : MonoBehaviour, TileField, GameMode {
+    public class GameModeChallengeMenu : MonoBehaviour, TileField {
         public List<Material> challengeRowColors;
         public Sprite crown;
         public CubePool cubePool;
@@ -67,10 +67,6 @@ namespace DefaultNamespace {
         }
 
         public void OnDisable() {
-            foreach (var cube in cubes) {
-                cube.SetActive(false);
-            }
-
             cubes.Clear();
         }
 

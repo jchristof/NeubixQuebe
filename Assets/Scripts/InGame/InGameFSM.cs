@@ -37,7 +37,7 @@ namespace InGame {
 
             public override void Pre(object args = null) {
                 base.Pre(args);
-                fsm.gameMode.moveScriptx?.Disable();
+                fsm.gameMode.moveScript?.Disable();
 
                 countDownAnimation = new CountdownAnimation(fsm.gameMode.cubePool.cubeGrid, fsm.gameMode.cubeColor0,
                     fsm.gameMode.cubeColor1, fsm.gameMode);
@@ -58,8 +58,8 @@ namespace InGame {
                 });
                 countdownTimer.Start();
 
-                fsm.gameMode.moveScriptx = new MoveScriptx(fsm.gameMode.transform, fsm.gameMode.cubePool.cubesPool, fsm.gameMode.game.GetGameTiles());
-                fsm.gameMode.moveScriptx.Enable();
+                fsm.gameMode.moveScript = new MoveScript(fsm.gameMode.transform, fsm.gameMode.cubePool.cubesPool, fsm.gameMode.game.GetGameTiles());
+                fsm.gameMode.moveScript.Enable();
             }
 
             public override void Update() {
@@ -91,7 +91,7 @@ namespace InGame {
                     endColor = new Color(1f, 0f, 0f, 0f);
                 }
 
-                fsm.gameMode.moveScriptx.Stop();
+                fsm.gameMode.moveScript.Stop();
                 fsm.gameMode.StartCoroutine(RunTranistionAnimation());
             }
 

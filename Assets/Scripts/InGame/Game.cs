@@ -10,19 +10,18 @@ namespace InGame {
         public abstract bool CheckedSolved();
     }
 
-    public class TwoColorGame : Game{
+    public class TwoColorGame : Game {
         public TwoColorGame(List<GameObject> cubePoolGrid, Material[] materials) {
             this.cubePoolGrid = cubePoolGrid;
             this.materials = materials;
         }
-        
-        private List<GameObject> cubes = new List<GameObject>();
-        private List<GameObject> cubePoolGrid;
-        private Material[] materials;
-        
-        
-        private int[] twoColorLayout = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-        
+
+        private readonly List<GameObject> cubes = new List<GameObject>();
+        private readonly List<GameObject> cubePoolGrid;
+        private readonly Material[] materials;
+
+        private readonly int[] twoColorLayout = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+
         public override List<GameObject> GetGameTiles() {
             if (cubes.Any())
                 return cubes;
@@ -38,7 +37,7 @@ namespace InGame {
                 cubes.Add(cube);
             }
 
-            int[] scrambled = (int[])twoColorLayout.Clone();
+            int[] scrambled = (int[]) twoColorLayout.Clone();
             for (int i = 0; i < scrambled.Length; i++) {
                 int rnd = Random.Range(0, scrambled.Length);
                 int temp = scrambled[rnd];
@@ -55,7 +54,7 @@ namespace InGame {
 
             return cubes;
         }
-        
+
         public override bool CheckedSolved() {
             for (int i = 0; i < 18; i++) {
                 var tileScript = cubes[i].GetComponent<TileScript>();
@@ -66,20 +65,19 @@ namespace InGame {
             return true;
         }
     }
-    
-    public class ThreeColorGame : Game{
+
+    public class ThreeColorGame : Game {
         public ThreeColorGame(List<GameObject> cubePoolGrid, Material[] materials) {
             this.cubePoolGrid = cubePoolGrid;
             this.materials = materials;
         }
-        
-        private List<GameObject> cubes = new List<GameObject>();
-        private List<GameObject> cubePoolGrid;
-        private Material[] materials;
-        
-        
-        private int[] colorLayout = {0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1};
-        
+
+        private readonly List<GameObject> cubes = new List<GameObject>();
+        private readonly List<GameObject> cubePoolGrid;
+        private readonly Material[] materials;
+
+        private readonly int[] colorLayout = {0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1};
+
         public override List<GameObject> GetGameTiles() {
             if (cubes.Any())
                 return cubes;
@@ -95,7 +93,7 @@ namespace InGame {
                 cubes.Add(cube);
             }
 
-            int[] scrambled = (int[])colorLayout.Clone();
+            int[] scrambled = (int[]) colorLayout.Clone();
             for (int i = 0; i < scrambled.Length; i++) {
                 int rnd = Random.Range(0, scrambled.Length);
                 int temp = scrambled[rnd];
@@ -112,8 +110,10 @@ namespace InGame {
 
             return cubes;
         }
-        
+
         public override bool CheckedSolved() {
+            if(!cubes.Any())
+                
             for (int i = 0; i < 18; i++) {
                 var tileScript = cubes[i].GetComponent<TileScript>();
                 if (tileScript.Identifier != colorLayout[i])
@@ -123,20 +123,20 @@ namespace InGame {
             return true;
         }
     }
-    
-        public class NumberedGame : Game{
+
+    public class NumberedGame : Game {
         public NumberedGame(List<GameObject> cubePoolGrid, Material[] materials) {
             this.cubePoolGrid = cubePoolGrid;
             this.materials = materials;
         }
-        
-        private List<GameObject> cubes = new List<GameObject>();
-        private List<GameObject> cubePoolGrid;
-        private Material[] materials;
-        
-        
-        private int[] numberLayout = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
-        
+
+        private readonly List<GameObject> cubes = new List<GameObject>();
+        private readonly List<GameObject> cubePoolGrid;
+        private readonly Material[] materials;
+
+
+        private readonly int[] numberLayout = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
+
         public override List<GameObject> GetGameTiles() {
             if (cubes.Any())
                 return cubes;
@@ -155,7 +155,7 @@ namespace InGame {
                 cubes.Add(cube);
             }
 
-            int[] scrambled = (int[])numberLayout.Clone();
+            int[] scrambled = (int[]) numberLayout.Clone();
             for (int i = 0; i < scrambled.Length; i++) {
                 int rnd = Random.Range(0, scrambled.Length);
                 int temp = scrambled[rnd];
@@ -167,14 +167,11 @@ namespace InGame {
                 cubes[i].GetComponent<Renderer>().material = materials[1];
                 cubes[i].GetComponent<TileScript>().Identifier = scrambled[i];
                 cubes[i].GetComponentInChildren<Text>().text = scrambled[i].ToString();
-                
-                // cubes[i].GetComponent<TileScript>().image.enabled = false;
-                // cubes[i].GetComponent<TileScript>().text.enabled = false;
             }
 
             return cubes;
         }
-        
+
         public override bool CheckedSolved() {
             for (int i = 0; i < 18; i++) {
                 var tileScript = cubes[i].GetComponent<TileScript>();

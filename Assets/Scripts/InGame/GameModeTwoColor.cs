@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace InGame {
     public class GameModeTwoColor : MonoBehaviour {
@@ -15,7 +16,7 @@ namespace InGame {
 
         private InGameState.InGameFSM inGameState;
         public Game game;
-        public MoveScriptx moveScriptx;
+        public MoveScript moveScript;
 
         public void Init(int gameType, float levelTime) {
             inGameState = new InGameState.InGameFSM(this, levelTime);
@@ -52,28 +53,29 @@ namespace InGame {
             }
 
             if (!paused) {
-                moveScriptx?.Update();
+                moveScript?.Update();
                 inGameState?.Update();
             }
         }
 
         void OnMouseDown() {
-            moveScriptx?.OnMouseDown();
+            moveScript?.OnMouseDown();
         }
 
         public void OnMouseUp() {
-            moveScriptx?.OnMouseUp();
-            CheckSolved(1);
+            moveScript?.OnMouseUp();
+            if (moveScript != null)
+                CheckSolved(1);
         }
 
         public void OnDisable() {
             inGameState = null;
             game = null;
-            moveScriptx = null;
+            moveScript = null;
         }
 
         void CheckSolved(int distance) {
-            if (game.CheckedSolved()) 
+            if (game.CheckedSolved())
                 inGameState.RunSuccessAnimation();
         }
     }
