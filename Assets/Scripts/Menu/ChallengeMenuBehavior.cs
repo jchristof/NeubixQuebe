@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace DefaultNamespace {
-    public class GameModeChallengeMenu : MonoBehaviour {
+    public class ChallengeMenuBehavior : MonoBehaviour {
         public List<Material> challengeRowColors;
         public Sprite crown;
         public CubePool cubePool;

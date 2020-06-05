@@ -6,12 +6,12 @@ using UnityEngine;
 namespace Menu {
     public class ChallengeMenuState {
         public class ChallengeMenuFSM : FSM<ChallengeMenuFSM> {
-            public ChallengeMenuFSM(GameModeChallengeMenu gameMode) {
+            public ChallengeMenuFSM(ChallengeMenuBehavior gameMode) {
                 this.gameMode = gameMode;
                 SetState(typeof(InputIdle));
             }
 
-            public readonly GameModeChallengeMenu gameMode;
+            public readonly ChallengeMenuBehavior gameMode;
 
             public void ChallengeSelected(GameObject gameObject) {
                 SetState(typeof(ChallengeSelected), gameObject);
