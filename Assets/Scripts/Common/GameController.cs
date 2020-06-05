@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour {
         
         var nextChallenge = savedProgress.currentChallenge + 1;
 
-        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
+        cubeCollection.GetComponent<GameBehavior>().Init(GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
         inGameMenu.SetActive(true);
         savedProgress.currentChallenge = nextChallenge;
         inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
@@ -121,7 +121,7 @@ public class GameController : MonoBehaviour {
         
         var currentChallenge = savedProgress.currentChallenge;
 
-        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(currentChallenge), GetLevelTime(currentChallenge));
+        cubeCollection.GetComponent<GameBehavior>().Init(GetGameMode(currentChallenge), GetLevelTime(currentChallenge));
         inGameMenu.SetActive(true);
         savedProgress.currentChallenge = currentChallenge;
         inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
@@ -155,7 +155,7 @@ public class GameController : MonoBehaviour {
     public void ChallengeMenuItemSelected(int challenge) {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
-        cubeCollection.GetComponent<GameModeTwoColor>().Init(GetGameMode(challenge), GetLevelTime(challenge));
+        cubeCollection.GetComponent<GameBehavior>().Init(GetGameMode(challenge), GetLevelTime(challenge));
         inGameMenu.SetActive(true);
         inGameMenuScript.SetChallengeNumber((challenge + 1).ToString());
         savedProgress.currentChallenge = challenge;
@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour {
 
     public void InGameContinue() {
         inGamePauseMenu.SetActive(false);
-        cubeCollection.GetComponent<GameModeTwoColor>().Unpause();
+        cubeCollection.GetComponent<GameBehavior>().Unpause();
     }
     
     public void InGamePauseMenuMainMenu() {

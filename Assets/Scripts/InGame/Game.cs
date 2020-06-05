@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace InGame {
     public abstract class Game {
@@ -10,6 +12,21 @@ namespace InGame {
         public abstract bool CheckedSolved();
     }
 
+    public class GameFactory {
+        public static Game GetGame(int mode, List<GameObject> cubeGrid, List<Material> challengeRowColors) {
+            if (mode == 0)
+                return new TwoColorGame(cubeGrid, new[] {challengeRowColors[0], challengeRowColors[1]});
+            else if (mode == 1)
+                return new ThreeColorGame(cubeGrid,
+                    new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
+            else if (mode == 2)
+                return new NumberedGame(cubeGrid,
+                    new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
+            
+            throw new NotImplementedException();
+        }
+    }
+    
     public class TwoColorGame : Game {
         public TwoColorGame(List<GameObject> cubePoolGrid, Material[] materials) {
             this.cubePoolGrid = cubePoolGrid;

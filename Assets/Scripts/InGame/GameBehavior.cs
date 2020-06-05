@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace InGame {
-    public class GameModeTwoColor : MonoBehaviour {
+    public class GameBehavior : MonoBehaviour {
         public List<Material> challengeRowColors;
         public Material cubeColor0;
         public Material cubeColor1;
@@ -14,22 +14,15 @@ namespace InGame {
         public InGameMenu inGameMenu;
         public GameController gameController;
 
-        private InGameState.InGameFSM inGameState;
+        private InGameFsm inGameState;
         public Game game;
         public MoveScript moveScript;
 
         public void Init(int gameType, float levelTime) {
-            inGameState = new InGameState.InGameFSM(this, levelTime);
+            inGameState = new InGameFsm(this, levelTime);
             paused = false;
 
-            if (gameType == 0)
-                game = new TwoColorGame(cubePool.cubeGrid, new[] {challengeRowColors[0], challengeRowColors[1]});
-            else if (gameType == 1)
-                game = new ThreeColorGame(cubePool.cubeGrid,
-                    new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
-            else if (gameType == 2)
-                game = new NumberedGame(cubePool.cubeGrid,
-                    new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
+            game = GameFactory.GetGame(gameType, cubePool.cubeGrid, challengeRowColors);
         }
 
         private bool paused;
