@@ -13,10 +13,15 @@ namespace InGame.State.ChallengeModeStates {
         public override void Pre(object args = null) {
             base.Pre(args);
             fsm.gameBehavior.moveScript?.Disable();
-
+            var levelTime = (float) args;
+            
+            TimeSpan t = TimeSpan.FromMinutes(levelTime);
+            fsm.gameBehavior.inGameMenu.time.GetComponent<TextMeshProUGUI>().text =
+                $"{t.Minutes:D1}:{t.Seconds:D2}";
+            
             countDownAnimation = new CountdownAnimation(fsm.gameBehavior.cubePool.cubeGrid, fsm.gameBehavior.cubeColor0,
                 fsm.gameBehavior.cubeColor1, fsm.gameBehavior);
-            countDownAnimation.Start(() => { fsm.SetState(typeof(GamePlay)); });
+            countDownAnimation.Start(() => { fsm.SetState(typeof(GamePlay), levelTime); });
         }
     }
 
@@ -27,7 +32,7 @@ namespace InGame.State.ChallengeModeStates {
         public override void Pre(object args = null) {
             base.Pre(args);
 
-            countdownTimer.Set((int) TimeSpan.FromMinutes(fsm.levelTime).TotalMilliseconds);
+            countdownTimer.Set((int) TimeSpan.FromMinutes((float)args).TotalMilliseconds);
             countdownTimer.SetOnEnd(() => { fsm.SetState(typeof(SuccessTransition), true); });
             countdownTimer.Start();
 
