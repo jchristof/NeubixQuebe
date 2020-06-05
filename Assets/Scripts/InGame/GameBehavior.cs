@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace InGame {
     public class GameBehavior : MonoBehaviour {
@@ -18,11 +17,10 @@ namespace InGame {
         public Game game;
         public MoveScript moveScript;
 
-        public void Init(int gameType, float levelTime) {
-            inGameState = new InGameFsm(this, levelTime);
+        public void Init(GameType gameType, GameMode gameMode, float levelTime) {
+            game = GameFactory.GetGame(gameMode, cubePool.cubeGrid, challengeRowColors);
+            inGameState = new InGameFsm(this, levelTime, gameType);
             paused = false;
-
-            game = GameFactory.GetGame(gameType, cubePool.cubeGrid, challengeRowColors);
         }
 
         private bool paused;
@@ -33,7 +31,7 @@ namespace InGame {
 
         public void Update() {
             if (Input.GetKeyUp(KeyCode.Alpha2))
-                inGameState?.RunSuccessAnimation();
+                inGameState?.GameCompleted();
 
             if (inGameState?.CanPause() == true) {
                 if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -58,18 +56,14 @@ namespace InGame {
         public void OnMouseUp() {
             moveScript?.OnMouseUp();
             if (moveScript != null)
-                CheckSolved(1);
+                if (game.CheckedSolved())
+                    inGameState.GameCompleted();
         }
 
         public void OnDisable() {
             inGameState = null;
             game = null;
             moveScript = null;
-        }
-
-        void CheckSolved(int distance) {
-            if (game.CheckedSolved())
-                inGameState.RunSuccessAnimation();
         }
     }
 }

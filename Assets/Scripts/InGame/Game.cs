@@ -10,16 +10,18 @@ namespace InGame {
     public abstract class Game {
         public abstract List<GameObject> GetGameTiles();
         public abstract bool CheckedSolved();
+
+        public abstract void Reset();
     }
 
     public class GameFactory {
-        public static Game GetGame(int mode, List<GameObject> cubeGrid, List<Material> challengeRowColors) {
-            if (mode == 0)
+        public static Game GetGame(GameMode mode, List<GameObject> cubeGrid, List<Material> challengeRowColors) {
+            if (mode == GameMode.TwoColor)
                 return new TwoColorGame(cubeGrid, new[] {challengeRowColors[0], challengeRowColors[1]});
-            else if (mode == 1)
+            if (mode == GameMode.ThreeColor)
                 return new ThreeColorGame(cubeGrid,
                     new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
-            else if (mode == 2)
+            if (mode == GameMode.Numbered)
                 return new NumberedGame(cubeGrid,
                     new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
             
@@ -81,6 +83,10 @@ namespace InGame {
 
             return true;
         }
+
+        public override void Reset() {
+            cubes.Clear();
+        }
     }
 
     public class ThreeColorGame : Game {
@@ -136,6 +142,10 @@ namespace InGame {
             }
 
             return true;
+        }
+
+        public override void Reset() {
+            cubes.Clear();
         }
     }
 
@@ -195,6 +205,10 @@ namespace InGame {
             }
 
             return true;
+        }
+
+        public override void Reset() {
+            cubes.Clear();
         }
     }
 }

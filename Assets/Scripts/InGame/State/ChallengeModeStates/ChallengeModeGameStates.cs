@@ -72,7 +72,7 @@ namespace InGame.State.ChallengeModeStates {
             }
 
             fsm.gameBehavior.moveScript.Stop();
-            fsm.gameBehavior.StartCoroutine(RunTranistionAnimation());
+            fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
         }
 
         public override void Update() {
@@ -85,7 +85,7 @@ namespace InGame.State.ChallengeModeStates {
             }
         }
 
-        IEnumerator RunTranistionAnimation() {
+        IEnumerator RunTransitionAnimation() {
             int row = 5;
 
             while (row > -1) {

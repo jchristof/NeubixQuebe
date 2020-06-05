@@ -38,6 +38,8 @@ public class CubePool : MonoBehaviour {
             var textEnabled = allCubes[0].GetComponentInChildren<TileScript>().text.enabled;
             foreach (var cube in allCubes) {
                 cube.GetComponentInChildren<TileScript>().text.enabled = !textEnabled;
+                cube.GetComponentInChildren<TileScript>().text.text =
+                    cube.GetComponentInChildren<TileScript>().Identifier.ToString();
             }
         }
     }

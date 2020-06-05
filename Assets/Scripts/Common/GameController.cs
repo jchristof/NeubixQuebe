@@ -60,15 +60,15 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    private int GetGameMode(int challenge) {
+    private GameMode GetGameMode(int challenge) {
         if (challenge < 6)
-            return 0;
-        else if(challenge < 15) {
-            return 1;
+            return GameMode.TwoColor;
+        
+       if(challenge < 15) {
+            return GameMode.ThreeColor;
         }
-        else {
-            return 2;
-        }
+
+        return GameMode.Numbered;
     }
 
     private float GetLevelTime(int challenge) {
@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour {
         
         var nextChallenge = savedProgress.currentChallenge + 1;
 
-        cubeCollection.GetComponent<GameBehavior>().Init(GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
         inGameMenu.SetActive(true);
         savedProgress.currentChallenge = nextChallenge;
         inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
@@ -121,7 +121,7 @@ public class GameController : MonoBehaviour {
         
         var currentChallenge = savedProgress.currentChallenge;
 
-        cubeCollection.GetComponent<GameBehavior>().Init(GetGameMode(currentChallenge), GetLevelTime(currentChallenge));
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(currentChallenge), GetLevelTime(currentChallenge));
         inGameMenu.SetActive(true);
         savedProgress.currentChallenge = currentChallenge;
         inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
@@ -140,7 +140,11 @@ public class GameController : MonoBehaviour {
         challengeMenu.SetActive(true);
     }
 
-    public void EndlessClicked() { }
+    public void EndlessClicked() {
+        mainMenu.SetActive(false);
+        cubeCollection.SetActive(true);
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
+    }
 
     public void RelaxClicked() {
         mainMenu.SetActive(false);
@@ -155,7 +159,7 @@ public class GameController : MonoBehaviour {
     public void ChallengeMenuItemSelected(int challenge) {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
-        cubeCollection.GetComponent<GameBehavior>().Init(GetGameMode(challenge), GetLevelTime(challenge));
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(challenge), GetLevelTime(challenge));
         inGameMenu.SetActive(true);
         inGameMenuScript.SetChallengeNumber((challenge + 1).ToString());
         savedProgress.currentChallenge = challenge;

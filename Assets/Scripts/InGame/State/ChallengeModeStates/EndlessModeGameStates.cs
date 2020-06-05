@@ -1,12 +1,119 @@
-namespace InGame.State.ChallengeModeStates {
-    public class EndlessModeGameStates {
-        class StartGameState : State<InGameFsm> {
-            public StartGameState(InGameFsm fsm) : base(fsm) { }
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-            public override void Pre(object args = null) {
-                base.Pre(args);
-                fsm.gameBehavior.moveScript?.Disable();
+namespace InGame.State.ChallengeModeStates {
+    class EndlessGameStart : State<InGameFsm> {
+        public EndlessGameStart(InGameFsm fsm) : base(fsm) { }
+    
+        public override void Pre(object args = null) {
+            base.Pre(args);
+            fsm.gameBehavior.moveScript = new MoveScript(fsm.gameBehavior.transform,
+                fsm.gameBehavior.cubePool.cubesPool, fsm.gameBehavior.game.GetGameTiles());
+            fsm.gameBehavior.moveScript?.Disable();
+            fsm.SetState(typeof(VisualTransitionIn));
+        }
+    }
+
+
+    class VisualTransitionIn : State<InGameFsm> {
+        public VisualTransitionIn(InGameFsm fsm) : base(fsm) { }
+        private List<GameObject> cubes = new List<GameObject>();
+        private float duration = .5f;
+
+        public override void Pre(object args) {
+            base.Pre(args);
+
+            var c = fsm.gameBehavior.game.GetGameTiles();
+            foreach (var cube in c) {
+                var color = cube.GetComponent<Renderer>().material.color;
+                cube.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0);
             }
+
+            fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
+        }
+
+        public override void Update() {
+            base.Update();
+            foreach (var cube in cubes) {
+                var tileScript = cube.GetComponent<TileScript>();
+                var color = cube.GetComponent<Renderer>().material.color;
+                var startColor = new Color(color.r, color.g, color.b, 0);
+                var endColor = new Color(color.r, color.g, color.b, 1);
+                cube.GetComponent<Renderer>().material.color =
+                    Color.Lerp(startColor, endColor, tileScript.fadeTime);
+                tileScript.fadeTime += Time.deltaTime / duration;
+            }
+        }
+
+        IEnumerator RunTransitionAnimation() {
+            int row = 0;
+
+            while (row < 6) {
+                foreach (var cube in fsm.gameBehavior.cubePool.cubeGrid) {
+                    if (cube.transform.position.y == row) {
+                        cube.GetComponent<TileScript>().fadeTime = 0f;
+                        cubes.Add(cube);
+                    }
+                }
+
+                row++;
+                yield return new WaitForSeconds(.25f);
+            }
+
+            yield return new WaitForSeconds(.25f);
+
+            cubes.Clear();
+
+            fsm.gameBehavior.moveScript?.Enable();
+        }
+    }
+    
+    class VisualTransitionOut : State<InGameFsm> {
+        public VisualTransitionOut(InGameFsm fsm) : base(fsm) { }
+        private Color startColor = Color.green;
+        private Color endColor = new Color(0f, 1f, 0f, 0f);
+        private List<GameObject> cubes = new List<GameObject>();
+        private float duration = .5f;
+
+        public override void Pre(object args) {
+            base.Pre(args);
+
+            fsm.gameBehavior.moveScript.Disable();
+            fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
+        }
+
+        public override void Update() {
+            base.Update();
+            foreach (var cube in cubes) {
+                var tilescript = cube.GetComponent<TileScript>();
+                cube.GetComponent<Renderer>().material.color =
+                    Color.Lerp(startColor, endColor, tilescript.fadeTime);
+                tilescript.fadeTime += Time.deltaTime / duration;
+            }
+        }
+
+        IEnumerator RunTransitionAnimation() {
+            int row = 5;
+
+            while (row > -1) {
+                foreach (var cube in fsm.gameBehavior.cubePool.cubeGrid) {
+                    if (cube.transform.position.y == row) {
+                        cube.GetComponent<Renderer>().material = new Material(fsm.gameBehavior.successMaterial);
+                        cube.GetComponent<TileScript>().fadeTime = 0f;
+                        cubes.Add(cube);
+                    }
+                }
+
+                row--;
+                yield return new WaitForSeconds(.25f);
+            }
+
+            yield return new WaitForSeconds(.25f);
+
+            cubes.Clear();
+            fsm.SetState(typeof(VisualTransitionIn));
+            fsm.gameBehavior.game.Reset();
         }
     }
 }
