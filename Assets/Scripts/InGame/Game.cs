@@ -129,8 +129,6 @@ namespace InGame {
         }
 
         public override bool CheckedSolved() {
-            if(!cubes.Any())
-                
             for (int i = 0; i < 18; i++) {
                 var tileScript = cubes[i].GetComponent<TileScript>();
                 if (tileScript.Identifier != colorLayout[i])

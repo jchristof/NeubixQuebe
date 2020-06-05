@@ -27,9 +27,10 @@
             <e p="Game.cs" t="Include" />
             <e p="GameBehavior.cs" t="Include" />
             <e p="GameType.cs" t="Include" />
-            <e p="InGameFSM.cs" t="Include" />
             <e p="MoveScript.cs" t="Include" />
-            <e p="TileField.cs" t="Include" />
+            <e p="State" t="Include">
+              <e p="InGameFSM.cs" t="Include" />
+            </e>
             <e p="TileMover.cs" t="Include" />
             <e p="TileScript.cs" t="Include" />
           </e>
