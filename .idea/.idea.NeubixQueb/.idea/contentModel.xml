@@ -29,14 +29,17 @@
             <e p="GameType.cs" t="Include" />
             <e p="MoveScript.cs" t="Include" />
             <e p="State" t="Include">
+              <e p="ChallengeModeStates" t="Include">
+                <e p="ChallengeModeGameStates.cs" t="Include" />
+              </e>
               <e p="InGameFSM.cs" t="Include" />
             </e>
             <e p="TileMover.cs" t="Include" />
             <e p="TileScript.cs" t="Include" />
           </e>
           <e p="Menu" t="Include">
+            <e p="ChallengeMenuBehavior.cs" t="Include" />
             <e p="ChallengeMenuFSM.cs" t="Include" />
-            <e p="GameModeChallengeMenu.cs" t="Include" />
             <e p="InGameMenu.cs" t="Include" />
             <e p="SuccessTiers.cs" t="Include" />
           </e>
