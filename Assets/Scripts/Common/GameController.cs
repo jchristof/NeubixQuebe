@@ -4,7 +4,8 @@ using InGame;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-    public GameObject mainMenu;
+    public SplashMenu splashMenu;
+    public MainMenu mainMenu;
     public GameObject challengeMenu;
     public GameObject relaxMenu;
     public GameObject cubeCollection;
@@ -14,6 +15,7 @@ public class GameController : MonoBehaviour {
     public GameObject retryMenu;
     public GameObject inGamePauseMenu;
     private InGameMenu inGameMenuScript;
+    public AudioSource audioSource;
 
     private int prefsVersion = 1;
     public SavedProgress savedProgress;
@@ -36,7 +38,6 @@ public class GameController : MonoBehaviour {
     }
 
     public void Start() {
-        mainMenu.SetActive(true);
         challengeMenu.SetActive(false);
         relaxMenu.SetActive(false);
         cubeCollection.SetActive(false);
@@ -45,8 +46,20 @@ public class GameController : MonoBehaviour {
         retryMenu.SetActive(false);
         inGameMenu.SetActive(false);
         inGameMenuScript = inGameMenu.GetComponent<InGameMenu>();
+        
+        splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
     }
 
+    public void ToggleAudio() {
+        audioSource.mute = !audioSource.mute;
+        splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
+        mainMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
+    }
+    
+    public void SplashStart() {
+        splashMenu.menu.SetActive(false);
+        mainMenu.menu.SetActive(true);
+    }
     private void Update() {
         if (Input.GetKeyUp(KeyCode.Alpha3)) {
             savedProgress = new SavedProgress();
@@ -130,29 +143,29 @@ public class GameController : MonoBehaviour {
     public void SuccessMenuMainMenu() {
         retryMenu.SetActive(false);
         successMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        mainMenu.menu.SetActive(true);
         cubeCollection.SetActive(false);
         inGameMenu.SetActive(false);
     }
 
     public void ChallengesClicked() {
-        mainMenu.SetActive(false);
+        mainMenu.menu.SetActive(false);
         challengeMenu.SetActive(true);
     }
 
     public void EndlessClicked() {
-        mainMenu.SetActive(false);
+        mainMenu.menu.SetActive(false);
         cubeCollection.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
     }
 
     public void RelaxClicked() {
-        mainMenu.SetActive(false);
+        mainMenu.menu.SetActive(false);
         relaxMenu.SetActive(true);
     }
 
     public void RelaxBack() {
-        mainMenu.SetActive(true);
+        mainMenu.menu.SetActive(true);
         relaxMenu.SetActive(false);
     }
 
@@ -167,7 +180,7 @@ public class GameController : MonoBehaviour {
 
     public void ChallengeMenuBack() {
         challengeMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        mainMenu.menu.SetActive(true);
     }
 
     public void GameModeWon(float levelCompletionTime) {
@@ -195,7 +208,7 @@ public class GameController : MonoBehaviour {
         inGamePauseMenu.SetActive(false);
         retryMenu.SetActive(false);
         successMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        mainMenu.menu.SetActive(true);
         cubeCollection.SetActive(false);
         inGameMenu.SetActive(false);
     }
