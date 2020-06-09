@@ -16,7 +16,7 @@ namespace InGame {
         private InGameFsm inGameState;
         public Game game;
         public MoveScript moveScript;
-
+        public int moveTotal;
         public void Init(GameType gameType, GameMode gameMode, float levelTime) {
             game = GameFactory.GetGame(gameMode, cubePool.cubeGrid, challengeRowColors);
             inGameState = new InGameFsm(this, levelTime, gameType);
@@ -54,13 +54,18 @@ namespace InGame {
         }
 
         public void OnMouseUp() {
-            moveScript?.OnMouseUp();
+            var distance = moveScript?.OnMouseUp() ?? 0;
+            moveTotal += distance;
+            inGameMenu.SetMoveCount(moveTotal);
+            Debug.Log($"distance {distance}");
             if (moveScript != null)
                 if (game.CheckedSolved())
                     inGameState.GameCompleted();
         }
 
         public void OnDisable() {
+            moveTotal = 0;
+            inGameMenu.SetMoveCount(0);
             inGameState = null;
             game = null;
             moveScript = null;

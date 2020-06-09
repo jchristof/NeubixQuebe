@@ -102,9 +102,9 @@ public class MoveScript {
         inDrag = true;
     }
 
-    public void OnMouseUp() {
+    public int OnMouseUp() {
         if (!inDrag || !enabled)
-            return;
+            return 0;
 
         Vector3 offset = transform.transform.position - savedTransformPosition;
         offset = new Vector3(Mathf.Round(offset.x), Mathf.Round(offset.y), 0f);
@@ -126,6 +126,6 @@ public class MoveScript {
         transform.position = savedTransformPosition;
         inDrag = false;
 
-        //gameMode.CheckSolved(1);
+        return (int) offset.magnitude;
     }
 }
