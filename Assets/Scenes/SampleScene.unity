@@ -4294,7 +4294,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 02053b88617283cb28f0c027b781479d, type: 2}
   - {fileID: 2100000, guid: d02c4f5c96b1d04bb83ab1346abc6fee, type: 2}
   cubeColor0: {fileID: 2100000, guid: 02053b88617283cb28f0c027b781479d, type: 2}
-  cubeColor1: {fileID: 2100000, guid: 5a47032d894e7b13b8e4651589035449, type: 2}
+  cubeColor1: {fileID: 2100000, guid: e4fc0f97b06d263cebde1d9750bca75e, type: 2}
   successMaterial: {fileID: 2100000, guid: 64ce77a699839f555a384ebd95fe97fe, type: 2}
   cubePool: {fileID: 1509287966}
   inGameMenu: {fileID: 762805879}

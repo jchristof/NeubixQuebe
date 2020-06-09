@@ -75,9 +75,10 @@ namespace InGame {
         }
 
         public override bool CheckedSolved() {
-            for (int i = 0; i < 18; i++) {
+            var firstIdentifier =  cubes[0].GetComponent<TileScript>().Identifier;
+            for (int i = 0; i < 9; i++) {
                 var tileScript = cubes[i].GetComponent<TileScript>();
-                if (tileScript.Identifier != twoColorLayout[i])
+                if (firstIdentifier != tileScript.Identifier)
                     return false;
             }
 
@@ -135,9 +136,17 @@ namespace InGame {
         }
 
         public override bool CheckedSolved() {
-            for (int i = 0; i < 18; i++) {
+            var firstIdentifier = cubes[0].GetComponent<TileScript>().Identifier;
+            for (int i = 0; i < 6; i++) {
                 var tileScript = cubes[i].GetComponent<TileScript>();
-                if (tileScript.Identifier != colorLayout[i])
+                if (firstIdentifier != tileScript.Identifier)
+                    return false;
+            }
+            
+            var secondIdentifier = cubes[9].GetComponent<TileScript>().Identifier;
+            for (int i = 6; i < 12; i++) {
+                var tileScript = cubes[i].GetComponent<TileScript>();
+                if (secondIdentifier != tileScript.Identifier)
                     return false;
             }
 
