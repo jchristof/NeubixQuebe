@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void Start() {
+        splashMenu.menu.SetActive(true);
         challengeMenu.SetActive(false);
         relaxMenu.SetActive(false);
         cubeCollection.SetActive(false);
@@ -195,6 +196,10 @@ public class GameController : MonoBehaviour {
         PlayerPrefs.Save();
     }
 
+    public void ToggleInGamePause() {
+        var paused = inGamePauseMenu.activeInHierarchy;
+        inGamePauseMenu.SetActive(!paused);
+    }
     public void InGamePause() {
         inGamePauseMenu.SetActive(true);
     }
