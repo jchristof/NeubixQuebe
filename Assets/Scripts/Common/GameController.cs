@@ -198,6 +198,11 @@ public class GameController : MonoBehaviour {
 
     public void ToggleInGamePause() {
         var paused = inGamePauseMenu.activeInHierarchy;
+        if(paused)
+            cubeCollection.GetComponent<GameBehavior>().Unpause();
+        else {
+            cubeCollection.GetComponent<GameBehavior>().Pause();
+        }
         inGamePauseMenu.SetActive(!paused);
     }
     public void InGamePause() {

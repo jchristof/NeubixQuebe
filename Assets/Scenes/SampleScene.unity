@@ -3144,9 +3144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 1352958502}
-  challengeNumber: {fileID: 606359063}
+  challengeNumberText: {fileID: 606359065}
   totalMoveCounter: {fileID: 482576760}
-  gameController: {fileID: 1766025130}
+  pauseButton: {fileID: 833420117}
 --- !u!1 &775115524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,12 +3570,12 @@ GameObject:
   - component: {fileID: 833420120}
   - component: {fileID: 833420119}
   m_Layer: 0
-  m_Name: Menu
+  m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &833420118
 RectTransform:
   m_ObjectHideFlags: 0

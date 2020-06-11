@@ -39,6 +39,7 @@ namespace InGame.State.ChallengeModeStates {
             fsm.gameBehavior.moveScript = new MoveScript(fsm.gameBehavior.transform, fsm.gameBehavior.cubePool.cubesPool,
                 fsm.gameBehavior.game.GetGameTiles());
             fsm.gameBehavior.moveScript.Enable();
+            fsm.gameBehavior.inGameMenu.ShowPause();
         }
 
         public override void Update() {
@@ -72,6 +73,7 @@ namespace InGame.State.ChallengeModeStates {
             }
 
             fsm.gameBehavior.moveScript.Stop();
+            fsm.gameBehavior.inGameMenu.HidePause();
             fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
         }
 

@@ -1,20 +1,23 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InGameMenu : MonoBehaviour {
     public GameObject time;
-    public GameObject challengeNumber;
 
-    private TextMeshProUGUI challengeNumberText;
+    public TextMeshProUGUI challengeNumberText;
     public TextMeshProUGUI totalMoveCounter;
-    
-    public GameController gameController;
+    public GameObject pauseButton;
 
-    private void Awake() {
-        challengeNumberText = challengeNumber.GetComponent<TextMeshProUGUI>();
+    public void HidePause() {
+        pauseButton.SetActive(false);
     }
 
+    public void ShowPause() {
+        pauseButton.SetActive(true);
+    }
+    
     public void SetChallengeNumber(string challenge) {
         challengeNumberText.text = challenge;
     }

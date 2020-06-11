@@ -12,7 +12,7 @@ namespace InGame {
         public CubePool cubePool;
         public InGameMenu inGameMenu;
         public GameController gameController;
-
+        
         private InGameFsm inGameState;
         public Game game;
         public MoveScript moveScript;
@@ -27,6 +27,10 @@ namespace InGame {
 
         public void Unpause() {
             paused = false;
+        }
+
+        public void Pause() {
+            paused = true;
         }
 
         public void Update() {
