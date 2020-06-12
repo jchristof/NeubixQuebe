@@ -1,20 +1,19 @@
-﻿using System;
-using DefaultNamespace;
+﻿using DefaultNamespace;
 using InGame;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
     public SplashMenu splashMenu;
     public MainMenu mainMenu;
-    public GameObject challengeMenu;
-    public GameObject relaxMenu;
-    public GameObject cubeCollection;
-    public GameObject successTiers;
-    public GameObject successMenu;
-    public GameObject retryMenu;
-    public GameObject inGamePauseMenu;
-    private InGameMenu inGameMenu;
+    public ChallengeMenu challengeMenu;
+    public RelaxMenu relaxMenu;
+    public SuccessMenu successMenu;
+    public RetryMenu retryMenu;
+    public InGamePauseMenu inGamePauseMenu;
+    public InGameMenu inGameMenu;
     public AudioSource audioSource;
+
+    public GameObject cubeCollection;
 
     private int prefsVersion = 1;
     public SavedProgress savedProgress;
@@ -30,22 +29,26 @@ public class GameController : MonoBehaviour {
         if (savedProgress == null) {
             savedProgress = new SavedProgress();
             savedProgress.version = prefsVersion;
-            for(int i = 0; i < 18; i++)
+            for (int i = 0; i < 18; i++)
                 savedProgress.challengeProgress.challenges.Add(new SingleChallengeProgress());
         }
-        
+    }
+
+    private void AllMenusOff() {
+        splashMenu.Menu.SetActive(false);
+        mainMenu.Menu.SetActive(false);
+        challengeMenu.Menu.SetActive(false);
+        relaxMenu.Menu.SetActive(false);
+        successMenu.Menu.SetActive(false);
+        retryMenu.Menu.SetActive(false);
+        inGamePauseMenu.Menu.SetActive(false);
+        inGameMenu.Menu.SetActive(false);
     }
 
     public void Start() {
-        splashMenu.menu.SetActive(true);
-        challengeMenu.SetActive(false);
-        relaxMenu.SetActive(false);
+        AllMenusOff();
         cubeCollection.SetActive(false);
-        successTiers.SetActive(false);
-        successMenu.SetActive(false);
-        retryMenu.SetActive(false);
-        inGameMenu.menu.SetActive(false);
-
+        splashMenu.Menu.SetActive(true);
         splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
     }
 
@@ -54,20 +57,21 @@ public class GameController : MonoBehaviour {
         splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
         mainMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
     }
-    
+
     public void SplashStart() {
-        splashMenu.menu.SetActive(false);
-        mainMenu.menu.SetActive(true);
+        splashMenu.Menu.SetActive(false);
+        mainMenu.Menu.SetActive(true);
     }
+
     private void Update() {
         if (Input.GetKeyUp(KeyCode.Alpha3)) {
             savedProgress = new SavedProgress();
             savedProgress.version = prefsVersion;
-            for(int i = 0; i < 18; i++)
+            for (int i = 0; i < 18; i++)
                 savedProgress.challengeProgress.challenges.Add(new SingleChallengeProgress());
-            
+
             var savedData = JsonUtility.ToJson(savedProgress);
-            PlayerPrefs.SetString("GameProgress",savedData);
+            PlayerPrefs.SetString("GameProgress", savedData);
             PlayerPrefs.Save();
         }
     }
@@ -75,8 +79,8 @@ public class GameController : MonoBehaviour {
     private GameMode GetGameMode(int challenge) {
         if (challenge < 6)
             return GameMode.TwoColor;
-        
-       if(challenge < 15) {
+
+        if (challenge < 15) {
             return GameMode.ThreeColor;
         }
 
@@ -86,144 +90,145 @@ public class GameController : MonoBehaviour {
     private float GetLevelTime(int challenge) {
         if (challenge < 3)
             return 1f;
-        else if (challenge < 6)
+        if (challenge < 6)
             return .75f;
-        else if(challenge < 9)
+        if (challenge < 9)
             return 1f;
-        else if (challenge < 12)
+        if (challenge < 12)
             return .75f;
-        else if (challenge < 15)
+        if (challenge < 15)
             return .5f;
-        
-        else if (challenge == 15)
-            return 2.5f;
-        else if (challenge == 16)
-            return 2f;
-        else return 1f;
-    }
-    public void SuccessMenuNextChallenge() {
-        successMenu.SetActive(false);
-        retryMenu.SetActive(false);
-        challengeMenu.SetActive(false);
-        cubeCollection.SetActive(true);
-        
-        var nextChallenge = savedProgress.currentChallenge + 1;
 
-        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
-        inGameMenu.menu.SetActive(true);
+        if (challenge == 15)
+            return 2.5f;
+        if (challenge == 16)
+            return 2f;
+        return 1f;
+    }
+
+    public void SuccessMenuNextChallenge() {
+        AllMenusOff();
+        cubeCollection.SetActive(true);
+        inGameMenu.Menu.SetActive(true);
+
+        var nextChallenge = savedProgress.currentChallenge + 1;
+        cubeCollection.GetComponent<GameBehavior>()
+            .Init(GameType.Challenge, GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
         savedProgress.currentChallenge = nextChallenge;
         inGameMenu.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
     }
 
     public void SuccessAnimDone() {
-        successMenu.SetActive(true);
+        AllMenusOff();
         cubeCollection.SetActive(false);
+        successMenu.Menu.SetActive(true);
     }
-    
+
     public void FailedAnimDone() {
-        retryMenu.SetActive(true);
+        AllMenusOff();
         cubeCollection.SetActive(false);
+        retryMenu.Menu.SetActive(true);
     }
 
     public void Retry() {
-        retryMenu.SetActive(false);
-        relaxMenu.SetActive(false);
-        challengeMenu.SetActive(false);
+        AllMenusOff();
         cubeCollection.SetActive(true);
-        
+
         var currentChallenge = savedProgress.currentChallenge;
 
-        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(currentChallenge), GetLevelTime(currentChallenge));
-        inGameMenu.menu.SetActive(true);
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(currentChallenge),
+            GetLevelTime(currentChallenge));
+        inGameMenu.Menu.SetActive(true);
         savedProgress.currentChallenge = currentChallenge;
         inGameMenu.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
     }
 
     public void SuccessMenuMainMenu() {
-        retryMenu.SetActive(false);
-        successMenu.SetActive(false);
-        mainMenu.menu.SetActive(true);
+        AllMenusOff();
+        mainMenu.Menu.SetActive(true);
         cubeCollection.SetActive(false);
-        inGameMenu.menu.SetActive(false);
     }
 
     public void ChallengesClicked() {
-        mainMenu.menu.SetActive(false);
-        challengeMenu.SetActive(true);
+        AllMenusOff();
+        challengeMenu.Menu.SetActive(true);
     }
 
     public void EndlessClicked() {
-        mainMenu.menu.SetActive(false);
+        AllMenusOff();
         cubeCollection.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
     }
-    
+
     public void RelaxStartClicked() {
-        relaxMenu.SetActive(false);
+        AllMenusOff();
         cubeCollection.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
     }
 
     public void RelaxClicked() {
-        mainMenu.menu.SetActive(false);
-        relaxMenu.SetActive(true);
+        AllMenusOff();
+        relaxMenu.Menu.SetActive(true);
     }
 
     public void RelaxBack() {
-        mainMenu.menu.SetActive(true);
-        relaxMenu.SetActive(false);
+        AllMenusOff();
+        mainMenu.Menu.SetActive(true);
     }
 
     public void ChallengeMenuItemSelected(int challenge) {
-        challengeMenu.SetActive(false);
+        AllMenusOff();
+
         cubeCollection.SetActive(true);
-        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(challenge), GetLevelTime(challenge));
-        inGameMenu.menu.SetActive(true);
+        cubeCollection.GetComponent<GameBehavior>()
+            .Init(GameType.Challenge, GetGameMode(challenge), GetLevelTime(challenge));
+        inGameMenu.Menu.SetActive(true);
         inGameMenu.SetChallengeNumber((challenge + 1).ToString());
         savedProgress.currentChallenge = challenge;
     }
 
     public void ChallengeMenuBack() {
-        challengeMenu.SetActive(false);
-        mainMenu.menu.SetActive(true);
+        AllMenusOff();
+        mainMenu.Menu.SetActive(true);
     }
 
     public void GameModeWon(float levelCompletionTime) {
-        inGameMenu.menu.SetActive(false);
+        AllMenusOff();
+
         cubeCollection.SetActive(false);
-        successMenu.GetComponent<SuccessMenu>().SetTime(levelCompletionTime);
+        successMenu.Menu.SetActive(true);
+        successMenu.SetTime(levelCompletionTime);
         var currentLevel = savedProgress.currentChallenge;
         var challenge = savedProgress.challengeProgress.challenges[currentLevel];
         challenge.complete = true;
         var savedData = JsonUtility.ToJson(savedProgress);
-        PlayerPrefs.SetString("GameProgress",savedData);
+        PlayerPrefs.SetString("GameProgress", savedData);
         PlayerPrefs.Save();
     }
 
     public void ToggleInGamePause() {
-        var paused = inGamePauseMenu.activeInHierarchy;
-        if(paused)
+        var paused = inGamePauseMenu.Menu.activeInHierarchy;
+        if (paused)
             cubeCollection.GetComponent<GameBehavior>().Unpause();
         else {
             cubeCollection.GetComponent<GameBehavior>().Pause();
         }
-        inGamePauseMenu.SetActive(!paused);
+
+        inGamePauseMenu.Menu.SetActive(!paused);
     }
+
     public void InGamePause() {
-        inGamePauseMenu.SetActive(true);
+        inGamePauseMenu.Menu.SetActive(true);
     }
 
     public void InGameContinue() {
-        inGamePauseMenu.SetActive(false);
+        inGamePauseMenu.Menu.SetActive(false);
         cubeCollection.GetComponent<GameBehavior>().Unpause();
     }
-    
+
     public void InGamePauseMenuMainMenu() {
-        inGamePauseMenu.SetActive(false);
-        retryMenu.SetActive(false);
-        successMenu.SetActive(false);
-        mainMenu.menu.SetActive(true);
+        AllMenusOff();
         cubeCollection.SetActive(false);
-        inGameMenu.menu.SetActive(false);
+        mainMenu.Menu.SetActive(true);
     }
 }

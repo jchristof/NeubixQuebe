@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 
 public class SuccessMenu : MonoBehaviour {
+    public GameObject Menu => gameObject;
     public GameObject Time;
 
     public void SetTime(float time) {

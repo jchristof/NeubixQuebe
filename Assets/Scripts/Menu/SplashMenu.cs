@@ -2,7 +2,6 @@
 using UnityEngine;
 
 public class SplashMenu : MonoBehaviour {
-    public GameObject menu;
-
+    public GameObject Menu => gameObject;
     public TextMeshProUGUI audioOnOffText;
 }

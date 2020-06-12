@@ -2515,7 +2515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19da7dd823e875d483ab573cb3d505b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 672611813}
   audioOnOffText: {fileID: 940494184}
 --- !u!1 &681184120
 GameObject:
@@ -2755,7 +2754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &715084517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2768,7 +2767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05f7e0bf0697f3ec9e367bdb2a37a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 715084516}
   audioOnOffText: {fileID: 1387323402}
 --- !u!4 &715084518
 Transform:
@@ -3115,7 +3113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &762805878
 Transform:
   m_ObjectHideFlags: 0
@@ -5280,6 +5278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1049845237}
+  - component: {fileID: 1049845238}
   m_Layer: 0
   m_Name: RelaxMenu
   m_TagString: Untagged
@@ -5302,6 +5301,18 @@ Transform:
   m_Father: {fileID: 1948938383}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1049845238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049845236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053c94be9375cdae3872cbc70625642e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1136055928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,6 +5322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136055929}
+  - component: {fileID: 1136055930}
   m_Layer: 0
   m_Name: InGamePauseMenu
   m_TagString: Untagged
@@ -5333,6 +5345,18 @@ Transform:
   m_Father: {fileID: 1948938383}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1136055930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136055928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f877a47495853d3c48ab802946714ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1167492300
 GameObject:
   m_ObjectHideFlags: 0
@@ -11507,6 +11531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1307408708}
+  - component: {fileID: 1307408709}
   m_Layer: 0
   m_Name: RetryMenu
   m_TagString: Untagged
@@ -11529,6 +11554,18 @@ Transform:
   m_Father: {fileID: 1948938383}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307408709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307408707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d230f453e7f2242448767fb2bf3bc3bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1333405783
 GameObject:
   m_ObjectHideFlags: 0
@@ -13462,15 +13499,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashMenu: {fileID: 672611815}
   mainMenu: {fileID: 715084517}
-  challengeMenu: {fileID: 1885997650}
-  relaxMenu: {fileID: 1049845236}
-  cubeCollection: {fileID: 925702765}
-  successTiers: {fileID: 129254809}
-  inGameMenu: {fileID: 762805877}
-  successMenu: {fileID: 872456596}
-  retryMenu: {fileID: 1307408707}
-  inGamePauseMenu: {fileID: 1136055928}
+  challengeMenu: {fileID: 1885997652}
+  relaxMenu: {fileID: 1049845238}
+  successMenu: {fileID: 872456598}
+  retryMenu: {fileID: 1307408709}
+  inGamePauseMenu: {fileID: 1136055930}
+  inGameMenu: {fileID: 762805879}
   audioSource: {fileID: 1897603793}
+  cubeCollection: {fileID: 925702765}
   savedProgress:
     version: 0
     challengeProgress:
@@ -13740,7 +13776,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1885997650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19bea8fac9d671d8483d58a5020de634, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fcaac4df4e72664b85af191218cab1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1885997653

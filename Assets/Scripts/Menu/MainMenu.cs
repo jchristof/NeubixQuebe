@@ -2,7 +2,6 @@
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour {
-    public GameObject menu;
+    public GameObject Menu => gameObject;
     public TextMeshProUGUI audioOnOffText;
-    
 }

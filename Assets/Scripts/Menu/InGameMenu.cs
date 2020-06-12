@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public class InGameMenu : MonoBehaviour {
@@ -9,7 +10,7 @@ public class InGameMenu : MonoBehaviour {
     public TextMeshProUGUI challengeNumberText;
     public TextMeshProUGUI totalMoveCounter;
     public GameObject pauseButton;
-    public GameObject menu;
+    public GameObject Menu => gameObject;
 
     public void HidePause() {
         pauseButton.SetActive(false);
