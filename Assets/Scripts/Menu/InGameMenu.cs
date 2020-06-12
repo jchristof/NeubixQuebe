@@ -9,6 +9,7 @@ public class InGameMenu : MonoBehaviour {
     public TextMeshProUGUI challengeNumberText;
     public TextMeshProUGUI totalMoveCounter;
     public GameObject pauseButton;
+    public GameObject menu;
 
     public void HidePause() {
         pauseButton.SetActive(false);

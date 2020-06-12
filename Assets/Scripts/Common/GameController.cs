@@ -10,11 +10,10 @@ public class GameController : MonoBehaviour {
     public GameObject relaxMenu;
     public GameObject cubeCollection;
     public GameObject successTiers;
-    public GameObject inGameMenu;
     public GameObject successMenu;
     public GameObject retryMenu;
     public GameObject inGamePauseMenu;
-    private InGameMenu inGameMenuScript;
+    private InGameMenu inGameMenu;
     public AudioSource audioSource;
 
     private int prefsVersion = 1;
@@ -45,9 +44,8 @@ public class GameController : MonoBehaviour {
         successTiers.SetActive(false);
         successMenu.SetActive(false);
         retryMenu.SetActive(false);
-        inGameMenu.SetActive(false);
-        inGameMenuScript = inGameMenu.GetComponent<InGameMenu>();
-        
+        inGameMenu.menu.SetActive(false);
+
         splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
     }
 
@@ -112,9 +110,9 @@ public class GameController : MonoBehaviour {
         var nextChallenge = savedProgress.currentChallenge + 1;
 
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(nextChallenge), GetLevelTime(nextChallenge));
-        inGameMenu.SetActive(true);
+        inGameMenu.menu.SetActive(true);
         savedProgress.currentChallenge = nextChallenge;
-        inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
+        inGameMenu.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
     }
 
     public void SuccessAnimDone() {
@@ -136,9 +134,9 @@ public class GameController : MonoBehaviour {
         var currentChallenge = savedProgress.currentChallenge;
 
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(currentChallenge), GetLevelTime(currentChallenge));
-        inGameMenu.SetActive(true);
+        inGameMenu.menu.SetActive(true);
         savedProgress.currentChallenge = currentChallenge;
-        inGameMenuScript.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
+        inGameMenu.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
     }
 
     public void SuccessMenuMainMenu() {
@@ -146,7 +144,7 @@ public class GameController : MonoBehaviour {
         successMenu.SetActive(false);
         mainMenu.menu.SetActive(true);
         cubeCollection.SetActive(false);
-        inGameMenu.SetActive(false);
+        inGameMenu.menu.SetActive(false);
     }
 
     public void ChallengesClicked() {
@@ -156,6 +154,12 @@ public class GameController : MonoBehaviour {
 
     public void EndlessClicked() {
         mainMenu.menu.SetActive(false);
+        cubeCollection.SetActive(true);
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
+    }
+    
+    public void RelaxStartClicked() {
+        relaxMenu.SetActive(false);
         cubeCollection.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
     }
@@ -174,8 +178,8 @@ public class GameController : MonoBehaviour {
         challengeMenu.SetActive(false);
         cubeCollection.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(challenge), GetLevelTime(challenge));
-        inGameMenu.SetActive(true);
-        inGameMenuScript.SetChallengeNumber((challenge + 1).ToString());
+        inGameMenu.menu.SetActive(true);
+        inGameMenu.SetChallengeNumber((challenge + 1).ToString());
         savedProgress.currentChallenge = challenge;
     }
 
@@ -185,7 +189,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void GameModeWon(float levelCompletionTime) {
-        inGameMenu.SetActive(false);
+        inGameMenu.menu.SetActive(false);
         cubeCollection.SetActive(false);
         successMenu.GetComponent<SuccessMenu>().SetTime(levelCompletionTime);
         var currentLevel = savedProgress.currentChallenge;
@@ -220,6 +224,6 @@ public class GameController : MonoBehaviour {
         successMenu.SetActive(false);
         mainMenu.menu.SetActive(true);
         cubeCollection.SetActive(false);
-        inGameMenu.SetActive(false);
+        inGameMenu.menu.SetActive(false);
     }
 }
