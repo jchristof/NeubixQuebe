@@ -18,6 +18,9 @@ namespace DefaultNamespace {
         }
 
         private void OnMouseOver() {
+            if (!fsm.AllowSelection)
+                return;
+            
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             Physics.RaycastNonAlloc(ray, raycastHits);
@@ -40,6 +43,9 @@ namespace DefaultNamespace {
         }
 
         private void OnMouseExit() {
+            if (!fsm.AllowSelection)
+                return;
+            
             foreach (var cube in cubes) {
                 cube.GetComponent<Animator>().SetBool("ToAnimate", false);
             }
@@ -55,6 +61,8 @@ namespace DefaultNamespace {
             foreach (var hit in raycastHits) {
                 var tile = hit.transform.GetComponent<TileScript>();
                 if (tile == null) continue;
+
+                OnMouseExit();
                 fsm.ChallengeSelected(tile.gameObject);
                 
                 break;

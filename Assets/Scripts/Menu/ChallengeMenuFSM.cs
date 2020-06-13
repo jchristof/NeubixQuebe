@@ -8,16 +8,18 @@ namespace Menu {
         public class ChallengeMenuFSM : FSM<ChallengeMenuFSM> {
             public ChallengeMenuFSM(ChallengeMenuBehavior gameMode) {
                 this.gameMode = gameMode;
+                AllowSelection = true;
                 SetState(typeof(InputIdle));
             }
 
             public readonly ChallengeMenuBehavior gameMode;
 
             public void ChallengeSelected(GameObject gameObject) {
+                AllowSelection = false;
                 SetState(typeof(ChallengeSelected), gameObject);
             }
 
-            public bool AllowSelection => IsInAny(new Type[] {typeof(InputIdle)});
+            public bool AllowSelection;
         }
 
         class InputIdle : State<ChallengeMenuFSM> {
