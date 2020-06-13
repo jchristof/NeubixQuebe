@@ -70,6 +70,7 @@ namespace InGame {
         public void OnDisable() {
             moveTotal = 0;
             inGameMenu.SetMoveCount(0);
+            inGameMenu.HidePause();
             inGameState = null;
             game = null;
             moveScript = null;

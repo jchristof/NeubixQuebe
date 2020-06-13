@@ -107,9 +107,5 @@ namespace DefaultNamespace {
             cubes.Last().GetComponent<TileScript>().image.sprite = crown;
             cubes.Last().GetComponent<TileScript>().text.enabled = false;
         }
-
-        public bool CheckSolved(int distance) {
-            return false;
-        }
     }
 }

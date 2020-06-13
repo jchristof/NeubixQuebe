@@ -26,6 +26,7 @@ public class CubePool : MonoBehaviour {
             cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
             cube.name = (18 - i).ToString();
             cube.SetActive(false);
+            cube.GetComponent<Animation>().Stop();
             cubeGrid.Add(cube);
         }
     }
