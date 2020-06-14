@@ -64,8 +64,27 @@ namespace InGame.State.ChallengeModeStates {
             yield return new WaitForSeconds(.25f);
 
             cubes.Clear();
+            fsm.SetState(typeof(EndlessGamePlay));
+        }
+    }
+    
+    class EndlessGamePlay : State<InGameFsm> {
+        public EndlessGamePlay(InGameFsm fsm) : base(fsm) { }
 
-            fsm.gameBehavior.moveScript?.Enable();
+        public override void Pre(object args = null) {
+            base.Pre(args);
+            
+            fsm.gameBehavior.moveScript.Enable();
+            fsm.gameBehavior.inGameMenu.ShowPause();
+        }
+
+        public override void Update() {
+            base.Update();
+        }
+
+        public override void Post() {
+            base.Post();
+            fsm.gameBehavior.inGameMenu.HidePause();
         }
     }
     
@@ -81,6 +100,7 @@ namespace InGame.State.ChallengeModeStates {
 
             fsm.gameBehavior.moveScript.Disable();
             fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
+            fsm.gameBehavior.inGameMenu.HidePause();
         }
 
         public override void Update() {

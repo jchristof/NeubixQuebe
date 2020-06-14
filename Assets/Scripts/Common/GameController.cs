@@ -163,6 +163,7 @@ public class GameController : MonoBehaviour {
     public void RelaxStartClicked() {
         AllMenusOff();
         cubeCollection.SetActive(true);
+        inGameMenu.Menu.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
     }
 
@@ -172,6 +173,11 @@ public class GameController : MonoBehaviour {
     }
 
     public void RelaxBack() {
+        AllMenusOff();
+        mainMenu.Menu.SetActive(true);
+    }
+    
+    public void ChallengeBack() {
         AllMenusOff();
         mainMenu.Menu.SetActive(true);
     }
