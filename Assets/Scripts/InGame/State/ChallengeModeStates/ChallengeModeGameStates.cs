@@ -40,6 +40,8 @@ namespace InGame.State.ChallengeModeStates {
                 fsm.gameBehavior.game.GetGameTiles());
             fsm.gameBehavior.moveScript.Enable();
             fsm.gameBehavior.inGameMenu.ShowPause();
+            fsm.gameBehavior.inGameMenu.ShowTimer();
+            fsm.gameBehavior.inGameMenu.ShowMoveCounter();
         }
 
         public override void Update() {

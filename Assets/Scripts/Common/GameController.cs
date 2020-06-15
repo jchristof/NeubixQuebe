@@ -164,7 +164,7 @@ public class GameController : MonoBehaviour {
         AllMenusOff();
         cubeCollection.SetActive(true);
         inGameMenu.Menu.SetActive(true);
-        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Relax, GetGameMode(0), 0);
     }
 
     public void RelaxClicked() {

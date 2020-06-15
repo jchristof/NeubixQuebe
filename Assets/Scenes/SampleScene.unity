@@ -3185,6 +3185,7 @@ MonoBehaviour:
   time: {fileID: 1352958502}
   challengeNumberText: {fileID: 606359065}
   totalMoveCounter: {fileID: 482576760}
+  timerText: {fileID: 1352958504}
   pauseButton: {fileID: 833420117}
 --- !u!1 &775115524
 GameObject:

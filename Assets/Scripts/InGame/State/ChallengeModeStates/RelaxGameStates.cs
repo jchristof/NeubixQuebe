@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace InGame.State.ChallengeModeStates {
-    class EndlessGameStart : State<InGameFsm> {
-        public EndlessGameStart(InGameFsm fsm) : base(fsm) { }
+namespace InGame.State.ChallengeModeStates.Relax {
+    class RelaxGameState : State<InGameFsm> {
+        public RelaxGameState(InGameFsm fsm) : base(fsm) { }
     
         public override void Pre(object args = null) {
             base.Pre(args);
@@ -12,10 +12,7 @@ namespace InGame.State.ChallengeModeStates {
                 fsm.gameBehavior.cubePool.cubesPool, fsm.gameBehavior.game.GetGameTiles());
             fsm.gameBehavior.moveScript?.Disable();
             fsm.SetState(typeof(VisualTransitionIn));
-            
-            fsm.gameBehavior.inGameMenu.ShowPause();
-            fsm.gameBehavior.inGameMenu.ShowTimer();
-            fsm.gameBehavior.inGameMenu.ShowMoveCounter();
+            fsm.gameBehavior.inGameMenu.HideTimer();
         }
     }
 
@@ -72,8 +69,8 @@ namespace InGame.State.ChallengeModeStates {
         }
     }
     
-    class EndlessGamePlay : State<InGameFsm> {
-        public EndlessGamePlay(InGameFsm fsm) : base(fsm) { }
+    class RelaxGamePlay : State<InGameFsm> {
+        public RelaxGamePlay(InGameFsm fsm) : base(fsm) { }
 
         public override void Pre(object args = null) {
             base.Pre(args);

@@ -1,4 +1,6 @@
 using InGame.State.ChallengeModeStates;
+using InGame.State.ChallengeModeStates.Relax;
+using VisualTransitionOut = InGame.State.ChallengeModeStates.VisualTransitionOut;
 
 namespace InGame {
     public class InGameFsm : FSM<InGameFsm> {
@@ -10,6 +12,8 @@ namespace InGame {
                 SetState(typeof(StartGameState), levelTime);
             else if(gameType == GameType.Endless)
                 SetState(typeof(EndlessGameStart), levelTime);
+            else if(gameType == GameType.Relax)
+                SetState(typeof(RelaxGameState), 0);
         }
 
         public readonly GameBehavior gameBehavior;
@@ -25,8 +29,8 @@ namespace InGame {
                 SetState(typeof(SuccessTransition), false);
             else if(gameType == GameType.Endless)
                 SetState(typeof(VisualTransitionOut));
-            
-            
+            else if(gameType == GameType.Relax)
+                SetState(typeof(VisualTransitionOut));
         }
     }
 }
