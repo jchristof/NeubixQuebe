@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_NeubixQuebe.1182416714.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Materials" t="Include">
+          <e p="Shaders" t="Include">
+            <e p="TestShader.shader" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Common" t="Include">
+            <e p="CubePool.cs" t="Include" />
+            <e p="GameController.cs" t="Include" />
+            <e p="SavedProgress.cs" t="Include" />
+            <e p="State" t="Include">
+              <e p="FSM.cs" t="Include" />
+              <e p="State.cs" t="Include" />
+            </e>
+          </e>
+          <e p="InGame" t="Include">
+            <e p="CountdownAnimation.cs" t="Include" />
+            <e p="CountdownTimer.cs" t="Include" />
+            <e p="Game.cs" t="Include" />
+            <e p="GameBehavior.cs" t="Include" />
+            <e p="GameMode.cs" t="Include" />
+            <e p="GameType.cs" t="Include" />
+            <e p="MoveScript.cs" t="Include" />
+            <e p="State" t="Include">
+              <e p="ChallengeModeStates" t="Include">
+                <e p="ChallengeModeGameStates.cs" t="Include" />
+                <e p="EndlessModeGameStates.cs" t="Include" />
+                <e p="RelaxGameStates.cs" t="Include" />
+              </e>
+              <e p="InGameFSM.cs" t="Include" />
+            </e>
+            <e p="TileMover.cs" t="Include" />
+            <e p="TileScript.cs" t="Include" />
+          </e>
+          <e p="Menu" t="Include">
+            <e p="ChallengeMenu.cs" t="Include" />
+            <e p="ChallengeMenuBehavior.cs" t="Include" />
+            <e p="ChallengeMenuFSM.cs" t="Include" />
+            <e p="InGameMenu.cs" t="Include" />
+            <e p="InGamePauseMenu.cs" t="Include" />
+            <e p="MainMenu.cs" t="Include" />
+            <e p="RelaxMenu.cs" t="Include" />
+            <e p="RetryMenu.cs" t="Include" />
+            <e p="SplashMenu.cs" t="Include" />
+            <e p="SuccessMenu.cs" t="Include" />
+            <e p="SuccessTiers.cs" t="Include" />
+          </e>
+          <e p="Sandbox" t="Include">
+            <e p="Board.cs" t="Include" />
+            <e p="MainFSM.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="UmutBebek" t="Include">
+          <e p="URP" t="Include">
+            <e p="ShaderToy" t="Include">
+              <e p="Misc" t="Include">
+                <e p="JustDisplay.shader" t="Include" />
+              </e>
+              <e p="Scenes and Shaders" t="Include">
+                <e p="2D Clouds 4tdSWr.shader" t="Include" />
+                <e p="Apple XdfGRn.shader" t="Include" />
+                <e p="Blobs lsfGzr.shader" t="Include" />
+                <e p="Cloud Ten XtS3DD.shader" t="Include" />
+                <e p="Clouds XslGRr.shader" t="Include" />
+                <e p="Clover XsXGzn.shader" t="Include" />
+                <e p="Creation by Silexars XsXXDn.shader" t="Include" />
+                <e p="Cubes and Spheres MsX3zr.shader" t="Include" />
+                <e p="Deform - flower 4dX3Rn.shader" t="Include" />
+                <e p="Deform - square tunnel Ms2SWW.shader" t="Include" />
+                <e p="Disintegrated Holed Cylinder 3llyzs.shader" t="Include" />
+                <e p="Euler s Identity wlscRl.shader" t="Include" />
+                <e p="Fire2 4ssGzn.shader" t="Include" />
+                <e p="Flame MdX3zr.shader" t="Include" />
+                <e p="Fractal Land XsBXWt.shader" t="Include" />
+                <e p="Gate ttjXzd.shader" t="Include" />
+                <e p="Happy Jumping 3lsSzf.shader" t="Include" />
+                <e p="Heartfelt ltffzl.shader" t="Include" />
+                <e p="Hell MdfGRX.shader" t="Include" />
+                <e p="Input - Sound Xds3Rr.shader" t="Include" />
+                <e p="Julia - Quaternion 1 MsfGRr.shader" t="Include" />
+                <e p="Kinderpainter (made in 2006) XdX3Rn.shader" t="Include" />
+                <e p="Main Sequence Star 4dXGR4.shader" t="Include" />
+                <e p="Mandelbulb - derivative ltfSWn.shader" t="Include" />
+                <e p="Mario-Icono-bits wtscRs.shader" t="Include" />
+                <e p="Mengersponge wtfcWN.shader" t="Include" />
+                <e p="Merry Christmas 4dlGRn.shader" t="Include" />
+                <e p="Mouse Tutorial XlyBzt.shader" t="Include" />
+                <e p="Pancake Conf 2020 LiveShading wtXcW2.shader" t="Include" />
+                <e p="Planet 4sf3Rn.shader" t="Include" />
+                <e p="Plasma Globe XsjXRm.shader" t="Include" />
+                <e p="Protean clouds 3l23Rh.shader" t="Include" />
+                <e p="Radial Blur 4sfGRn.shader" t="Include" />
+                <e p="Random Grid Shenanigans WlsyR2.shader" t="Include" />
+                <e p="Raymarching - Primitives Xds3zN.shader" t="Include" />
+                <e p="Real-Time Atmospheric Scattering wllyW4.shader" t="Include" />
+                <e p="Rhodium liquid carbon llK3Dy pass1.shader" t="Include" />
+                <e p="Rhodium liquid carbon llK3Dy pass2.shader" t="Include" />
+                <e p="Seascape Ms2SD1.shader" t="Include" />
+                <e p="Simplex Trabeculae 3tXcRs.shader" t="Include" />
+                <e p="Simplicity Galaxy MslGWN.shader" t="Include" />
+                <e p="Snail ld3Gz2.shader" t="Include" />
+                <e p="Star Nest XlfGRj.shader" t="Include" />
+                <e p="Sun 4dXGzn.shader" t="Include" />
+                <e p="Sunset on the sea 4dl3zr.shader" t="Include" />
+                <e p="The Drive Home MdfBRX.shader" t="Include" />
+                <e p="Tribute - Journey ldlcRf.shader" t="Include" />
+                <e p="VPyramid wlXcRs.shader" t="Include" />
+                <e p="Volumetric explosion lsySzd.shader" t="Include" />
+                <e p="Voxel Edges 4dfGzs.shader" t="Include" />
+                <e p="[NV15] Impact ltj3zR.shader" t="Include" />
+                <e p="[NV15] Space Curvature llj3Rz.shader" t="Include" />
+                <e p="edge glow Mdf3zr.shader" t="Include" />
+                <e p="little fluffy clouds Xsl3zr.shader" t="Include" />
+                <e p="moire_2 ttXyW2.shader" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="MousePosToShader.cs" t="Include" />
+                <e p="MultiPassShader.cs" t="Include" />
+                <e p="MusicToShader.cs" t="Include" />
+                <e p="ShaderUtil.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="NeubixQuebe.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
