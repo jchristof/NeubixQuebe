@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\jchri_000\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\jchri_000\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_NeubixQuebe.482090742.00" t="ExcludeRecursive" />
+    <e p="C:\Users\jchri_000\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\jchri_000\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_NeubixQuebe.482090742.00" t="ExcludeRecursive" />
     <e p="D:\Projects2\NeubixQuebe" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
