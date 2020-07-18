@@ -14,8 +14,9 @@ namespace InGame.State.ChallengeModeStates {
             fsm.SetState(typeof(VisualTransitionIn));
             
             fsm.gameBehavior.inGameMenu.ShowPause();
-            fsm.gameBehavior.inGameMenu.ShowTimer();
-            fsm.gameBehavior.inGameMenu.ShowMoveCounter();
+            fsm.gameBehavior.inGameMenu.HideLevelCounter();
+            //fsm.gameBehavior.inGameMenu.ShowTimer();
+            //fsm.gameBehavior.inGameMenu.ShowMoveCounter();
         }
     }
 

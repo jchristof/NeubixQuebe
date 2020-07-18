@@ -7,6 +7,8 @@ public class InGameMenu : MonoBehaviour {
     public TextMeshProUGUI challengeNumberText;
     public TextMeshProUGUI totalMoveCounter;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI levelCounter;
+    
     public GameObject pauseButton;
     public GameObject Menu => gameObject;
 
@@ -29,15 +31,12 @@ public class InGameMenu : MonoBehaviour {
     public void ShowMoveCounter() => totalMoveCounter.gameObject.SetActive(true);
     public void HideMoveCounter() => totalMoveCounter.gameObject.SetActive(false);
 
+    public void ShowLevelCounter() => levelCounter.gameObject.SetActive(true);
+    public void HideLevelCounter() => levelCounter.gameObject.SetActive(false);
+
     private void OnEnable() {
         HidePause();
         HideTimer();
         HideMoveCounter();
     }
-    
-    // private void OnEnable() {
-    //     HidePause();
-    //     HideTimer();
-    //     HideMoveCounter();
-    // }
 }

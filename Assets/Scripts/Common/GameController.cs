@@ -157,6 +157,7 @@ public class GameController : MonoBehaviour {
     public void EndlessClicked() {
         AllMenusOff();
         cubeCollection.SetActive(true);
+        inGameMenu.Menu.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
     }
 
