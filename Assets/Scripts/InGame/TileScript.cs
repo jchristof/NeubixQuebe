@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class TileScript : MonoBehaviour {
     public Image image;
-    public Text text;
+    public TextMeshProUGUI text;
 
     public int Identifier;
 

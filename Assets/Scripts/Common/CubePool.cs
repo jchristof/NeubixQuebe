@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ public class CubePool : MonoBehaviour {
             cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
             cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
             cube.transform.rotation = new Quaternion(0,0,0,0);
-            cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
+            cube.GetComponentInChildren<TextMeshProUGUI>().text = (18 - i).ToString();
             cube.name = (18 - i).ToString();
             cube.SetActive(false);
             cube.GetComponent<Animation>().Stop();

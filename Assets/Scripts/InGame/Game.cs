@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -50,7 +51,7 @@ namespace InGame {
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
-                cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
+                cube.GetComponentInChildren<TextMeshProUGUI>().text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();
                 cube.SetActive(true);
                 cubes.Add(cube);
@@ -111,7 +112,7 @@ namespace InGame {
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
-                cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
+                cube.GetComponentInChildren<TextMeshProUGUI>().text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();
                 cube.SetActive(true);
                 cubes.Add(cube);
@@ -177,10 +178,11 @@ namespace InGame {
 
             for (var i = 17; i >= 0; i--) {
                 GameObject cube = cubePoolGrid[i];
+                cube.GetComponent<Renderer>().material = materials[1];
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
-                cube.GetComponentInChildren<Text>().text = (18 - i).ToString();
+                cube.GetComponent<TileScript>().text.text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();
                 cube.GetComponent<TileScript>().image.enabled = false;
                 cube.GetComponent<TileScript>().text.enabled = true;
@@ -198,9 +200,9 @@ namespace InGame {
             }
 
             for (int i = 0; i < cubes.Count; i++) {
-                cubes[i].GetComponent<Renderer>().material = materials[1];
+                
                 cubes[i].GetComponent<TileScript>().Identifier = scrambled[i];
-                cubes[i].GetComponentInChildren<Text>().text = scrambled[i].ToString();
+                cubes[i].GetComponentInChildren<TextMeshProUGUI>().text = scrambled[i].ToString();
             }
 
             return cubes;
