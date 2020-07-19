@@ -6,6 +6,7 @@ namespace InGame {
         public List<Material> challengeRowColors;
         public Material cubeColor0;
         public Material cubeColor1;
+        public Material numberedGameMaterial;
 
         public Material successMaterial;
 
@@ -18,7 +19,7 @@ namespace InGame {
         public MoveScript moveScript;
         public int moveTotal;
         public void Init(GameType gameType, GameMode gameMode, float levelTime) {
-            game = GameFactory.GetGame(gameMode, cubePool.cubeGrid, challengeRowColors);
+            game = GameFactory.GetGame(gameMode, cubePool.cubeGrid, challengeRowColors, numberedGameMaterial);
             inGameState = new InGameFsm(this, levelTime, gameType);
             paused = false;
         }

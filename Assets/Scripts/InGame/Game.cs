@@ -4,7 +4,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace InGame {
@@ -16,15 +15,14 @@ namespace InGame {
     }
 
     public class GameFactory {
-        public static Game GetGame(GameMode mode, List<GameObject> cubeGrid, List<Material> challengeRowColors) {
+        public static Game GetGame(GameMode mode, List<GameObject> cubeGrid, List<Material> challengeRowColors, Material numberedMaterial) {
             if (mode == GameMode.TwoColor)
                 return new TwoColorGame(cubeGrid, new[] {challengeRowColors[0], challengeRowColors[1]});
             if (mode == GameMode.ThreeColor)
                 return new ThreeColorGame(cubeGrid,
                     new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
             if (mode == GameMode.Numbered)
-                return new NumberedGame(cubeGrid,
-                    new[] {challengeRowColors[0], challengeRowColors[1], challengeRowColors[2]});
+                return new NumberedGame(cubeGrid, numberedMaterial);
             
             throw new NotImplementedException();
         }
@@ -160,14 +158,14 @@ namespace InGame {
     }
 
     public class NumberedGame : Game {
-        public NumberedGame(List<GameObject> cubePoolGrid, Material[] materials) {
+        public NumberedGame(List<GameObject> cubePoolGrid, Material material) {
             this.cubePoolGrid = cubePoolGrid;
-            this.materials = materials;
+            this.material = material;
         }
 
         private readonly List<GameObject> cubes = new List<GameObject>();
         private readonly List<GameObject> cubePoolGrid;
-        private readonly Material[] materials;
+        private readonly Material material;
 
 
         private readonly int[] numberLayout = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
@@ -178,7 +176,7 @@ namespace InGame {
 
             for (var i = 17; i >= 0; i--) {
                 GameObject cube = cubePoolGrid[i];
-                cube.GetComponent<Renderer>().material = materials[1];
+                cube.GetComponent<Renderer>().material = material;
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
