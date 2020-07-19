@@ -175,11 +175,13 @@ public class GameController : MonoBehaviour {
 
     public void RelaxBack() {
         AllMenusOff();
+        cubeCollection.SetActive(false);
         mainMenu.Menu.SetActive(true);
     }
     
     public void ChallengeBack() {
         AllMenusOff();
+        cubeCollection.SetActive(false);
         mainMenu.Menu.SetActive(true);
     }
 
