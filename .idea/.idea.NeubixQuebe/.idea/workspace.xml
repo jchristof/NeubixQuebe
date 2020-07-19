@@ -4,6 +4,7 @@
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" />
       </list>
     </option>
   </component>
@@ -98,7 +100,7 @@
       <updated>1594431603242</updated>
       <workItem from="1594431610451" duration="120000" />
       <workItem from="1594595097985" duration="13580000" />
-      <workItem from="1595175263391" duration="287000" />
+      <workItem from="1595175263391" duration="1146000" />
     </task>
     <servers />
   </component>
