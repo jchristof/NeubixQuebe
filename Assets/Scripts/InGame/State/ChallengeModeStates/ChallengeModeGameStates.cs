@@ -75,6 +75,7 @@ namespace InGame.State.ChallengeModeStates {
             }
 
             fsm.gameBehavior.moveScript.Stop();
+            fsm.gameBehavior.moveScript = null;
             fsm.gameBehavior.inGameMenu.HidePause();
             fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
         }

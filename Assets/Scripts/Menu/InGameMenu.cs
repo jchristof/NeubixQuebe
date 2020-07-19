@@ -28,7 +28,7 @@ public class InGameMenu : MonoBehaviour {
 
     public void HideTimer() => timerText.gameObject.SetActive(false);
 
-    public void ShowMoveCounter() => totalMoveCounter.gameObject.SetActive(true);
+    public void ShowMoveCounter() => totalMoveCounter.gameObject.SetActive(false);
     public void HideMoveCounter() => totalMoveCounter.gameObject.SetActive(false);
 
     public void ShowLevelCounter() => levelCounter.gameObject.SetActive(true);

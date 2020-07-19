@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +16,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGame/MoveScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Mobile.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGame/GameMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" root0="FORCE_HIGHLIGHTING" />
@@ -43,11 +45,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" />
       </list>
     </option>
   </component>
@@ -80,10 +83,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18380">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="18380" />
       <method v="2" />
     </configuration>
   </component>
@@ -99,7 +102,7 @@
       <updated>1594431603242</updated>
       <workItem from="1594431610451" duration="120000" />
       <workItem from="1594595097985" duration="13580000" />
-      <workItem from="1595175263391" duration="1846000" />
+      <workItem from="1595175263391" duration="3531000" />
     </task>
     <servers />
   </component>
@@ -112,22 +115,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1595130140632">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1595181054908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595130140632" />
-    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1595130140631">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595181054908" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1595181054908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595130140631" />
-    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1595130140631">
+    <state width="1877" height="375" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595181054908" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1595181054908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595130140631" />
-    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1595130140632">
+    <state width="1877" height="375" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595181054908" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1595181054908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595130140632" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595181054908" />
     <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1595130140632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -176,10 +179,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595130140633" />
-    <state x="637" y="253" width="646" height="534" key="find.popup" timestamp="1595123481280">
+    <state x="637" y="253" width="646" height="534" key="find.popup" timestamp="1595181126486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="637" y="253" width="646" height="534" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595123481280" />
+    <state x="637" y="253" width="646" height="534" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595181126486" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595175299707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -204,6 +207,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs</url>
+          <line>77</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" initialLine="77">
+            <startOffsets>
+              <option value="2994" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3021" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
