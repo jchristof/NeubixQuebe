@@ -12,7 +12,7 @@ public class InGameMenu : MonoBehaviour {
     public GameObject pauseButton;
     public GameObject Menu => gameObject;
 
-    public void HidePause() => pauseButton.SetActive(false);
+        public void HidePause() => pauseButton.SetActive(false);
 
 
     public void ShowPause() => pauseButton.SetActive(true);

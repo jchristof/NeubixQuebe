@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using CollectionFunction =
@@ -73,8 +74,9 @@ abstract class MovingCubesCollection {
             pGameObject.transform.parent = parentTransform;
             pGameObject.transform.position = newPosition;
             pGameObject.GetComponent<Renderer>().material = cloneThis.GetComponent<Renderer>().material;
-            pGameObject.GetComponentInChildren<Text>().text = cloneThis.GetComponentInChildren<Text>().text;
-            pGameObject.GetComponentInChildren<Text>().enabled = cloneThis.GetComponentInChildren<Text>().enabled;
+            pGameObject.GetComponentInChildren<TextMeshProUGUI>().text = cloneThis.GetComponentInChildren<TextMeshProUGUI>().text;
+            pGameObject.GetComponentInChildren<TextMeshProUGUI>().color = cloneThis.GetComponentInChildren<TextMeshProUGUI>().color;
+            pGameObject.GetComponentInChildren<TextMeshProUGUI>().enabled = cloneThis.GetComponentInChildren<TextMeshProUGUI>().enabled;
             pGameObject.GetComponent<TileScript>().Identifier = cloneThis.GetComponent<TileScript>().Identifier;
             pGameObject.SetActive(true);
             return;
