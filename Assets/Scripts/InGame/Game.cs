@@ -51,7 +51,7 @@ namespace InGame {
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
                 cube.GetComponentInChildren<TextMeshProUGUI>().text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();
-                cube.SetActive(true);
+                cube.SetActive(false);
                 cubes.Add(cube);
             }
 

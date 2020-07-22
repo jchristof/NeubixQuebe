@@ -31,6 +31,18 @@ public class CubePool : MonoBehaviour {
             cubeGrid.Add(cube);
         }
     }
+
+    public void HideAll() {
+        foreach (GameObject o in cubeGrid) {
+            o.SetActive(false);
+        }
+    }
+
+    public void ShowAll() {
+        foreach (GameObject o in cubeGrid) {
+            o.SetActive(true);
+        }
+    }
     
     public void Update() {
         if (Input.GetKeyUp(KeyCode.Alpha1)) {

@@ -38,6 +38,7 @@ namespace InGame.State.ChallengeModeStates {
 
             fsm.gameBehavior.moveScript = new MoveScript(fsm.gameBehavior.transform, fsm.gameBehavior.cubePool.cubesPool,
                 fsm.gameBehavior.game.GetGameTiles());
+            fsm.gameBehavior.cubePool.ShowAll();
             fsm.gameBehavior.moveScript.Enable();
             fsm.gameBehavior.inGameMenu.ShowPause();
             fsm.gameBehavior.inGameMenu.ShowTimer();

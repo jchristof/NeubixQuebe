@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
+using TMPro;
 using UnityEngine;
 
 namespace InGame.State.ChallengeModeStates {
@@ -8,14 +11,21 @@ namespace InGame.State.ChallengeModeStates {
     
         public override void Pre(object args = null) {
             base.Pre(args);
+            
+            fsm.levelTime = (float) args;
+            
+            TimeSpan t = TimeSpan.FromMinutes(fsm.levelTime);
+            fsm.gameBehavior.inGameMenu.time.GetComponent<TextMeshProUGUI>().text =
+                $"{t.Minutes:D1}:{t.Seconds:D2}";
+            
             fsm.gameBehavior.moveScript = new MoveScript(fsm.gameBehavior.transform,
                 fsm.gameBehavior.cubePool.cubesPool, fsm.gameBehavior.game.GetGameTiles());
             fsm.gameBehavior.moveScript?.Disable();
             fsm.SetState(typeof(VisualTransitionIn));
             
             fsm.gameBehavior.inGameMenu.ShowPause();
-            fsm.gameBehavior.inGameMenu.HideLevelCounter();
-            //fsm.gameBehavior.inGameMenu.ShowTimer();
+            //fsm.gameBehavior.inGameMenu.HideLevelCounter();
+            fsm.gameBehavior.inGameMenu.ShowTimer();
             //fsm.gameBehavior.inGameMenu.ShowMoveCounter();
         }
     }
@@ -35,6 +45,7 @@ namespace InGame.State.ChallengeModeStates {
                 cube.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0);
             }
 
+            fsm.gameBehavior.cubePool.ShowAll();
             fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
         }
 
@@ -75,9 +86,16 @@ namespace InGame.State.ChallengeModeStates {
     
     class EndlessGamePlay : State<InGameFsm> {
         public EndlessGamePlay(InGameFsm fsm) : base(fsm) { }
-
+        private CountdownTimer countdownTimer = new CountdownTimer();
+        
         public override void Pre(object args = null) {
             base.Pre(args);
+            countdownTimer.Set((int) TimeSpan.FromMinutes(fsm.levelTime).TotalMilliseconds);
+            countdownTimer.SetOnEnd(() => {
+                fsm.levelTime = 0;
+                fsm.SetState(typeof(VisualTransitionOut), true);
+            });
+            countdownTimer.Start();
             
             fsm.gameBehavior.moveScript.Enable();
             fsm.gameBehavior.inGameMenu.ShowPause();
@@ -85,6 +103,8 @@ namespace InGame.State.ChallengeModeStates {
 
         public override void Update() {
             base.Update();
+            countdownTimer.Update((int) (Time.deltaTime * 1000));
+            fsm.gameBehavior.inGameMenu.time.GetComponent<TextMeshProUGUI>().text = countdownTimer.ToString();
         }
 
         public override void Post() {
@@ -137,8 +157,10 @@ namespace InGame.State.ChallengeModeStates {
             yield return new WaitForSeconds(.25f);
 
             cubes.Clear();
-            fsm.SetState(typeof(VisualTransitionIn));
-            fsm.gameBehavior.game.Reset();
+            if (fsm.levelTime > 0f) {
+                fsm.SetState(typeof(VisualTransitionIn));
+                fsm.gameBehavior.game.Reset();
+            }
         }
     }
 }

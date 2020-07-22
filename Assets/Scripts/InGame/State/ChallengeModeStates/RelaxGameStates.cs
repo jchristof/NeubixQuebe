@@ -31,6 +31,7 @@ namespace InGame.State.ChallengeModeStates.Relax {
                 cube.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0);
             }
 
+            fsm.gameBehavior.cubePool.ShowAll();
             fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
         }
 
@@ -65,7 +66,7 @@ namespace InGame.State.ChallengeModeStates.Relax {
             yield return new WaitForSeconds(.25f);
 
             cubes.Clear();
-            fsm.SetState(typeof(EndlessGamePlay));
+            fsm.SetState(typeof(RelaxGamePlay));
         }
     }
     

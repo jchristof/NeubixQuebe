@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
     public AudioSource audioSource;
 
     public GameObject cubeCollection;
+    public CubePool cubePool;
 
     private int prefsVersion = 1;
     public SavedProgress savedProgress;
@@ -156,13 +157,15 @@ public class GameController : MonoBehaviour {
 
     public void EndlessClicked() {
         AllMenusOff();
+        cubePool.HideAll();
         cubeCollection.SetActive(true);
         inGameMenu.Menu.SetActive(true);
-        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 0);
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 3f);
     }
 
     public void RelaxStartClicked() {
         AllMenusOff();
+        cubePool.HideAll();
         cubeCollection.SetActive(true);
         inGameMenu.Menu.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Relax, GetGameMode(0), 0);

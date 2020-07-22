@@ -8831,6 +8831,7 @@ MonoBehaviour:
   inGameMenu: {fileID: 762805879}
   audioSource: {fileID: 1897603793}
   cubeCollection: {fileID: 925702765}
+  cubePool: {fileID: 1509287966}
   savedProgress:
     version: 0
     challengeProgress:

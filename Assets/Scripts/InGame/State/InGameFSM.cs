@@ -17,6 +17,7 @@ namespace InGame {
         }
 
         public readonly GameBehavior gameBehavior;
+        public float levelTime;
         public float levelCompletionTime;
         private GameType gameType;
 
