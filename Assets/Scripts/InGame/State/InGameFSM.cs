@@ -20,6 +20,7 @@ namespace InGame {
         public float levelTime;
         public float levelCompletionTime;
         private GameType gameType;
+        public int levelCounter;
 
         public bool CanPause() {
             return IsInAny(typeof(GamePlay));

@@ -27,6 +27,7 @@ namespace InGame.State.ChallengeModeStates {
             //fsm.gameBehavior.inGameMenu.HideLevelCounter();
             fsm.gameBehavior.inGameMenu.ShowTimer();
             //fsm.gameBehavior.inGameMenu.ShowMoveCounter();
+            fsm.gameBehavior.inGameMenu.SetChallengeNumber(fsm.levelCounter.ToString());
         }
     }
 
@@ -161,6 +162,9 @@ namespace InGame.State.ChallengeModeStates {
             if (fsm.levelTime > 0f) {
                 fsm.SetState(typeof(VisualTransitionIn));
                 fsm.gameBehavior.game.Reset();
+                fsm.levelCounter++;
+                fsm.gameBehavior.inGameMenu.SetChallengeNumber(fsm.levelCounter.ToString());
+                fsm.levelTime += (float)5 / 60;
             }
             else {
                 fsm.gameBehavior.gameController.EnlessGameTimeUp();
