@@ -44,6 +44,8 @@
             <e p="ChallengeMenu.cs" t="Include" />
             <e p="ChallengeMenuBehavior.cs" t="Include" />
             <e p="ChallengeMenuFSM.cs" t="Include" />
+            <e p="EndlessMenu.cs" t="Include" />
+            <e p="EndlessTimesUpMenu.cs" t="Include" />
             <e p="InGameMenu.cs" t="Include" />
             <e p="InGamePauseMenu.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />

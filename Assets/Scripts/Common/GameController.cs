@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour {
     public RetryMenu retryMenu;
     public InGamePauseMenu inGamePauseMenu;
     public InGameMenu inGameMenu;
+    public EndlessMenu endlessMenu;
+    public EndlessTimesUpMenu endlessTimesUpMenu;
     public AudioSource audioSource;
 
     public GameObject cubeCollection;
@@ -44,6 +46,8 @@ public class GameController : MonoBehaviour {
         retryMenu.Menu.SetActive(false);
         inGamePauseMenu.Menu.SetActive(false);
         inGameMenu.Menu.SetActive(false);
+        endlessMenu.Menu.SetActive(false);
+        endlessTimesUpMenu.Menu.SetActive(false);
     }
 
     public void Start() {
@@ -155,12 +159,23 @@ public class GameController : MonoBehaviour {
         challengeMenu.Menu.SetActive(true);
     }
 
+    public void EndlessGameClicked() {
+        AllMenusOff();
+        cubePool.HideAll();
+        endlessMenu.Menu.SetActive(true);
+    }
     public void EndlessClicked() {
         AllMenusOff();
         cubePool.HideAll();
         cubeCollection.SetActive(true);
         inGameMenu.Menu.SetActive(true);
-        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 3f);
+        cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 2f);
+    }
+
+    public void EnlessGameTimeUp() {
+        AllMenusOff();
+
+        cubeCollection.SetActive(false);
     }
 
     public void RelaxStartClicked() {

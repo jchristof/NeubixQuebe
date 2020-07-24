@@ -90,7 +90,7 @@ namespace InGame.State.ChallengeModeStates {
         
         public override void Pre(object args = null) {
             base.Pre(args);
-            countdownTimer.Set((int) TimeSpan.FromMinutes(fsm.levelTime).TotalMilliseconds);
+            countdownTimer.Set((int)(fsm.levelTime * 1000 * 60));
             countdownTimer.SetOnEnd(() => {
                 fsm.levelTime = 0;
                 fsm.SetState(typeof(VisualTransitionOut), true);
@@ -110,6 +110,7 @@ namespace InGame.State.ChallengeModeStates {
         public override void Post() {
             base.Post();
             fsm.gameBehavior.inGameMenu.HidePause();
+            fsm.levelTime = (float)countdownTimer.Get() / (float)(1000 * 60);
         }
     }
     
@@ -160,6 +161,9 @@ namespace InGame.State.ChallengeModeStates {
             if (fsm.levelTime > 0f) {
                 fsm.SetState(typeof(VisualTransitionIn));
                 fsm.gameBehavior.game.Reset();
+            }
+            else {
+                fsm.gameBehavior.gameController.EnlessGameTimeUp();
             }
         }
     }
