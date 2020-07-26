@@ -26,7 +26,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/IdleNewHighScore.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/IdleNewHighScore.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/award.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/award.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewHighScore.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NewHighScore.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Panel.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Panel.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/EndlessModeGameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/EndlessModeGameStates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +68,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/049BE2AF-E36F-487E-B06E-F49D51A0BAB6/e9/54e2999e/Animation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/InGamePauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SuccessTiers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SuccessMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/SavedProgress.cs" root0="FORCE_HIGHLIGHTING" />
@@ -79,13 +95,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/InGameFSM.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/RelaxGameStates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/SavedProgress.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/EndlessModeGameStates.cs" />
       </list>
     </option>
@@ -149,7 +165,7 @@
       <workItem from="1595553194336" duration="6677000" />
       <workItem from="1595633825117" duration="1781000" />
       <workItem from="1595678146709" duration="1095000" />
-      <workItem from="1595768128822" duration="5779000" />
+      <workItem from="1595768128822" duration="15380000" />
     </task>
     <servers />
   </component>
@@ -175,70 +191,70 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1595774875685">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1595790938348">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875685" />
-    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1595774875685">
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938348" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1595790938348">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875685" />
-    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1595774875685">
+    <state width="1877" height="375" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938348" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1595790938348">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875685" />
-    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1595774875685">
+    <state width="1877" height="375" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938348" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1595790938348">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875685" />
-    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938348" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1595790944911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790944911" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1595790944911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790944911" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1595790944911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790944911" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1595790944911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790944911" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1595774875686">
+    <state width="1877" height="375" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875686" />
-    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1595774875687">
+    <state width="1877" height="375" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875687" />
-    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1595774875687">
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875687" />
-    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1595774875687">
+    <state width="1877" height="375" key="GridCell.Tab.3.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875687" />
-    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1595774875687">
+    <state width="1877" height="375" key="GridCell.Tab.3.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1595790938187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595774875687" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595790938187" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1595387581414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -260,30 +276,56 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs</url>
-          <line>8</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" initialLine="8">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs</url>
+          <line>182</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" initialLine="180">
             <startOffsets>
-              <option value="210" />
+              <option value="5838" />
             </startOffsets>
             <endOffsets>
-              <option value="245" />
+              <option value="5887" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs</url>
-          <line>186</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" initialLine="178">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs</url>
+          <line>10</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" initialLine="11">
             <startOffsets>
-              <option value="6019" />
+              <option value="237" />
             </startOffsets>
             <endOffsets>
-              <option value="6054" />
+              <option value="302" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs</url>
+          <line>15</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" initialLine="16">
+            <startOffsets>
+              <option value="410" />
+            </startOffsets>
+            <endOffsets>
+              <option value="438" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs</url>
+          <line>19</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" initialLine="20">
+            <startOffsets>
+              <option value="500" />
+            </startOffsets>
+            <endOffsets>
+              <option value="544" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

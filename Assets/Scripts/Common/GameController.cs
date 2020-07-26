@@ -177,14 +177,15 @@ public class GameController : MonoBehaviour {
         AllMenusOff();
         cubeCollection.SetActive(false);
         var currentHighScore = savedProgress.endlessHighScore.highScore;
+        endlessTimesUpMenu.Menu.SetActive(true);
+        endlessTimesUpMenu.SetScore(score);
         if (currentHighScore < score) {
             savedProgress.endlessHighScore.highScore = score;
             var savedData = JsonUtility.ToJson(savedProgress);
             PlayerPrefs.SetString("GameProgress", savedData);
             PlayerPrefs.Save();
+            endlessTimesUpMenu.PlayNewHighScoreAnimation();
         }
-        endlessTimesUpMenu.Menu.SetActive(true);
-        endlessTimesUpMenu.SetScore(score);
     }
 
     public void RelaxStartClicked() {

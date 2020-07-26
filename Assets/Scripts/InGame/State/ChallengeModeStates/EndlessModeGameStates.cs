@@ -12,7 +12,7 @@ namespace InGame.State.ChallengeModeStates {
         public override void Pre(object args = null) {
             base.Pre(args);
             
-            fsm.levelTime = (float) .25;
+            fsm.levelTime = (float)args;
             
             TimeSpan t = TimeSpan.FromMinutes(fsm.levelTime);
             fsm.gameBehavior.inGameMenu.time.GetComponent<TextMeshProUGUI>().text =
@@ -24,7 +24,7 @@ namespace InGame.State.ChallengeModeStates {
             fsm.SetState(typeof(VisualTransitionIn));
             
             fsm.gameBehavior.inGameMenu.ShowPause();
-            //fsm.gameBehavior.inGameMenu.HideLevelCounter();
+            fsm.gameBehavior.inGameMenu.HidePause();
             fsm.gameBehavior.inGameMenu.ShowTimer();
             //fsm.gameBehavior.inGameMenu.ShowMoveCounter();
             fsm.gameBehavior.inGameMenu.SetChallengeNumber(fsm.levelCounter.ToString());
