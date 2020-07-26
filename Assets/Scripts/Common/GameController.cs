@@ -172,10 +172,11 @@ public class GameController : MonoBehaviour {
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Endless, GetGameMode(0), 2f);
     }
 
-    public void EnlessGameTimeUp() {
+    public void EndlessTimesUp(int score) {
         AllMenusOff();
-
         cubeCollection.SetActive(false);
+        endlessTimesUpMenu.Menu.SetActive(true);
+        endlessTimesUpMenu.SetScore(score);
     }
 
     public void RelaxStartClicked() {

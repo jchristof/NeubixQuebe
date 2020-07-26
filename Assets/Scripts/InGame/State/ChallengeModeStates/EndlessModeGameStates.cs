@@ -12,7 +12,7 @@ namespace InGame.State.ChallengeModeStates {
         public override void Pre(object args = null) {
             base.Pre(args);
             
-            fsm.levelTime = (float) args;
+            fsm.levelTime = (float) .25;
             
             TimeSpan t = TimeSpan.FromMinutes(fsm.levelTime);
             fsm.gameBehavior.inGameMenu.time.GetComponent<TextMeshProUGUI>().text =
@@ -167,7 +167,7 @@ namespace InGame.State.ChallengeModeStates {
                 fsm.levelTime += (float)5 / 60;
             }
             else {
-                fsm.gameBehavior.gameController.EnlessGameTimeUp();
+                fsm.gameBehavior.gameController.EndlessTimesUp(fsm.levelCounter);
             }
         }
     }

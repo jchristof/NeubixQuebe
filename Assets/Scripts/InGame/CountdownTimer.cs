@@ -27,6 +27,7 @@ namespace DefaultNamespace {
             var newTime = currentTime - deltaMilliseconds;
             if (newTime < 0) {
                 running = false;
+                currentTime = 0;
                 onEnd?.Invoke();
                 onEnd = null;
             }
