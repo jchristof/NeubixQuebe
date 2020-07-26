@@ -32,7 +32,7 @@ namespace InGame {
             else if(gameType == GameType.Endless)
                 SetState(typeof(VisualTransitionOut));
             else if(gameType == GameType.Relax)
-                SetState(typeof(VisualTransitionOut));
+                SetState(typeof(InGame.State.ChallengeModeStates.Relax.VisualTransitionOut));
         }
     }
 }

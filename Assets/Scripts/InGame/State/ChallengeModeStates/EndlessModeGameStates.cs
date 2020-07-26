@@ -125,7 +125,13 @@ namespace InGame.State.ChallengeModeStates {
         public override void Pre(object args) {
             base.Pre(args);
 
-            fsm.gameBehavior.moveScript.Disable();
+            if (fsm.levelTime <= 0f) {
+                startColor = Color.red;
+                endColor = new Color(1f, 0f, 0f, 0f);
+            }
+
+            fsm.gameBehavior.moveScript.Stop();
+            fsm.gameBehavior.moveScript = null;
             fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
             fsm.gameBehavior.inGameMenu.HidePause();
         }

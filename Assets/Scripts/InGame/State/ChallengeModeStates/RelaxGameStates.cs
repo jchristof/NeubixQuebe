@@ -13,6 +13,7 @@ namespace InGame.State.ChallengeModeStates.Relax {
             fsm.gameBehavior.moveScript?.Disable();
             fsm.SetState(typeof(VisualTransitionIn));
             fsm.gameBehavior.inGameMenu.HideTimer();
+            fsm.gameBehavior.inGameMenu.HideLevelCounter();
         }
     }
 
