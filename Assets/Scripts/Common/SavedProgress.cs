@@ -7,6 +7,7 @@ namespace DefaultNamespace {
         public int version;
         public ChallengeModeProgress challengeProgress = new ChallengeModeProgress();
         public int currentChallenge;
+        public EndlessHighScore endlessHighScore = new EndlessHighScore();
     }
 
     [Serializable]
@@ -18,5 +19,12 @@ namespace DefaultNamespace {
     [Serializable]
     public class ChallengeModeProgress {
         public List<SingleChallengeProgress> challenges = new List<SingleChallengeProgress>();
+    }
+
+    [Serializable]
+    public class EndlessHighScore {
+
+        public int highScore;
+
     }
 }

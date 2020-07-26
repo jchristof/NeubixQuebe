@@ -1640,7 +1640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &283730849
 Transform:
   m_ObjectHideFlags: 0
@@ -1668,6 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9109b0a83d462190cd881790eafa83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highScore: {fileID: 1961212026}
 --- !u!1 &300949352
 GameObject:
   m_ObjectHideFlags: 0
@@ -10971,10 +10972,12 @@ MonoBehaviour:
   cubeCollection: {fileID: 925702765}
   cubePool: {fileID: 1509287966}
   savedProgress:
-    version: 0
+    version: 1
     challengeProgress:
       challenges: []
     currentChallenge: 0
+    endlessHighScore:
+      highScore: 0
 --- !u!4 &1766025131
 Transform:
   m_ObjectHideFlags: 0

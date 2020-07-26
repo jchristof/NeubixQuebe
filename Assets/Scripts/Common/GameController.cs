@@ -163,6 +163,7 @@ public class GameController : MonoBehaviour {
         AllMenusOff();
         cubePool.HideAll();
         endlessMenu.Menu.SetActive(true);
+        endlessMenu.SetHighScore(savedProgress.endlessHighScore.highScore);
     }
     public void EndlessClicked() {
         AllMenusOff();
@@ -175,6 +176,13 @@ public class GameController : MonoBehaviour {
     public void EndlessTimesUp(int score) {
         AllMenusOff();
         cubeCollection.SetActive(false);
+        var currentHighScore = savedProgress.endlessHighScore.highScore;
+        if (currentHighScore < score) {
+            savedProgress.endlessHighScore.highScore = score;
+            var savedData = JsonUtility.ToJson(savedProgress);
+            PlayerPrefs.SetString("GameProgress", savedData);
+            PlayerPrefs.Save();
+        }
         endlessTimesUpMenu.Menu.SetActive(true);
         endlessTimesUpMenu.SetScore(score);
     }

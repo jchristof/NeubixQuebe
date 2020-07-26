@@ -98,7 +98,7 @@ namespace InGame.State.ChallengeModeStates {
             });
             countdownTimer.Start();
             
-            fsm.gameBehavior.moveScript.Enable();
+            fsm.gameBehavior.moveScript?.Enable();
             fsm.gameBehavior.inGameMenu.ShowPause();
         }
 
@@ -131,7 +131,6 @@ namespace InGame.State.ChallengeModeStates {
             }
 
             fsm.gameBehavior.moveScript.Stop();
-            fsm.gameBehavior.moveScript = null;
             fsm.gameBehavior.StartCoroutine(RunTransitionAnimation());
             fsm.gameBehavior.inGameMenu.HidePause();
         }
