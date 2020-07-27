@@ -68,7 +68,7 @@ public class MoveScript {
 
     private MovingCubesCollection movingCubesCollection;
 
-    RaycastHit[] raycastHits = new RaycastHit[5];
+    
 
     public void OnMouseDown() {
         if (!enabled)
@@ -86,8 +86,10 @@ public class MoveScript {
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+        RaycastHit[] raycastHits = new RaycastHit[5];
         Physics.RaycastNonAlloc(ray, raycastHits);
 
+        dragChild = null;
         foreach (var hit in raycastHits) {
             var component = hit.transform?.GetComponent(typeof(TileScript));
             if (component == null) continue;
