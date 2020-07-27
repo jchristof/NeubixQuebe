@@ -28,7 +28,7 @@
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/MoveScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/MoveScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileMover.cs" />
@@ -91,6 +90,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/EndlessModeGameStates.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/MoveScript.cs" />
       </list>
     </option>
@@ -154,7 +154,7 @@
       <workItem from="1595553194336" duration="6677000" />
       <workItem from="1595633825117" duration="1781000" />
       <workItem from="1595678146709" duration="1095000" />
-      <workItem from="1595768128822" duration="16592000" />
+      <workItem from="1595768128822" duration="17681000" />
     </task>
     <servers />
   </component>
@@ -280,6 +280,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs</url>
+          <line>65</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" initialLine="63">
+            <startOffsets>
+              <option value="2039" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2039" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/InGame/MoveScript.cs</url>
+          <line>92</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/InGame/MoveScript.cs" initialLine="92">
+            <startOffsets>
+              <option value="3054" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3086" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

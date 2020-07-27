@@ -26,6 +26,7 @@ namespace InGame.State.ChallengeModeStates {
             fsm.gameBehavior.inGameMenu.ShowPause();
             fsm.gameBehavior.inGameMenu.HidePause();
             fsm.gameBehavior.inGameMenu.ShowTimer();
+            fsm.gameBehavior.inGameMenu.ShowLevelCounter();
             //fsm.gameBehavior.inGameMenu.ShowMoveCounter();
             fsm.gameBehavior.inGameMenu.SetChallengeNumber(fsm.levelCounter.ToString());
         }

@@ -91,7 +91,10 @@ public class MoveScript {
 
         dragChild = null;
         foreach (var hit in raycastHits) {
-            var component = hit.transform?.GetComponent(typeof(TileScript));
+            var t = hit.transform;
+            if (t == null) break;
+            
+            var component = t.GetComponent(typeof(TileScript));
             if (component == null) continue;
             
             dragChild = hit.transform.gameObject;

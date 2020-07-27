@@ -11,7 +11,7 @@ namespace DefaultNamespace {
         public CubePool cubePool;
         public List<GameObject> cubes = new List<GameObject>();
         public GameController gameController;
-        private readonly RaycastHit[] raycastHits = new RaycastHit[5];
+        
         private ChallengeMenuState.ChallengeMenuFSM fsm;
         void Update() {
             fsm?.Update();
@@ -23,11 +23,14 @@ namespace DefaultNamespace {
             
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            RaycastHit[] raycastHits = new RaycastHit[5];
             Physics.RaycastNonAlloc(ray, raycastHits);
 
             GameObject hoverCube = null;
             foreach (var hit in raycastHits) {
-                var component = hit.transform?.GetComponent(typeof(TileScript));
+                var t = hit.transform;
+                if (t == null) break;
+                var component = t.GetComponent(typeof(TileScript));
                 if (component == null) continue;
                 hoverCube = hit.transform.gameObject;
 
@@ -56,10 +59,13 @@ namespace DefaultNamespace {
                 return;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            RaycastHit[] raycastHits = new RaycastHit[5];
             Physics.RaycastNonAlloc(ray, raycastHits);
 
             foreach (var hit in raycastHits) {
-                var tile = hit.transform.GetComponent<TileScript>();
+                var t = hit.transform;
+                if (t == null) break;
+                var tile = t.GetComponent(typeof(TileScript));
                 if (tile == null) continue;
 
                 OnMouseExit();

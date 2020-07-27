@@ -43,6 +43,7 @@ namespace InGame.State.ChallengeModeStates {
             fsm.gameBehavior.inGameMenu.ShowPause();
             fsm.gameBehavior.inGameMenu.ShowTimer();
             fsm.gameBehavior.inGameMenu.ShowMoveCounter();
+            fsm.gameBehavior.inGameMenu.ShowLevelCounter();
         }
 
         public override void Update() {
@@ -55,6 +56,7 @@ namespace InGame.State.ChallengeModeStates {
             base.Post();
             countdownTimer.Stop();
             fsm.levelCompletionTime = countdownTimer.Get();
+            fsm.gameBehavior.inGameMenu.HideLevelCounter();
         }
     }
 
