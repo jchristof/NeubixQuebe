@@ -43,7 +43,7 @@ namespace InGame.State.ChallengeModeStates {
 
             var c = fsm.gameBehavior.game.GetGameTiles();
             foreach (var cube in c) {
-                var color = cube.GetComponent<Renderer>().material.color;
+                var color = cube.GetComponent<Renderer>().material.GetColor("Color_E1158FD4");
                 cube.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0);
             }
 
