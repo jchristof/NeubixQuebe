@@ -104,7 +104,8 @@ namespace DefaultNamespace {
                 }
                 else {
                     var newMaterial = new Material(material);
-                    var color = newMaterial.color;
+                    var color = newMaterial.GetColor("Color_E1158FD4");
+                   // var color = newMaterial.color;
                     newMaterial.color = new Color(color.r * .3f, color.g * .3f, color.b * .3f, color.a);
                     cube.GetComponent<Renderer>().material = newMaterial;
                 }

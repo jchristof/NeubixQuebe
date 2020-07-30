@@ -21,6 +21,6 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_2B9BF72A: 0.75
+    - Vector1_2B9BF72A: 0.9
     m_Colors:
-    - Color_E1158FD4: {r: 3.383131, g: 2.2927003, b: 7.129739, a: 0}
+    - Color_E1158FD4: {r: 0.21230568, g: 0.14464782, b: 0.44560862, a: 1}
