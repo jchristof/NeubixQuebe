@@ -29,7 +29,8 @@ namespace InGame.State.ChallengeModeStates.Relax {
             var c = fsm.gameBehavior.game.GetGameTiles();
             foreach (var cube in c) {
                 var color = cube.GetComponent<Renderer>().material.GetColor("Color_E1158FD4");
-                cube.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0);
+                cube.GetComponent<Renderer>().material.SetColor("Color_E1158FD4", new Color(color.r, color.g, color.b, 0));
+                cube.GetComponent<Renderer>().material.SetFloat("Vector1_576B9E82", 0);
             }
 
             fsm.gameBehavior.cubePool.ShowAll();
@@ -43,8 +44,9 @@ namespace InGame.State.ChallengeModeStates.Relax {
                 var color = cube.GetComponent<Renderer>().material.GetColor("Color_E1158FD4");
                 var startColor = new Color(color.r, color.g, color.b, 0);
                 var endColor = new Color(color.r, color.g, color.b, 1);
-                cube.GetComponent<Renderer>().material.color =
-                    Color.Lerp(startColor, endColor, tileScript.fadeTime);
+                var newColor = Color.Lerp(startColor, endColor, tileScript.fadeTime);
+                cube.GetComponent<Renderer>().material.SetColor("Color_E1158FD4", newColor);
+                cube.GetComponent<Renderer>().material.SetFloat("Vector1_576B9E82", newColor.a);
                 tileScript.fadeTime += Time.deltaTime / duration;
             }
         }
@@ -110,8 +112,9 @@ namespace InGame.State.ChallengeModeStates.Relax {
             base.Update();
             foreach (var cube in cubes) {
                 var tilescript = cube.GetComponent<TileScript>();
-                cube.GetComponent<Renderer>().material.color =
-                    Color.Lerp(startColor, endColor, tilescript.fadeTime);
+                var newColor = Color.Lerp(startColor, endColor, tilescript.fadeTime);
+                cube.GetComponent<Renderer>().material.SetColor("Color_E1158FD4", newColor);
+                cube.GetComponent<Renderer>().material.SetFloat("Vector1_576B9E82", newColor.a);
                 tilescript.fadeTime += Time.deltaTime / duration;
             }
         }

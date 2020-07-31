@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Menu;
@@ -100,14 +101,15 @@ namespace DefaultNamespace {
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 var material = challengeRowColors[i / 3];
                 if (savedProgress[17 - i].complete) {
-                    cube.GetComponent<Renderer>().material = material;
-                }
-                else {
                     var newMaterial = new Material(material);
                     var color = newMaterial.GetColor("Color_E1158FD4");
-                   // var color = newMaterial.color;
-                    newMaterial.color = new Color(color.r * .3f, color.g * .3f, color.b * .3f, color.a);
+                    var intensity = Mathf.Pow(2, 2);
+                    newMaterial.SetColor("Color_E1158FD4", new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a));
+                    
                     cube.GetComponent<Renderer>().material = newMaterial;
+                }
+                else {
+                    cube.GetComponent<Renderer>().material = material;
                 }
 
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;

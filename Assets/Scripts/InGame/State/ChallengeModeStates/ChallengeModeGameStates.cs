@@ -86,9 +86,13 @@ namespace InGame.State.ChallengeModeStates {
         public override void Update() {
             base.Update();
             foreach (var cube in cubes) {
+                
                 var tilescript = cube.GetComponent<TileScript>();
-                cube.GetComponent<Renderer>().material.color =
-                    Color.Lerp(startColor, endColor, tilescript.fadeTime);
+                var newColor = Color.Lerp(startColor, endColor, tilescript.fadeTime);
+                    
+                cube.GetComponent<Renderer>().material.SetColor("Color_E1158FD4", newColor);
+                cube.GetComponent<Renderer>().material.SetFloat("Vector1_576B9E82", newColor.a);
+                
                 tilescript.fadeTime += Time.deltaTime / duration;
             }
         }
