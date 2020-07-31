@@ -209,7 +209,7 @@ namespace InGame {
         public override bool CheckedSolved() {
             for (int i = 0; i < 18; i++) {
                 var tileScript = cubes[i].GetComponent<TileScript>();
-                if (tileScript.Identifier + 1 != i)
+                if (tileScript.Identifier - 1 != i)
                     return false;
             }
 
