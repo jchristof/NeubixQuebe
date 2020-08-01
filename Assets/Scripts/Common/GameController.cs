@@ -1,8 +1,27 @@
 ﻿using DefaultNamespace;
 using InGame;
 using UnityEngine;
+using UnityEngine.Advertisements;
 
 public class GameController : MonoBehaviour {
+    string gameId = "229234ab-51d3-4d34-9eb0-3ac48485a9b8";
+    
+#if UNITY_ANDROID
+    private string storeId = "3741621";
+#else //any other build including ios/iphone
+    private string storeId = "3741620";
+#endif
+    
+#if DEBUG
+    bool testMode = true;
+#else
+    bool testMode = false;
+#endif
+    //ads
+    //https://www.youtube.com/watch?v=OElh7wda4Qc
+    //unit dashboard
+    //https://dashboard.unity3d.com/organizations/187602/projects/9fb52e65-e49a-4558-a1ee-f5c27bbc07dc/monetization/monetization-settings
+
     public SplashMenu splashMenu;
     public MainMenu mainMenu;
     public ChallengeMenu challengeMenu;
@@ -55,6 +74,8 @@ public class GameController : MonoBehaviour {
         cubeCollection.SetActive(false);
         splashMenu.Menu.SetActive(true);
         splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
+        
+        Advertisement.Initialize (storeId, testMode);
     }
 
     public void ToggleAudio() {
@@ -241,6 +262,18 @@ public class GameController : MonoBehaviour {
         var savedData = JsonUtility.ToJson(savedProgress);
         PlayerPrefs.SetString("GameProgress", savedData);
         PlayerPrefs.Save();
+
+        ShowInterstitialAd();
+    }
+    
+    public void ShowInterstitialAd() {
+        // Check if UnityAds ready before calling Show method:
+        if (Advertisement.IsReady()) {
+            Advertisement.Show();
+        } 
+        else {
+            Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
+        }
     }
 
     public void ToggleInGamePause() {
