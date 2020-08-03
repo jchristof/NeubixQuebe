@@ -21,7 +21,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
+<<<<<<< HEAD
     - Vector1_576B9E82: 1.14
     - Vector1_D35F94BC: 0.67
     m_Colors:
     - Color_E1158FD4: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+=======
+    - Vector1_576B9E82: 0.96
+    - Vector1_D35F94BC: 0.72
+    m_Colors:
+    - Color_E1158FD4: {r: 0.13520123, g: 0.1436513, b: 0.40349114, a: 1}
+>>>>>>> 1551bc49b244978feac104920101147c7ab50707
