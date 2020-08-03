@@ -2,7 +2,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class CubePool : MonoBehaviour {
     public List<GameObject> cubesPool { get; } = new List<GameObject>();
