@@ -103,9 +103,9 @@ namespace DefaultNamespace {
                 if (savedProgress[17 - i].complete) {
                     var newMaterial = new Material(material);
                     var color = newMaterial.GetColor("Color_E1158FD4");
-                    var intensity = Mathf.Pow(2, 2);
+                    var intensity = .1f;
                     newMaterial.SetColor("Color_E1158FD4", new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a));
-                    
+                    cube.GetComponent<TileScript>().silhouettePlane.SetActive(false);
                     cube.GetComponent<Renderer>().material = newMaterial;
                 }
                 else {

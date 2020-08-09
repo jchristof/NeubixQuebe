@@ -26,17 +26,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle.DISABLED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle.DISABLED.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/CubeInnerMat.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/CubeInnerMat.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/CuberInnerMat.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/CuberInnerMat.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/bearboy2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/bearboy2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/shadow.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/BlueTimeMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/BlueTimeMat2.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row1ChallenesMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row1ChallenesMat2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/GreenTimeMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/GreenTimeMat2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/WhiteTileMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/WhiteTileMat2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row2ChallenesMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row2ChallenesMat2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row3ChallenesMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row3ChallenesMat2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row4ChallenesMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row4ChallenesMat2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row5ChallenesMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row5ChallenesMat2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row6ChallenesMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ChallengesMenuMaterials/Row6ChallenesMat2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/CubeInnerShader.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/CubeInnerShader.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/CubeInnerShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/CubeInnerShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/CubeShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/CubeShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +83,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/049BE2AF-E36F-487E-B06E-F49D51A0BAB6/e9/54e2999e/Animation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/InGamePauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuFSM.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D1422B3F-C937-4601-8C92-EDA852993B93/d0/95f9fd3b/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SuccessTiers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Editor/AssetPostProcessors/MaterialPostprocessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SuccessMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/SavedProgress.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -87,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" />
@@ -98,13 +114,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/SavedProgress.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/EndlessTimesUpMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/MoveScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/EndlessModeGameStates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/RelaxGameStates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" />
       </list>
     </option>
   </component>
@@ -144,10 +162,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11844">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="11844" />
       <method v="2" />
     </configuration>
   </component>
@@ -175,6 +193,8 @@
       <workItem from="1596224557481" duration="949000" />
       <workItem from="1596230900012" duration="5293000" />
       <workItem from="1596295445396" duration="1380000" />
+      <workItem from="1596762857436" duration="1650000" />
+      <workItem from="1596845601900" duration="4884000" />
     </task>
     <servers />
   </component>
@@ -272,14 +292,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595387581414" />
-    <state x="637" y="253" width="646" height="624" key="find.popup" timestamp="1596230637988">
+    <state x="637" y="253" width="646" height="624" key="find.popup" timestamp="1596979429790">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="637" y="253" width="646" height="624" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596230637988" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596295549616">
+    <state x="637" y="253" width="646" height="624" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596979429790" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596979374291">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596295549616" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596979374291" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,13 +310,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs</url>
-          <line>203</line>
+          <line>221</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" initialLine="180">
             <startOffsets>
-              <option value="6451" />
+              <option value="6883" />
             </startOffsets>
             <endOffsets>
-              <option value="6500" />
+              <option value="6932" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />

@@ -1,7 +1,10 @@
-﻿using DefaultNamespace;
+﻿using System.Collections;
+using DefaultNamespace;
 using InGame;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     string gameId = "229234ab-51d3-4d34-9eb0-3ac48485a9b8";
@@ -54,6 +57,8 @@ public class GameController : MonoBehaviour {
             for (int i = 0; i < 18; i++)
                 savedProgress.challengeProgress.challenges.Add(new SingleChallengeProgress());
         }
+
+        //Camera.main.orthographic = true;
     }
 
     private void AllMenusOff() {
@@ -76,6 +81,19 @@ public class GameController : MonoBehaviour {
         splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
         
         Advertisement.Initialize (storeId, testMode);
+        
+        StartCoroutine(FadeOutSplash());
+    }
+
+    IEnumerator FadeOutSplash() {
+        float alpha = 1f;
+        while (alpha > 0) {
+            alpha -= .1f;
+            splashMenu.canvasGroup.alpha = alpha;
+            yield return new WaitForSeconds(.1f);
+        }
+
+        ChallengesClicked();
     }
 
     public void ToggleAudio() {
