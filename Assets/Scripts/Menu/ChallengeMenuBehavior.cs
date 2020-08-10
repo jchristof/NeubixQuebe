@@ -110,6 +110,7 @@ namespace DefaultNamespace {
                 }
                 else {
                     cube.GetComponent<Renderer>().material = material;
+                    cube.GetComponent<TileScript>().silhouettePlane.SetActive(true);
                 }
 
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;

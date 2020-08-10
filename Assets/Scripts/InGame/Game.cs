@@ -50,6 +50,7 @@ namespace InGame {
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
                 cube.GetComponentInChildren<TextMeshProUGUI>().text = (18 - i).ToString();
+                cube.GetComponent<TileScript>().silhouettePlane.SetActive(false);
                 cube.name = (18 - i).ToString();
                 cube.SetActive(false);
                 cubes.Add(cube);
@@ -111,6 +112,7 @@ namespace InGame {
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
                 cube.GetComponentInChildren<TextMeshProUGUI>().text = (18 - i).ToString();
+                cube.GetComponent<TileScript>().silhouettePlane.SetActive(false);
                 cube.name = (18 - i).ToString();
                 cube.SetActive(true);
                 cubes.Add(cube);
@@ -185,6 +187,7 @@ namespace InGame {
                 cube.GetComponent<TileScript>().image.enabled = false;
                 cube.GetComponent<TileScript>().text.enabled = true;
                 cube.GetComponent<TileScript>().text.color = Color.black;
+                cube.GetComponent<TileScript>().silhouettePlane.SetActive(false);
                 cube.SetActive(true);
                 cubes.Add(cube);
             }

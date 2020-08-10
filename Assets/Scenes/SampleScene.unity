@@ -4750,7 +4750,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1766025130}
-        m_MethodName: SuccessMenuNextChallenge
+        m_MethodName: ChallengesClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5252,7 +5252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &872456597
 Transform:
   m_ObjectHideFlags: 0
@@ -7062,7 +7062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1136055929
 Transform:
   m_ObjectHideFlags: 0
@@ -7146,7 +7146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Challenge
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b603d8d988c548e0be2f4d959c4d6db, type: 2}
   m_sharedMaterial: {fileID: 3903830241078542182, guid: 7b603d8d988c548e0be2f4d959c4d6db,
@@ -7216,10 +7216,10 @@ MonoBehaviour:
   m_margin: {x: -118.941086, y: 0, z: -119.163574, w: 0}
   m_textInfo:
     textComponent: {fileID: 1167492302}
-    characterCount: 14
+    characterCount: 8
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -11198,7 +11198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1726992975
 RectTransform:
   m_ObjectHideFlags: 0

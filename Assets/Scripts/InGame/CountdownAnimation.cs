@@ -28,6 +28,7 @@ namespace InGame {
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
                 cubes[i].GetComponent<TileScript>().image.enabled = false;
                 cubes[i].GetComponent<TileScript>().text.enabled = false;
+                cube.GetComponent<TileScript>().silhouettePlane.SetActive(true);
                 cube.SetActive(true);
                 cubes.Add(cube);
             }

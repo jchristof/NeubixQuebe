@@ -3,8 +3,6 @@ using DefaultNamespace;
 using InGame;
 using UnityEngine;
 using UnityEngine.Advertisements;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     string gameId = "229234ab-51d3-4d34-9eb0-3ac48485a9b8";
@@ -86,6 +84,7 @@ public class GameController : MonoBehaviour {
     }
 
     IEnumerator FadeOutSplash() {
+        yield return new WaitForSeconds(1f);
         float alpha = 1f;
         while (alpha > 0) {
             alpha -= .1f;
@@ -189,7 +188,8 @@ public class GameController : MonoBehaviour {
 
     public void SuccessMenuMainMenu() {
         AllMenusOff();
-        mainMenu.Menu.SetActive(true);
+       // mainMenu.Menu.SetActive(true);
+        challengeMenu.Menu.SetActive(true);
         cubeCollection.SetActive(false);
     }
 
@@ -317,6 +317,7 @@ public class GameController : MonoBehaviour {
     public void InGamePauseMenuMainMenu() {
         AllMenusOff();
         cubeCollection.SetActive(false);
-        mainMenu.Menu.SetActive(true);
+        //mainMenu.Menu.SetActive(true);
+        challengeMenu.Menu.SetActive(true);
     }
 }

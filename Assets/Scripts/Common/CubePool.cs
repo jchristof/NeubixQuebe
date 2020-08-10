@@ -14,6 +14,7 @@ public class CubePool : MonoBehaviour {
             var go = Instantiate(roundEdgeCube);
             go.GetComponent<TileScript>().image.enabled = false;
             go.GetComponentInChildren<TileScript>().text.enabled = false;
+            go.GetComponent<TileScript>().silhouettePlane.SetActive(false);
             go.SetActive(false);
             cubesPool.Add(go);
         }
