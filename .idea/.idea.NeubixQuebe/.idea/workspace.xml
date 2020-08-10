@@ -27,12 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/NumberedMaterial2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/NumberedMaterial2.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,11 +98,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/TileScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
       </list>
     </option>
   </component>
@@ -177,7 +174,7 @@
       <workItem from="1596230900012" duration="5293000" />
       <workItem from="1596295445396" duration="1380000" />
       <workItem from="1596762857436" duration="1650000" />
-      <workItem from="1596845601900" duration="7899000" />
+      <workItem from="1596845601900" duration="9436000" />
     </task>
     <servers />
   </component>
@@ -293,13 +290,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs</url>
-          <line>221</line>
+          <line>220</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" initialLine="180">
             <startOffsets>
-              <option value="6923" />
+              <option value="6937" />
             </startOffsets>
             <endOffsets>
-              <option value="6972" />
+              <option value="6986" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />

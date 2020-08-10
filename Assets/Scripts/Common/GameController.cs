@@ -80,6 +80,7 @@ public class GameController : MonoBehaviour {
         
         Advertisement.Initialize (storeId, testMode);
         
+        challengeMenu.Menu.SetActive(true);
         StartCoroutine(FadeOutSplash());
     }
 
@@ -91,8 +92,6 @@ public class GameController : MonoBehaviour {
             splashMenu.canvasGroup.alpha = alpha;
             yield return new WaitForSeconds(.1f);
         }
-
-        ChallengesClicked();
     }
 
     public void ToggleAudio() {
