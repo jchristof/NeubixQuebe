@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour {
         AllMenusOff();
         cubeCollection.SetActive(false);
         splashMenu.Menu.SetActive(true);
-        splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
+        //splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
         
         Advertisement.Initialize (storeId, testMode);
         
@@ -92,13 +92,20 @@ public class GameController : MonoBehaviour {
             splashMenu.canvasGroup.alpha = alpha;
             yield return new WaitForSeconds(.1f);
         }
+        
+        splashMenu.gameObject.SetActive(false);
     }
 
     public void ToggleAudio() {
-        audioSource.mute = !audioSource.mute;
-        splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
-        mainMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+        else
+            audioSource.Play();
+        //splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
+        //mainMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
     }
+
+    public bool AudioPlaying => audioSource.isPlaying;
 
     public void SplashStart() {
         splashMenu.Menu.SetActive(false);
