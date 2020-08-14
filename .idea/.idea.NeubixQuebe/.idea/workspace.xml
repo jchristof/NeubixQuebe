@@ -26,12 +26,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/NumberedShader.shadergraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/NumberedShader.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Common/CallOnAdFinished.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Common/CallOnAdFinished.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/play.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/NumberedMaterial2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/NumberedMaterial2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,11 +67,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@3.4.7/Runtime/Advertisement/Advertisement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/049BE2AF-E36F-487E-B06E-F49D51A0BAB6/e9/54e2999e/Animation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/InGamePauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuFSM.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D1422B3F-C937-4601-8C92-EDA852993B93/d0/95f9fd3b/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/CallOnAdFinished.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SuccessTiers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Editor/AssetPostProcessors/MaterialPostprocessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/SuccessMenu.cs" root0="FORCE_HIGHLIGHTING" />
@@ -106,11 +111,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/Extensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/InGamePauseMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Common/CallOnAdFinished.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
       </list>
     </option>
   </component>
@@ -185,7 +191,7 @@
       <workItem from="1596845601900" duration="10084000" />
       <workItem from="1597114243027" duration="454000" />
       <workItem from="1597279379472" duration="3015000" />
-      <workItem from="1597407363380" duration="8120000" />
+      <workItem from="1597407363380" duration="14274000" />
     </task>
     <servers />
   </component>
@@ -279,6 +285,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="368" key="GridCell.Tab.3.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597289195280" />
+    <state x="706" y="241" key="RiderGenerateDialog" timestamp="1597429804301">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="706" y="241" key="RiderGenerateDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597429804301" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1595387581414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -287,10 +297,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="317" y="225" width="1086" height="624" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597412223803" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597408720352">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597422128373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597408720352" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597422128373" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -301,13 +311,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs</url>
-          <line>229</line>
+          <line>230</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" initialLine="180">
             <startOffsets>
-              <option value="7206" />
+              <option value="7157" />
             </startOffsets>
             <endOffsets>
-              <option value="7255" />
+              <option value="7206" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
@@ -327,26 +337,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs</url>
-          <line>98</line>
+          <line>102</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuBehavior.cs" initialLine="98">
             <startOffsets>
-              <option value="2942" />
+              <option value="3066" />
             </startOffsets>
             <endOffsets>
-              <option value="2981" />
+              <option value="3105" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenu.cs</url>
-          <line>15</line>
+          <line>16</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenu.cs" initialLine="14">
             <startOffsets>
-              <option value="422" />
+              <option value="478" />
             </startOffsets>
             <endOffsets>
-              <option value="451" />
+              <option value="507" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="27" />

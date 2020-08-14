@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Menu;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -13,13 +14,13 @@ namespace DefaultNamespace {
         public List<GameObject> cubes = new List<GameObject>();
         public GameController gameController;
         
-        private ChallengeMenuState.ChallengeMenuFSM fsm;
+        [CanBeNull] private ChallengeMenuState.ChallengeMenuFSM fsm;
         void Update() {
             fsm?.Update();
         }
 
         private void OnMouseOver() {
-            if (!fsm.AllowSelection)
+            if (!fsm?.AllowSelection == true)
                 return;
             
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -47,7 +48,7 @@ namespace DefaultNamespace {
         }
 
         private void OnMouseExit() {
-            if (!fsm.AllowSelection)
+            if (fsm?.AllowSelection == false)
                 return;
             
             foreach (var cube in cubes) {
@@ -56,7 +57,7 @@ namespace DefaultNamespace {
         }
 
         private void OnMouseUp() {
-            if (!fsm.AllowSelection)
+            if (fsm?.AllowSelection == false)
                 return;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -70,15 +71,18 @@ namespace DefaultNamespace {
                 if (tile == null) continue;
 
                 OnMouseExit();
-                fsm.ChallengeSelected(tile.gameObject);
+                fsm?.ChallengeSelected(tile.gameObject);
                 
                 break;
             }
         }
 
+        public void EnableInput() {
+            fsm = new ChallengeMenuState.ChallengeMenuFSM(this);
+        }
+        
         public void OnEnable() {
             cubes = GetTiles();
-            fsm = new ChallengeMenuState.ChallengeMenuFSM(this);
         }
 
         public void OnDisable() {

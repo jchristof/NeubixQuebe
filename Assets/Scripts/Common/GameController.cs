@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Common;
 using DefaultNamespace;
 using InGame;
 using UnityEngine;
@@ -76,11 +77,8 @@ public class GameController : MonoBehaviour {
         AllMenusOff();
         cubeCollection.SetActive(false);
         splashMenu.Menu.SetActive(true);
-        //splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
-        
+
         Advertisement.Initialize (storeId, testMode);
-        
-        
     }
 
     IEnumerator FadeOutSplash() {
@@ -96,6 +94,7 @@ public class GameController : MonoBehaviour {
         }
         
         splashMenu.gameObject.SetActive(false);
+        challengeMenu.challengeMenuBehavior.EnableInput();
     }
 
     public void ToggleAudio() {
@@ -103,8 +102,6 @@ public class GameController : MonoBehaviour {
             audioSource.Stop();
         else
             audioSource.Play();
-        //splashMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
-        //mainMenu.audioOnOffText.text = audioSource.mute ? "OFF" : "ON";
     }
 
     public bool AudioPlaying => audioSource.isPlaying;
@@ -181,17 +178,21 @@ public class GameController : MonoBehaviour {
         retryMenu.Menu.SetActive(true);
     }
 
-    public void Retry() {
+    public void Retry(float addTime = 0f) {
         AllMenusOff();
         cubeCollection.SetActive(true);
 
         var currentChallenge = savedProgress.currentChallenge;
 
         cubeCollection.GetComponent<GameBehavior>().Init(GameType.Challenge, GetGameMode(currentChallenge),
-            GetLevelTime(currentChallenge));
+            GetLevelTime(currentChallenge) + addTime);
         inGameMenu.Menu.SetActive(true);
         savedProgress.currentChallenge = currentChallenge;
         inGameMenu.SetChallengeNumber((savedProgress.currentChallenge + 1).ToString());
+    }
+    
+    public void RetryWatchAdd() {
+        ShowInterstitialAd(new CallOnAdFinished(Retry));
     }
 
     public void SuccessMenuMainMenu() {
@@ -288,13 +289,12 @@ public class GameController : MonoBehaviour {
         var savedData = JsonUtility.ToJson(savedProgress);
         PlayerPrefs.SetString("GameProgress", savedData);
         PlayerPrefs.Save();
-
-        ShowInterstitialAd();
     }
     
-    public void ShowInterstitialAd() {
+    public void ShowInterstitialAd(CallOnAdFinished completeListener) {
         // Check if UnityAds ready before calling Show method:
         if (Advertisement.IsReady()) {
+            Advertisement.AddListener(completeListener);
             Advertisement.Show();
         } 
         else {
@@ -327,5 +327,11 @@ public class GameController : MonoBehaviour {
         cubeCollection.SetActive(false);
         //mainMenu.Menu.SetActive(true);
         challengeMenu.Menu.SetActive(true);
+        challengeMenu.challengeMenuBehavior.EnableInput();
+    }
+
+    public void InGamePauseRestart() {
+        ChallengeMenuItemSelected(savedProgress.currentChallenge);
+        challengeMenu.challengeMenuBehavior.EnableInput();
     }
 }

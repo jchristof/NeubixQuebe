@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Common" t="Include">
+            <e p="CallOnAdFinished.cs" t="Include" />
             <e p="CubePool.cs" t="Include" />
             <e p="Extensions.cs" t="Include" />
             <e p="GameController.cs" t="Include" />
