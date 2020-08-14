@@ -23,12 +23,22 @@ namespace InGame {
             
             for (var i = 17; i >= 0; i--) {
                 GameObject cube = cubes[i];
-                cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
+                Transform transform = cube.transform;
+                
+                TileScript tileScript = cube.GetComponent<TileScript>();
+                GameObject silhouettePlane = tileScript.silhouettePlane;
+                silhouettePlane.SetActive(true);
+                Material silhouetteMaterial = silhouettePlane.GetComponent<Renderer>().material;
+                silhouetteMaterial.SetColor("Color_E1158FD4",new Color(0f, 0f, 0f, 1.0f));
+                
+                transform.position = new Vector3(2 - (i % 3), i / 3, 0);
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+                
                 cube.GetComponent<Renderer>().material = cubeColor0;
-                cube.transform.rotation = new Quaternion(0, 0, 0, 0);
-                cubes[i].GetComponent<TileScript>().image.enabled = false;
-                cubes[i].GetComponent<TileScript>().text.enabled = false;
-                cube.GetComponent<TileScript>().silhouettePlane.SetActive(true);
+                
+                tileScript.image.enabled = false;
+                tileScript.text.enabled = false;
+                tileScript.silhouettePlane.SetActive(true);
                 cube.SetActive(true);
                 cubes.Add(cube);
             }

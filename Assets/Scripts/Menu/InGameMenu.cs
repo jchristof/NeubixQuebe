@@ -18,7 +18,7 @@ public class InGameMenu : MonoBehaviour {
     public void ShowPause() => pauseButton.SetActive(true);
 
 
-    public void SetChallengeNumber(string challenge) => challengeNumberText.text = challenge;
+    public void SetChallengeNumber(string challenge) => challengeNumberText.text = $"Lv.{challenge}";
 
 
     public void SetMoveCount(int moveTotal) => totalMoveCounter.text = moveTotal.ToString();

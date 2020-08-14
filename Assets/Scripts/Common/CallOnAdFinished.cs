@@ -11,7 +11,7 @@ namespace Common {
         
         Action<float> onAddFinishedAction;
 
-        private void OnAddFinished() {
+        public void OnAdFinished() {
             if (onAddFinishedAction != null) {
                 onAddFinishedAction(1f);
                 onAddFinishedAction = null;
@@ -23,13 +23,13 @@ namespace Common {
         public void OnUnityAdsReady(string placementId) { }
 
         public void OnUnityAdsDidError(string message) {
-            OnAddFinished();
+            OnAdFinished();
         }
 
         public void OnUnityAdsDidStart(string placementId) { }
 
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult) {
-            OnAddFinished();
+            OnAdFinished();
         }
 
     }

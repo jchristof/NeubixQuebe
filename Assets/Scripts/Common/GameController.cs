@@ -200,11 +200,13 @@ public class GameController : MonoBehaviour {
        // mainMenu.Menu.SetActive(true);
         challengeMenu.Menu.SetActive(true);
         cubeCollection.SetActive(false);
+        challengeMenu.challengeMenuBehavior.EnableInput();
     }
 
     public void ChallengesClicked() {
         AllMenusOff();
         challengeMenu.Menu.SetActive(true);
+        challengeMenu.challengeMenuBehavior.EnableInput();
     }
 
     public void EndlessGameClicked() {
@@ -263,7 +265,7 @@ public class GameController : MonoBehaviour {
 
     public void ChallengeMenuItemSelected(int challenge) {
         AllMenusOff();
-
+        
         cubeCollection.SetActive(true);
         cubeCollection.GetComponent<GameBehavior>()
             .Init(GameType.Challenge, GetGameMode(challenge), GetLevelTime(challenge));
@@ -298,6 +300,7 @@ public class GameController : MonoBehaviour {
             Advertisement.Show();
         } 
         else {
+            completeListener.OnAdFinished();
             Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
         }
     }
@@ -331,6 +334,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void InGamePauseRestart() {
+        cubeCollection.SetActive(false);
         ChallengeMenuItemSelected(savedProgress.currentChallenge);
         challengeMenu.challengeMenuBehavior.EnableInput();
     }
