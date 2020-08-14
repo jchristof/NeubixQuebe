@@ -25,19 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ScreenShots/ChallengeMenu.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/BlueTimeMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/BlueTimeMat2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/NumberedMaterial2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/NumberedMaterial2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/WhiteTileMat2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/WhiteTileMat2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/CallOnAdFinished.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/CallOnAdFinished.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/InGameMenu.cs" afterDir="false" />
-    </list>
+    <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +181,7 @@
       <workItem from="1596845601900" duration="10084000" />
       <workItem from="1597114243027" duration="454000" />
       <workItem from="1597279379472" duration="3015000" />
-      <workItem from="1597407363380" duration="18970000" />
+      <workItem from="1597407363380" duration="19766000" />
     </task>
     <servers />
   </component>
