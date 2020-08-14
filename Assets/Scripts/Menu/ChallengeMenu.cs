@@ -7,7 +7,8 @@ public class ChallengeMenu : MonoBehaviour {
     
     public GameController gameController;
     public TextMeshProUGUI audioButtonText;
-
+    public CanvasGroup canvasGroup;
+    
     private void OnEnable() =>
         audioButtonText.text = gameController.AudioPlaying.toOnOffText();
 

@@ -80,16 +80,18 @@ public class GameController : MonoBehaviour {
         
         Advertisement.Initialize (storeId, testMode);
         
-        challengeMenu.Menu.SetActive(true);
-        StartCoroutine(FadeOutSplash());
+        
     }
 
     IEnumerator FadeOutSplash() {
         yield return new WaitForSeconds(1f);
-        float alpha = 1f;
-        while (alpha > 0) {
-            alpha -= .1f;
-            splashMenu.canvasGroup.alpha = alpha;
+        float splashAlpha = 1f;
+        float challengeAlpha = 0f;
+        while (splashAlpha > 0) {
+            splashAlpha -= .2f;
+            challengeAlpha += .2f;
+            splashMenu.canvasGroup.alpha = splashAlpha;
+            challengeMenu.canvasGroup.alpha = challengeAlpha;
             yield return new WaitForSeconds(.1f);
         }
         
@@ -108,8 +110,8 @@ public class GameController : MonoBehaviour {
     public bool AudioPlaying => audioSource.isPlaying;
 
     public void SplashStart() {
-        splashMenu.Menu.SetActive(false);
-        mainMenu.Menu.SetActive(true);
+        challengeMenu.Menu.SetActive(true);
+        StartCoroutine(FadeOutSplash());
     }
 
     private void Update() {
