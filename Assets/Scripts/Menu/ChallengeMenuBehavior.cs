@@ -110,9 +110,15 @@ namespace DefaultNamespace {
                 }
                 else {
                     cube.GetComponent<Renderer>().material = material;
-                    cube.GetComponent<TileScript>().silhouettePlane.SetActive(true);
+
+                    TileScript tileScript = cube.GetComponent<TileScript>();
+                    GameObject silhouettePlane = tileScript.silhouettePlane;
+                    silhouettePlane.SetActive(true);
+                    Material silhouetteMaterial = silhouettePlane.GetComponent<Renderer>().material;
+                    silhouetteMaterial.SetColor("Color_E1158FD4",new Color(0f, 0f, 0f, 1.0f));
                 }
 
+                cube.GetComponent<TileScript>().text.color = Color.white;
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.GetComponent<TileScript>().text.text = (18 - i).ToString();
                 cube.name = (18 - i).ToString();

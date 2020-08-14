@@ -15,7 +15,7 @@ namespace InGame {
     }
 
     public class GameFactory {
-        public static Game GetGame(GameMode mode, List<GameObject> cubeGrid, List<Material> challengeRowColors, Material numberedMaterial) {
+        public static Game GetGame(GameMode mode, CubePool cubeGrid, List<Material> challengeRowColors, Material numberedMaterial) {
             if (mode == GameMode.TwoColor)
                 return new TwoColorGame(cubeGrid, new[] {challengeRowColors[0], challengeRowColors[1]});
             if (mode == GameMode.ThreeColor)
@@ -29,13 +29,13 @@ namespace InGame {
     }
     
     public class TwoColorGame : Game {
-        public TwoColorGame(List<GameObject> cubePoolGrid, Material[] materials) {
+        public TwoColorGame(CubePool cubePoolGrid, Material[] materials) {
             this.cubePoolGrid = cubePoolGrid;
             this.materials = materials;
         }
 
         private readonly List<GameObject> cubes = new List<GameObject>();
-        private readonly List<GameObject> cubePoolGrid;
+        private readonly CubePool cubePoolGrid;
         private readonly Material[] materials;
 
         private readonly int[] twoColorLayout = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
@@ -44,8 +44,13 @@ namespace InGame {
             if (cubes.Any())
                 return cubes;
 
+            for (var i = 0; i < cubePoolGrid.cubesPool.Count; i++) {
+                var cube = cubePoolGrid.cubesPool[i];
+                cube.GetComponent<TileScript>().silhouettePlane.SetActive(false);
+            }
+
             for (var i = 17; i >= 0; i--) {
-                GameObject cube = cubePoolGrid[i];
+                GameObject cube = cubePoolGrid.cubeGrid[i];
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -91,13 +96,13 @@ namespace InGame {
     }
 
     public class ThreeColorGame : Game {
-        public ThreeColorGame(List<GameObject> cubePoolGrid, Material[] materials) {
+        public ThreeColorGame(CubePool cubePoolGrid, Material[] materials) {
             this.cubePoolGrid = cubePoolGrid;
             this.materials = materials;
         }
 
         private readonly List<GameObject> cubes = new List<GameObject>();
-        private readonly List<GameObject> cubePoolGrid;
+        private readonly CubePool cubePoolGrid;
         private readonly Material[] materials;
 
         private readonly int[] colorLayout = {0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1};
@@ -106,8 +111,13 @@ namespace InGame {
             if (cubes.Any())
                 return cubes;
 
+            for (var i = 0; i < cubePoolGrid.cubesPool.Count; i++) {
+                var cube = cubePoolGrid.cubesPool[i];
+                cube.GetComponent<TileScript>().silhouettePlane.SetActive(false);
+            }
+            
             for (var i = 17; i >= 0; i--) {
-                GameObject cube = cubePoolGrid[i];
+                GameObject cube = cubePoolGrid.cubeGrid[i];
                 cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
                 cube.transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -160,13 +170,13 @@ namespace InGame {
     }
 
     public class NumberedGame : Game {
-        public NumberedGame(List<GameObject> cubePoolGrid, Material material) {
+        public NumberedGame(CubePool cubePoolGrid, Material material) {
             this.cubePoolGrid = cubePoolGrid;
             this.material = material;
         }
 
         private readonly List<GameObject> cubes = new List<GameObject>();
-        private readonly List<GameObject> cubePoolGrid;
+        private readonly CubePool cubePoolGrid;
         private readonly Material material;
 
 
@@ -175,19 +185,40 @@ namespace InGame {
         public override List<GameObject> GetGameTiles() {
             if (cubes.Any())
                 return cubes;
+            
+            for (var i = 0; i < cubePoolGrid.cubesPool.Count; i++) {
+                var cube = cubePoolGrid.cubesPool[i];
+                TileScript tileScript = cube.GetComponent<TileScript>();
+                GameObject silhouettePlane = tileScript.silhouettePlane;
+                silhouettePlane.SetActive(true);
+
+                Material silhouetteMaterial = silhouettePlane.GetComponent<Renderer>().material;
+                silhouetteMaterial.SetColor("Color_E1158FD4",new Color(1.1f, 1.1f, 1.1f, 1.0f));
+                
+                cube.GetComponent<TileScript>().silhouettePlane.SetActive(true);
+            }
 
             for (var i = 17; i >= 0; i--) {
-                GameObject cube = cubePoolGrid[i];
+                GameObject cube = cubePoolGrid.cubeGrid[i];
+                Transform transform = cube.transform;
+                TileScript tileScript = cube.GetComponent<TileScript>();
+                GameObject silhouettePlane = tileScript.silhouettePlane;
+                silhouettePlane.SetActive(true);
+
+                Material silhouetteMaterial = silhouettePlane.GetComponent<Renderer>().material;
+                silhouetteMaterial.SetColor("Color_E1158FD4",new Color(1.1f, 1.1f, 1.1f, 1.0f));
+                
                 cube.GetComponent<Renderer>().material = material;
-                cube.transform.position = new Vector3(2 - (i % 3), i / 3, 0);
                 cube.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
-                cube.transform.rotation = new Quaternion(0, 0, 0, 0);
-                cube.GetComponent<TileScript>().text.text = (18 - i).ToString();
+                
+                transform.position = new Vector3(2 - (i % 3), i / 3, 0);
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+                tileScript.text.text = (18 - i).ToString();
+                tileScript.image.enabled = false;
+                tileScript.text.enabled = true;
+                tileScript.text.color = Color.black;
+                
                 cube.name = (18 - i).ToString();
-                cube.GetComponent<TileScript>().image.enabled = false;
-                cube.GetComponent<TileScript>().text.enabled = true;
-                cube.GetComponent<TileScript>().text.color = Color.black;
-                cube.GetComponent<TileScript>().silhouettePlane.SetActive(false);
                 cube.SetActive(true);
                 cubes.Add(cube);
             }

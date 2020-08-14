@@ -19,7 +19,7 @@ namespace InGame {
         public MoveScript moveScript;
         public int moveTotal;
         public void Init(GameType gameType, GameMode gameMode, float levelTime) {
-            game = GameFactory.GetGame(gameMode, cubePool.cubeGrid, challengeRowColors, numberedGameMaterial);
+            game = GameFactory.GetGame(gameMode, cubePool, challengeRowColors, numberedGameMaterial);
             inGameState = new InGameFsm(this, levelTime, gameType);
             paused = false;
         }
