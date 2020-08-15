@@ -103,6 +103,9 @@ namespace InGame.State.ChallengeModeStates {
             while (row > -1) {
                 foreach (var cube in fsm.gameBehavior.cubePool.cubeGrid) {
                     if (cube.transform.position.y == row) {
+                        var tilescript = cube.GetComponent<TileScript>();
+                        tilescript.silhouettePlane.SetActive(false);
+                        
                         cube.GetComponent<Renderer>().material = new Material(fsm.gameBehavior.successMaterial);
                         cube.GetComponent<TileScript>().fadeTime = 0f;
                         cubes.Add(cube);

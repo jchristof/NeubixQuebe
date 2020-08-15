@@ -44,6 +44,7 @@ public class CubePool : MonoBehaviour {
         }
     }
     
+#if DEBUG
     public void Update() {
         if (Input.GetKeyUp(KeyCode.Alpha1)) {
             var allCubes = new List<GameObject>();
@@ -57,4 +58,5 @@ public class CubePool : MonoBehaviour {
             }
         }
     }
+#endif
 }

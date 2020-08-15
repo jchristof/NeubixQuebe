@@ -112,6 +112,7 @@ public class GameController : MonoBehaviour {
     }
 
     private void Update() {
+#if DEBUG
         if (Input.GetKeyUp(KeyCode.Alpha3)) {
             savedProgress = new SavedProgress();
             savedProgress.version = prefsVersion;
@@ -123,7 +124,7 @@ public class GameController : MonoBehaviour {
             PlayerPrefs.Save();
         }
     }
-
+#endif
     private GameMode GetGameMode(int challenge) {
         if (challenge < 6)
             return GameMode.TwoColor;

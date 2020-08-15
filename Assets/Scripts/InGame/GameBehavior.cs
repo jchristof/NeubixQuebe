@@ -35,9 +35,10 @@ namespace InGame {
         }
 
         public void Update() {
+#if DEBUG
             if (Input.GetKeyUp(KeyCode.Alpha2))
                 inGameState?.GameCompleted();
-
+#endif
             if (inGameState?.CanPause() == true) {
                 if (Input.GetKeyDown(KeyCode.Escape)) {
                     paused = !paused;
