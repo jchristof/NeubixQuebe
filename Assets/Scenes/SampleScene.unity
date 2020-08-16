@@ -397,7 +397,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 36}
-  m_SizeDelta: {x: 459.2, y: 196}
+  m_SizeDelta: {x: 410, y: 196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17885625
 MonoBehaviour:
@@ -2665,7 +2665,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -19}
-  m_SizeDelta: {x: 459.2, y: 84}
+  m_SizeDelta: {x: 410, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &403154862
 MonoBehaviour:
@@ -3631,7 +3631,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -119}
-  m_SizeDelta: {x: 459.2, y: 84}
+  m_SizeDelta: {x: 410, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &545472524
 MonoBehaviour:
@@ -4835,9 +4835,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.5921569, g: 0.5921569, b: 0.5921569, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5149,7 +5149,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -117}
-  m_SizeDelta: {x: 459.2, y: 84}
+  m_SizeDelta: {x: 410, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775115526
 MonoBehaviour:
@@ -5279,7 +5279,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -119}
-  m_SizeDelta: {x: 459.2, y: 84}
+  m_SizeDelta: {x: 410, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783746239
 MonoBehaviour:
@@ -6075,7 +6075,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.5921569, g: 0.5921569, b: 0.5921569, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5921569, g: 0.5921569, b: 0.5921569, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -6920,7 +6920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1, y: -1.37, z: 5.22714}
+  m_LocalPosition: {x: -1.1, y: -1, z: 5.22714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1756721451}
@@ -7391,7 +7391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1040018277
 Transform:
   m_ObjectHideFlags: 0
@@ -8643,7 +8643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 347}
+  m_AnchoredPosition: {x: 0, y: 331.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229189787
@@ -12653,7 +12653,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -216}
-  m_SizeDelta: {x: 459.2, y: 84}
+  m_SizeDelta: {x: 410, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809650100
 MonoBehaviour:
@@ -12825,7 +12825,6 @@ GameObject:
   - component: {fileID: 1885997654}
   - component: {fileID: 1885997653}
   - component: {fileID: 1885997651}
-  - component: {fileID: 1885997652}
   m_Layer: 0
   m_Name: ChallengeCubes
   m_TagString: Untagged
@@ -12856,22 +12855,6 @@ MonoBehaviour:
   cubePool: {fileID: 1509287966}
   cubes: []
   gameController: {fileID: 1766025130}
---- !u!114 &1885997652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885997650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fcaac4df4e72664b85af191218cab1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
-  audioButtonText: {fileID: 0}
-  canvasGroup: {fileID: 0}
-  challengeMenuBehavior: {fileID: 0}
 --- !u!65 &1885997653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12987,7 +12970,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: de88e11a8a681a400adc379e1b7c155c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8552d902233abfe4e802f123493225a8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -13787,7 +13770,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -216}
-  m_SizeDelta: {x: 459.2, y: 84}
+  m_SizeDelta: {x: 410, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996301872
 MonoBehaviour:

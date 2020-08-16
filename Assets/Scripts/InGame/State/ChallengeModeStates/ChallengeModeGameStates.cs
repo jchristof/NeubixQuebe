@@ -63,8 +63,11 @@ namespace InGame.State.ChallengeModeStates {
     class SuccessTransition : State<InGameFsm> {
         public SuccessTransition(InGameFsm fsm) : base(fsm) { }
         private Color startColor = Color.green;
-        private Color endColor = new Color(0f, 1f, 0f, 0f);
+        private static  readonly float intensity = 3;
+        private Color endColor = new Color(0f, 1f * Mathf.Pow(2, intensity), 0f, 0f);
         private List<GameObject> cubes = new List<GameObject>();
+
+        
         private float duration = .5f;
         private bool failed;
 
@@ -74,7 +77,7 @@ namespace InGame.State.ChallengeModeStates {
 
             if (failed) {
                 startColor = Color.red;
-                endColor = new Color(1f, 0f, 0f, 0f);
+                endColor = new Color(1f * Mathf.Pow(2, intensity), 0f, 0f, 0f);
             }
 
             fsm.gameBehavior.moveScript.Stop();
@@ -89,8 +92,7 @@ namespace InGame.State.ChallengeModeStates {
                 
                 var tilescript = cube.GetComponent<TileScript>();
                 var newColor = Color.Lerp(startColor, endColor, tilescript.fadeTime);
-                    
-                cube.GetComponent<Renderer>().material.SetColor("Color_E1158FD4", newColor);
+                
                 cube.GetComponent<Renderer>().material.SetFloat("Vector1_576B9E82", newColor.a);
                 
                 tilescript.fadeTime += Time.deltaTime / duration;
@@ -106,8 +108,11 @@ namespace InGame.State.ChallengeModeStates {
                         var tilescript = cube.GetComponent<TileScript>();
                         tilescript.silhouettePlane.SetActive(false);
                         
-                        cube.GetComponent<Renderer>().material = new Material(fsm.gameBehavior.successMaterial);
-                        cube.GetComponent<TileScript>().fadeTime = 0f;
+                        var newColor = Color.Lerp(startColor, endColor, tilescript.fadeTime);
+                    
+                        cube.GetComponent<Renderer>().material.SetColor("Color_E1158FD4", newColor);
+                        
+                        tilescript.fadeTime = 0f;
                         cubes.Add(cube);
                     }
                 }

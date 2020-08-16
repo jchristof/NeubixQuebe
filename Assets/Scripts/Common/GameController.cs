@@ -82,7 +82,6 @@ public class GameController : MonoBehaviour {
     }
 
     IEnumerator FadeOutSplash() {
-        yield return new WaitForSeconds(1f);
         float splashAlpha = 1f;
         float challengeAlpha = 0f;
         while (splashAlpha > 0) {
@@ -123,8 +122,9 @@ public class GameController : MonoBehaviour {
             PlayerPrefs.SetString("GameProgress", savedData);
             PlayerPrefs.Save();
         }
-    }
 #endif
+    }
+
     private GameMode GetGameMode(int challenge) {
         if (challenge < 6)
             return GameMode.TwoColor;
