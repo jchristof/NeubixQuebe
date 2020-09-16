@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Common;
+﻿using Common;
 using DefaultNamespace;
 using InGame;
 using UnityEngine;
@@ -41,6 +40,7 @@ public class GameController : MonoBehaviour {
 
     private int prefsVersion = 1;
     public SavedProgress savedProgress;
+    public MenuFsm menuState;
 
     private void Awake() {
         string progress = PlayerPrefs.GetString("GameProgress", "");
@@ -56,7 +56,9 @@ public class GameController : MonoBehaviour {
             for (int i = 0; i < 18; i++)
                 savedProgress.challengeProgress.challenges.Add(new SingleChallengeProgress());
         }
-
+        
+        menuState = new MenuFsm(this);
+        menuState.SetState(typeof(SplashIdleState));
         //Camera.main.orthographic = true;
     }
 
@@ -81,21 +83,6 @@ public class GameController : MonoBehaviour {
         Advertisement.Initialize (storeId, testMode);
     }
 
-    IEnumerator FadeOutSplash() {
-        float splashAlpha = 1f;
-        float challengeAlpha = 0f;
-        while (splashAlpha > 0) {
-            splashAlpha -= .2f;
-            challengeAlpha += .2f;
-            splashMenu.canvasGroup.alpha = splashAlpha;
-            challengeMenu.canvasGroup.alpha = challengeAlpha;
-            yield return new WaitForSeconds(.1f);
-        }
-        
-        splashMenu.gameObject.SetActive(false);
-        challengeMenu.challengeMenuBehavior.EnableInput();
-    }
-
     public void ToggleAudio() {
         if (audioSource.isPlaying)
             audioSource.Stop();
@@ -105,9 +92,9 @@ public class GameController : MonoBehaviour {
 
     public bool AudioPlaying => audioSource.isPlaying;
 
+    //private bool spashStarted = false;
     public void SplashStart() {
-        challengeMenu.Menu.SetActive(true);
-        StartCoroutine(FadeOutSplash());
+        menuState.OnClickSplash();
     }
 
     private void Update() {
@@ -123,6 +110,7 @@ public class GameController : MonoBehaviour {
             PlayerPrefs.Save();
         }
 #endif
+        menuState?.Update();
     }
 
     private GameMode GetGameMode(int challenge) {

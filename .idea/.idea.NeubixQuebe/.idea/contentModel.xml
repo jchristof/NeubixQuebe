@@ -12,6 +12,7 @@
             <e p="CubePool.cs" t="Include" />
             <e p="Extensions.cs" t="Include" />
             <e p="GameController.cs" t="Include" />
+            <e p="MenuState.cs" t="Include" />
             <e p="SavedProgress.cs" t="Include" />
             <e p="State" t="Include">
               <e p="FSM.cs" t="Include" />

@@ -15,6 +15,10 @@ public class FSM<T> : StateMachine{
         nextState = GetOrCreate(stateType, args);
     }
 
+    public E GetState<E>() where E : State<T>  {
+        return (E)state;
+    }
+
     private State<T> GetOrCreate(Type stateType, object args) {
         newStateArgs = args;
         if (!states.ContainsKey(stateType))
