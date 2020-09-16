@@ -62,8 +62,8 @@ namespace InGame.State.ChallengeModeStates {
 
     class SuccessTransition : State<InGameFsm> {
         public SuccessTransition(InGameFsm fsm) : base(fsm) { }
-        private Color startColor = Color.green;
-        private static  readonly float intensity = 3;
+        private Color startColor = new Color(0f, 1f * Mathf.Pow(2, intensity), 0f, 1f);
+        private static  readonly float intensity = 4;
         private Color endColor = new Color(0f, 1f * Mathf.Pow(2, intensity), 0f, 0f);
         private List<GameObject> cubes = new List<GameObject>();
 
@@ -76,7 +76,7 @@ namespace InGame.State.ChallengeModeStates {
             failed = (bool) args;
 
             if (failed) {
-                startColor = Color.red;
+                startColor = new Color(1f * Mathf.Pow(2, intensity), 0f, 0f, 1f);
                 endColor = new Color(1f * Mathf.Pow(2, intensity), 0f, 0f, 0f);
             }
 

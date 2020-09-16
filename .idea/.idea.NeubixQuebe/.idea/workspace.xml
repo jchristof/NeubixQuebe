@@ -26,13 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Common/MenuState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Common/MenuState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/State/FSM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/State/FSM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,12 +115,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/CountdownAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/CubePool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/GameBehavior.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SplashMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/State/FSM.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/MenuState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" />
       </list>
     </option>
   </component>
@@ -202,7 +197,7 @@
       <workItem from="1597279379472" duration="3015000" />
       <workItem from="1597407363380" duration="20372000" />
       <workItem from="1597503873295" duration="9867000" />
-      <workItem from="1600131467054" duration="9882000" />
+      <workItem from="1600131467054" duration="11230000" />
     </task>
     <servers />
   </component>
