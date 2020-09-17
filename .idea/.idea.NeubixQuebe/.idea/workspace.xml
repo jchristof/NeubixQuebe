@@ -27,7 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="daf80637-6b39-4e0d-b934-ae11628f3cbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NeubixQuebe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuFSM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuFSM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +123,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/MenuState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InGame/State/ChallengeModeStates/ChallengeModeGameStates.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Menu/ChallengeMenuFSM.cs" />
       </list>
     </option>
   </component>
@@ -197,7 +200,7 @@
       <workItem from="1597279379472" duration="3015000" />
       <workItem from="1597407363380" duration="20372000" />
       <workItem from="1597503873295" duration="9867000" />
-      <workItem from="1600131467054" duration="11230000" />
+      <workItem from="1600131467054" duration="12180000" />
     </task>
     <servers />
   </component>
@@ -307,9 +310,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/-1920.0.1920.1040/0.0.1920.1040/1920.0.1280.680@0.0.1920.1040" timestamp="1600222650145" />
-    <state x="317" y="225" width="1086" height="624" key="find.popup" timestamp="1597513720180">
+    <state x="317" y="225" width="1086" height="624" key="find.popup" timestamp="1600314044014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="317" y="225" width="1086" height="624" key="find.popup/-1920.0.1920.1040/0.0.1920.1040/1920.0.1280.680@0.0.1920.1040" timestamp="1600314044014" />
     <state x="317" y="225" width="1086" height="624" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597513720180" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1600131551051">
       <screen x="0" y="0" width="1920" height="1040" />

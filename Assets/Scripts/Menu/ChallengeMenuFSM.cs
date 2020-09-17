@@ -27,9 +27,9 @@ namespace Menu {
 
             public override void Update() {
                 base.Update();
-                if (Input.GetKeyDown(KeyCode.Escape)) {
-                    fsm.gameMode.gameController.ChallengeMenuBack();
-                }
+                // if (Input.GetKeyDown(KeyCode.Escape)) {
+                //     fsm.gameMode.gameController.ChallengeMenuBack();
+                // }
             }
         }
 
