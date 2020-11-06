@@ -27,7 +27,6 @@
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>ScreenShots</Path>
-      <Path>Temp</Path>
       <Path>build</Path>
       <Path>obj</Path>
     </explicitExcludes>
